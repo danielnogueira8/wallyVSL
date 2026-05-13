@@ -42,16 +42,34 @@
 
       <div class="video-wrap">
         <div class="video-frame" id="vsl-video">
-          <video
-            id="vsl-player"
-            controls
-            playsinline
-            preload="metadata"
-            poster="assets/public/vsl-poster.jpg"
-          >
+          <!--
+            ============================================================
+            VIDEO HOSTING — pick ONE of the three options below.
+            Uncomment the option you want and leave the others commented.
+            ============================================================
+          -->
+
+          <!-- OPTION A: Google Drive (works, but shows Drive UI overlay) -->
+          <iframe
+            src="https://drive.google.com/file/d/18FOu0IpvshMUzC2zk3Kw5me8idPymADl/preview"
+            allow="autoplay"
+            allowfullscreen
+          ></iframe>
+
+          <!-- OPTION B: Vimeo (recommended — clean, no branding overlay)
+          <iframe
+            src="https://player.vimeo.com/video/YOUR_VIMEO_ID?title=0&byline=0&portrait=0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          -->
+
+          <!-- OPTION C: Self-hosted MP4 (only if file is under ~50MB or on a CDN)
+          <video id="vsl-player" controls playsinline preload="metadata"
+                 poster="assets/public/vsl-poster.jpg">
             <source src="assets/public/vsl.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
+          -->
         </div>
       </div>
 
