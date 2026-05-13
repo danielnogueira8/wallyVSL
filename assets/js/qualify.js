@@ -24,13 +24,20 @@ function showStep(i) {
   progressFill.style.width = pct + '%';
   stepLabel.textContent = `Question ${i + 1} of ${totalSteps}`;
 
-  // Buttons
+  // Buttons:
+  // - Back is shown on every step except the first
+  // - Next is only shown on text-input steps (radios auto-advance)
+  // - Submit only on the final step
+  const isLastStep = i === totalSteps - 1;
+  const step = steps[i];
+  const isRadioStep = step.querySelector('input[type="radio"]') !== null;
+
   backBtn.hidden = i === 0;
-  nextBtn.hidden = i === totalSteps - 1;
-  submitBtn.hidden = i !== totalSteps - 1;
+  nextBtn.hidden = isRadioStep || isLastStep;
+  submitBtn.hidden = !isLastStep;
 
   // Focus first input
-  const firstInput = steps[i].querySelector('input');
+  const firstInput = step.querySelector('input');
   if (firstInput) setTimeout(() => firstInput.focus({ preventScroll: true }), 50);
 }
 
