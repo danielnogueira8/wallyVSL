@@ -4,6 +4,12 @@ node_modules/
 .idea/
 *.log
 
+# Local env files — never commit
+.env
+.env.local
+.env.*.local
+.vercel
+
 # Large video assets (host on CDN instead of committing)
 assets/public/*.mp4
 assets/public/*.mov

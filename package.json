@@ -1,0 +1,10 @@
+{
+  "name": "wally-vsl",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Darling Financial Group — VSL + qualifier funnel",
+  "type": "module",
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.0"
+  }
+}

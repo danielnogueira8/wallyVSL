@@ -164,12 +164,32 @@ form.addEventListener('submit', async (e) => {
     sessionStorage.setItem('wallyLead', JSON.stringify(payload));
   } catch (_) {}
 
-  // TODO: send to your CRM / Zapier webhook here
-  // await fetch('https://hooks.zapier.com/your-hook', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(payload),
-  // });
+  // Persist to Neon via /api/submit. Failure here does NOT block routing —
+  // we'd rather show the user their next page than lose them to an outage.
+  // We use Promise.race to cap the wait at 4s so the funnel stays snappy
+  // even if the DB is slow.
+  const dbWrite = fetch('/api/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      first_name: data.firstName,
+      last_name: data.lastName,
+      email: data.email,
+      phone: data.phone || null,
+      income: data.income,
+      assets: data.assets,
+      tax: data.tax,
+      situation: data.situation,
+      timing: data.timing,
+      score,
+      qualified,
+    }),
+  }).catch((err) => {
+    console.warn('Submission persistence failed:', err);
+  });
+
+  const timeout = new Promise((resolve) => setTimeout(resolve, 4000));
+  await Promise.race([dbWrite, timeout]);
 
   // Route based on qualification
   if (qualified) {

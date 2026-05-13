@@ -91,31 +91,74 @@ wallyVSL/
 
 ---
 
-## Connecting the qualifier form
+## Capturing submissions (Neon + Vercel)
 
-`assets/js/qualify.js` has a `TODO` block inside the submit handler. Replace it with a real endpoint so every lead (qualified or not) is captured in your CRM:
+Every form submission is persisted to a Neon Postgres database via a Vercel serverless function at `api/submit.js`. Qualified leads see Wally's Calendly afterward; unqualified leads see the thank-you page; both are saved.
 
-- **ConvertKit / Beehiiv / Mailchimp** — use their form action URL
-- **HubSpot / ActiveCampaign** — drop in their JS embed or API endpoint
-- **Zapier / Make webhook** — POST the full lead object and route from there
+### One-time setup
 
-The payload sent looks like:
+1. **Create the table in Neon.** In Neon's SQL Editor, run:
 
-```json
-{
-  "income": "500k_1m",
-  "assets": "1_5m",
-  "tax": "75_200k",
-  "situation": "business_owner",
-  "timing": "now",
-  "firstName": "Jane",
-  "lastName": "Doe",
-  "email": "jane@example.com",
-  "phone": "555-555-5555",
-  "score": 14,
-  "qualified": true,
-  "submittedAt": "2026-05-13T..."
-}
+   ```sql
+   create table submissions (
+     id            bigserial primary key,
+     created_at    timestamptz not null default now(),
+     first_name    text not null,
+     last_name     text not null,
+     email         text not null,
+     phone         text,
+     income        text not null,
+     assets        text not null,
+     tax           text not null,
+     situation     text not null,
+     timing        text not null,
+     score         integer not null,
+     qualified     boolean not null
+   );
+
+   create index submissions_created_at_idx on submissions (created_at desc);
+   create index submissions_qualified_idx on submissions (qualified);
+   ```
+
+2. **Deploy to Vercel.** Import the GitHub repo in the Vercel dashboard. No build settings needed — it's a static site with one serverless function.
+
+3. **Add the env var.** In Vercel → Project Settings → Environment Variables, add:
+   - **Name:** `DATABASE_URL`
+   - **Value:** Neon's *pooled* connection string (the one ending `-pooler.<region>.aws.neon.tech`)
+   - **Environments:** Production, Preview, Development (all three)
+
+   Redeploy after saving so the function picks up the var.
+
+### Viewing submissions
+
+In the Neon console, **SQL Editor**:
+
+```sql
+-- Most recent leads
+select created_at, first_name, last_name, email, score, qualified
+from submissions
+order by created_at desc
+limit 50;
+
+-- Just the qualified ones
+select * from submissions where qualified = true order by created_at desc;
+
+-- Counts
+select qualified, count(*) from submissions group by qualified;
+```
+
+### How it works
+
+- `assets/js/qualify.js` POSTs to `/api/submit` with the lead data and computed score
+- `api/submit.js` (Vercel serverless function) validates the payload and inserts a row using `@neondatabase/serverless` (HTTP-based driver, ideal for short-lived functions)
+- If the DB write fails or takes longer than 4 seconds, the user is still routed correctly — we don't block the funnel on a DB hiccup. Failures are logged in Vercel's function logs.
+
+### Local development
+
+```bash
+npm install
+cp .env.example .env.local   # paste your DATABASE_URL into this file
+npx vercel dev               # runs the static site + the serverless function locally
 ```
 
 ### Tuning the qualifier
@@ -131,10 +174,11 @@ Bump the threshold up to be more selective, or down to capture more leads. Each 
 
 ## Brand notes
 
-- Primary navy: `#0b1f3a`
-- Teal accent: `#2bb6a8`
-- Display font: Playfair Display (serif, headlines)
-- Body font: Inter (sans, everything else)
+- Primary ink (navy): `#14223a`
+- Warm paper background: `#faf7f1`
+- Single accent (muted bronze): `#8a6d3b`
+- Display + body font: Source Serif 4
+- Label font: Inter
 - Positioning: "The Family Office for Mainstreet"
 - Target: high-income earners ($250K+), business owners, professionals
 
