@@ -427,6 +427,15 @@ section { padding: 90px 0; }
   gap: 56px;
   align-items: start;
 }
+.advisor-portrait {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  margin-bottom: 24px;
+  filter: grayscale(0.15);
+}
 .advisor-text h2 {
   font-family: var(--serif);
   font-weight: 500;
