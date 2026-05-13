@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+.vscode/
+.idea/
+*.log
+
+# Large video assets (host on CDN instead of committing)
+assets/public/*.mp4
+assets/public/*.mov
+assets/public/*.webm
+!assets/public/.gitkeep
