@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>See if you qualify | Darling Financial Group</title>
+<meta name="description" content="Quick 60-second qualifier. If you're a fit, you'll get instant access to Wally's calendar to book a 30-minute intro call." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/styles.css" />
+<link rel="stylesheet" href="../assets/css/form.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../" class="brand">
+      <span class="brand-mark">DFG</span>
+      <span class="brand-name">Darling Financial Group</span>
+    </a>
+    <div class="header-tag">The Family Office for Mainstreet</div>
+  </div>
+</header>
+
+<main class="form-main">
+  <div class="container narrow">
+
+    <div class="form-intro">
+      <div class="eyebrow">60-Second Qualifier</div>
+      <h1>See if you're a fit to work with Wally</h1>
+      <p class="lede">
+        We only work with a handful of new households each quarter. Answer 5 quick questions so we can see if our tax-saving strategies make sense for your situation. If you're a fit, you'll get instant access to Wally's calendar.
+      </p>
+    </div>
+
+    <form id="qualifyForm" class="qualify-form" novalidate>
+
+      <!-- Progress -->
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-label">
+        <span id="stepLabel">Question 1 of 5</span>
+      </div>
+
+      <!-- Step 1: Income -->
+      <fieldset class="step active" data-step="1">
+        <legend>What's your approximate household income?</legend>
+        <div class="radio-cards">
+          <label class="radio-card">
+            <input type="radio" name="income" value="under_150k" required>
+            <span>Under $150,000</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="income" value="150_250k">
+            <span>$150,000 – $250,000</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="income" value="250_500k">
+            <span>$250,000 – $500,000</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="income" value="500k_1m">
+            <span>$500,000 – $1M</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="income" value="over_1m">
+            <span>Over $1M</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Step 2: Investable assets -->
+      <fieldset class="step" data-step="2">
+        <legend>How much in investable assets / liquid net worth do you currently have?</legend>
+        <div class="radio-cards">
+          <label class="radio-card">
+            <input type="radio" name="assets" value="under_100k" required>
+            <span>Under $100,000</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="assets" value="100_500k">
+            <span>$100,000 – $500,000</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="assets" value="500k_1m">
+            <span>$500,000 – $1M</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="assets" value="1_5m">
+            <span>$1M – $5M</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="assets" value="over_5m">
+            <span>Over $5M</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Step 3: Current tax bill -->
+      <fieldset class="step" data-step="3">
+        <legend>Roughly how much did you pay in federal income tax last year?</legend>
+        <div class="radio-cards">
+          <label class="radio-card">
+            <input type="radio" name="tax" value="under_25k" required>
+            <span>Less than $25,000</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="tax" value="25_75k">
+            <span>$25,000 – $75,000</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="tax" value="75_200k">
+            <span>$75,000 – $200,000</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="tax" value="over_200k">
+            <span>Over $200,000</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="tax" value="unsure">
+            <span>I'm not sure</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Step 4: Situation -->
+      <fieldset class="step" data-step="4">
+        <legend>Which best describes your situation?</legend>
+        <div class="radio-cards">
+          <label class="radio-card">
+            <input type="radio" name="situation" value="business_owner" required>
+            <span>Business owner / self-employed</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="situation" value="executive">
+            <span>High-income executive (W-2)</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="situation" value="professional">
+            <span>Professional (doctor, lawyer, etc.)</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="situation" value="pre_retiree">
+            <span>Pre-retiree (within 10 years)</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="situation" value="retiree">
+            <span>Already retired</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="situation" value="other">
+            <span>Other</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Step 5: Timing -->
+      <fieldset class="step" data-step="5">
+        <legend>How soon are you looking to take action on tax planning?</legend>
+        <div class="radio-cards">
+          <label class="radio-card">
+            <input type="radio" name="timing" value="now" required>
+            <span>Now — I want to lower this year's tax bill</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="timing" value="3_months">
+            <span>In the next 3 months</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="timing" value="6_12_months">
+            <span>6–12 months</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="timing" value="exploring">
+            <span>Just exploring</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Step 6: Contact -->
+      <fieldset class="step" data-step="6">
+        <legend>Where should we send your results?</legend>
+        <p class="step-sub">If you qualify, you'll be taken straight to Wally's calendar on the next screen.</p>
+        <div class="text-inputs">
+          <label>
+            <span>First name</span>
+            <input type="text" name="firstName" required autocomplete="given-name" />
+          </label>
+          <label>
+            <span>Last name</span>
+            <input type="text" name="lastName" required autocomplete="family-name" />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+          </label>
+          <label>
+            <span>Phone (optional)</span>
+            <input type="tel" name="phone" autocomplete="tel" placeholder="(555) 555-5555" />
+          </label>
+        </div>
+        <p class="fineprint">By submitting, you agree to receive emails and/or calls from Darling Financial Group regarding your inquiry. We never sell your information.</p>
+      </fieldset>
+
+      <!-- Navigation -->
+      <div class="form-nav">
+        <button type="button" class="btn btn-ghost" id="backBtn" hidden>← Back</button>
+        <button type="button" class="btn btn-primary" id="nextBtn">Continue →</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn" hidden>See My Results</button>
+      </div>
+
+    </form>
+
+    <div class="trust-strip">
+      <span>🔒 Your answers are private and used only to assess fit.</span>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <strong>Darling Financial Group</strong>
+      <span>The Family Office for Mainstreet</span>
+    </div>
+    <div class="footer-legal">
+      © <span id="year"></span> Darling Financial Group. Educational content only — not personalized tax, legal, or investment advice.
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/qualify.js"></script>
+</body>
+</html>
