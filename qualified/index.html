@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>You qualify — book your call with Wally | Darling Financial Group</title>
+<meta name="description" content="You're a great fit. Pick a time below for your 30-minute intro call with Wally." />
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/styles.css" />
+<link rel="stylesheet" href="../assets/css/form.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../" class="brand">
+      <span class="brand-mark">DFG</span>
+      <span class="brand-name">Darling Financial Group</span>
+    </a>
+    <div class="header-tag">The Family Office for Mainstreet</div>
+  </div>
+</header>
+
+<main class="outcome-main">
+  <div class="container">
+    <div class="outcome-card">
+      <div class="outcome-icon">✓</div>
+      <h1>You're a great fit — let's talk</h1>
+      <p id="qualifiedGreeting">
+        Based on your answers, our tax-saving strategies look like a strong match for your situation. Pick a time below for a free 30-minute intro call with Wally.
+      </p>
+      <div class="next-steps">
+        <h3>What to expect on the call</h3>
+        <ol>
+          <li>Wally reviews your situation and current tax exposure.</li>
+          <li>You'll get 2–3 specific strategies you can act on right away.</li>
+          <li>If it makes sense, we'll discuss how working together looks. No pressure either way.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Calendly inline embed -->
+    <div class="calendly-wrap">
+      <div
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/wallyd-darlingfinancialgroup/30min-intro-call"
+        style="min-width:320px;height:700px;"
+      ></div>
+      <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <strong>Darling Financial Group</strong>
+      <span>The Family Office for Mainstreet</span>
+    </div>
+    <div class="footer-legal">
+      © <span id="year"></span> Darling Financial Group. Educational content only — not personalized tax, legal, or investment advice.
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Personalize greeting + prefill Calendly if lead data exists
+  try {
+    const lead = JSON.parse(sessionStorage.getItem('wallyLead') || '{}');
+    if (lead.firstName) {
+      const g = document.getElementById('qualifiedGreeting');
+      g.textContent = `Nice work, ${lead.firstName}. Based on your answers, our tax-saving strategies look like a strong match for your situation. Pick a time below for a free 30-minute intro call with Wally.`;
+    }
+    // Prefill Calendly via URL params
+    if (lead.email) {
+      const widget = document.querySelector('.calendly-inline-widget');
+      const base = widget.getAttribute('data-url');
+      const params = new URLSearchParams({
+        name: [lead.firstName, lead.lastName].filter(Boolean).join(' '),
+        email: lead.email,
+      });
+      widget.setAttribute('data-url', `${base}?${params.toString()}`);
+    }
+  } catch (_) {}
+</script>
+</body>
+</html>
