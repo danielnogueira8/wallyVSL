@@ -7,7 +7,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const form = document.getElementById('qualifyForm');
 const steps = Array.from(form.querySelectorAll('.step'));
 const totalSteps = steps.length;
-const nextBtn = document.getElementById('nextBtn');
 const backBtn = document.getElementById('backBtn');
 const submitBtn = document.getElementById('submitBtn');
 const progressFill = document.getElementById('progressFill');
@@ -26,14 +25,12 @@ function showStep(i) {
 
   // Buttons:
   // - Back is shown on every step except the first
-  // - Next is only shown on text-input steps (radios auto-advance)
-  // - Submit only on the final step
+  // - Submit only on the final step (text-input contact step)
+  // - All radio steps auto-advance — no Continue button
   const isLastStep = i === totalSteps - 1;
   const step = steps[i];
-  const isRadioStep = step.querySelector('input[type="radio"]') !== null;
 
   backBtn.hidden = i === 0;
-  nextBtn.hidden = isRadioStep || isLastStep;
   submitBtn.hidden = !isLastStep;
 
   // Focus first input
@@ -83,11 +80,6 @@ steps.forEach((step, idx) => {
       }
     });
   });
-});
-
-nextBtn.addEventListener('click', () => {
-  if (!validateStep(current)) return;
-  if (current < totalSteps - 1) showStep(current + 1);
 });
 
 backBtn.addEventListener('click', () => {
