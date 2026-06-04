@@ -368,12 +368,18 @@ section { padding: 90px 0; }
   border-bottom: 1px solid var(--rule);
   padding: 100px 0;
 }
+.testimonial-list {
+  max-width: 680px;
+  margin: 0 auto;
+}
 .testimonial figure {
   margin: 0;
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
+}
+.testimonial-list figure + figure {
+  margin-top: 64px;
+  padding-top: 64px;
+  border-top: 1px solid var(--rule);
 }
 .testimonial blockquote {
   font-family: var(--serif);
@@ -501,7 +507,7 @@ section { padding: 90px 0; }
   line-height: 1.55;
 }
 .claim-fineprint {
-  margin-top: 18px;
+  margin-top: 32px;
   font-family: var(--sans);
   font-size: 12px;
   letter-spacing: 0.04em;
