@@ -12,34 +12,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// Lead form — replace handler with your CRM/Email tool endpoint
-const form = document.getElementById('leadForm');
-const success = document.getElementById('formSuccess');
-
-if (form) {
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    if (!name || !email || !email.includes('@')) {
-      alert('Please fill in your name and a valid email.');
-      return;
-    }
-
-    // TODO: replace with real submission endpoint (Mailchimp / ConvertKit / Beehiiv / HubSpot / Zapier webhook)
-    // Example:
-    // await fetch('https://hooks.zapier.com/your-hook', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ name, email, resource: 'tax-saving-playbook' })
-    // });
-
-    form.reset();
-    success.hidden = false;
-    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
-}
-
 // Optional: track video play to fire CTA reveal after X seconds
 const video = document.getElementById('vsl-player');
 if (video) {
