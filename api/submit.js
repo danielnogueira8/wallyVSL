@@ -127,7 +127,11 @@ export default async function handler(req, res) {
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
       const from = process.env.RESEND_FROM || 'Darling Financial <onboarding@resend.dev>';
-      const to = process.env.LEAD_NOTIFICATION_EMAIL || 'thewallacedarling@outlook.com';
+      // Supports a comma-separated list of recipients (e.g. "a@x.com,b@y.com").
+      const to = (process.env.LEAD_NOTIFICATION_EMAIL || 'thewallacedarling@outlook.com')
+        .split(',')
+        .map((addr) => addr.trim())
+        .filter(Boolean);
       const subject = row.qualified
         ? `🟢 Qualified lead: ${row.first_name} ${row.last_name}`
         : `New lead submission: ${row.first_name} ${row.last_name}`;
