@@ -100,6 +100,10 @@ const SCORING = {
     '250_500k': 3,
     '500k_1m': 4,
     over_1m: 5,
+    // "Not sure" (e.g. a CPA referring a client without exact figures) is
+    // scored like the $250K–$500K band so a reasonable referral can still
+    // clear the threshold. See QUALIFICATION_RULES.md.
+    not_sure: 3,
   },
   assets: {
     under_100k: 0,
@@ -107,6 +111,8 @@ const SCORING = {
     '500k_1m': 2,
     '1_5m': 3,
     over_5m: 4,
+    // Mirrors the income "not sure" treatment — lean toward qualifying.
+    not_sure: 2,
   },
   tax: {
     under_25k: 0,
