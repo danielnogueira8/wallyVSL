@@ -26,6 +26,7 @@ Max possible score: **18**.
 | $250,000 – $500,000 | 3 |
 | $500,000 – $1M | 4 |
 | Over $1M | 5 |
+| Not sure / prefer not to say | 3 |
 
 ### 2. Investable assets / liquid net worth
 
@@ -36,6 +37,7 @@ Max possible score: **18**.
 | $500,000 – $1M | 2 |
 | $1M – $5M | 3 |
 | Over $5M | 4 |
+| Not sure / prefer not to say | 2 |
 
 ### 3. Federal tax paid last year
 
@@ -83,6 +85,9 @@ $150K–$250K income (1) + $100K–$500K assets (1) + $25K–$75K tax (1) + busi
 **Not approved (score 3)** — Mostly low signals
 Under $150K income (0) + Under $100K assets (0) + Less than $25K tax (0) + Other (0) + Now (3) = **3 → thank-you** (urgency alone is not enough)
 
+**Approved (score 8)** — CPA referral, figures unknown
+Income "not sure" (3) + assets "not sure" (2) + tax "not sure" (1) + professional (2) + just exploring (0) = **8 → approved**. This is the intended path for a CPA referring a client without exact numbers — see below.
+
 ---
 
 ## Who currently qualifies in practice
@@ -97,7 +102,9 @@ It filters out:
 
 - Sub-$150K earners with low assets and no urgency
 - People who pick "Just exploring" combined with otherwise weak signals
-- Leads who select mostly "Other" / "Not sure" answers
+- Leads who select "Other" for situation alongside low income/asset answers
+
+**"Not sure" on income or assets is treated as a mid-range answer (3 and 2 points), not a low signal.** This is deliberate: CPAs referring a client often don't know exact figures, and we'd rather route a real referral to the calendar than filter it out. A submission where income, assets, and tax are all "not sure" still needs a non-"Other" situation to clear the threshold of 7 (3 + 2 + 1 + 2 = 8).
 
 ---
 
