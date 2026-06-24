@@ -172,6 +172,47 @@ Bump the threshold up to be more selective, or down to capture more leads. Each 
 
 ---
 
+## Accountant partnership funnel (`/partners/`)
+
+A second, separate funnel aimed at **accountants** rather than consumers. The pitch: Wally partners with accounting firms to deliver tax-advantaged investment planning their higher-income clients need but the firm doesn't offer in-house, and shares the upside (referral fee / revenue share / co-branded). It's a partner channel, so **there is no qualifier** — every accountant who completes the form is routed straight to the booking page.
+
+### Pages & files
+
+- `partners/index.html` — 6-question partnership form
+- `partners/approved/index.html` — booking page (Calendly embed, currently the same 30-min event as the consumer flow — swap the `data-url` to use a dedicated partnership event)
+- `assets/js/partners.js` — multi-step navigation (no scoring); POSTs to `/api/partner-submit`, then redirects to `partners/approved/`
+- `api/partner-submit.js` — Vercel function: validates, inserts into `partner_submissions`, emails a notification via Resend
+- `partners/SCHEMA.sql` — one-time Neon table setup
+
+### The 6 questions
+
+1. **Firm type** — solo CPA, small/mid/large firm, bookkeeper, other
+2. **Fit clients** — how many high-income / business-owner clients they have
+3. **Client income** — typical income of their higher earners
+4. **Current handling** — what they do today when a client needs help they don't offer (surfaces the gap we fill)
+5. **Partnership interest** — referral fee, revenue share, white-label, open, or just exploring
+6. **Contact** — name, firm name, work email, optional phone
+
+### One-time setup
+
+1. Run `partners/SCHEMA.sql` in the Neon SQL Editor (same database as `submissions`) to create the `partner_submissions` table.
+2. No new env vars are strictly required — `partner-submit.js` reuses `DATABASE_URL` and `RESEND_API_KEY`. Optionally set `PARTNER_NOTIFICATION_EMAIL` to send partner inquiries to a different inbox than consumer leads (it falls back to `LEAD_NOTIFICATION_EMAIL`, then `thewallacedarling@outlook.com`).
+
+### Viewing partner inquiries
+
+```sql
+select created_at, first_name, last_name, firm_name, email, firm_type, partnership_type
+from partner_submissions
+order by created_at desc
+limit 50;
+```
+
+### Swapping in a dedicated Calendly event
+
+When a separate partnership event exists, change the one `data-url` in `partners/approved/index.html` (the consumer flow's `qualified/index.html` is untouched).
+
+---
+
 ## Brand notes
 
 - Primary ink (navy): `#14223a`
