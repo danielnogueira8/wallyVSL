@@ -17,12 +17,17 @@
 import { neon } from '@neondatabase/serverless';
 import { Resend } from 'resend';
 
+// We only partner with accountants in the US & Canada. This list must
+// stay in sync with QUALIFIED_COUNTRIES in assets/js/partners.js.
+const QUALIFIED_COUNTRIES = ['United States', 'Canada'];
+
 const ALLOWED_FIELDS = [
   'first_name',
   'last_name',
   'firm_name',
   'email',
   'phone',
+  'country',
   'firm_type',
   'fit_clients',
   'client_income',
@@ -36,6 +41,7 @@ const FIELD_LABELS = {
   firm_name: 'Firm name',
   email: 'Email',
   phone: 'Phone',
+  country: 'Country',
   firm_type: 'Firm type',
   fit_clients: 'High-income / business-owner clients',
   client_income: 'Typical client income',
@@ -52,23 +58,28 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
-function buildEmail(row) {
+function buildEmail(row, qualified) {
   const rows = ALLOWED_FIELDS.map((k) => {
     const label = FIELD_LABELS[k];
     const value = row[k] === null || row[k] === undefined || row[k] === '' ? '—' : row[k];
     return `<tr><td style="padding:6px 12px 6px 0;color:#555;white-space:nowrap;">${label}</td><td style="padding:6px 0;font-weight:600;">${escapeHtml(value)}</td></tr>`;
   }).join('');
 
+  const banner = qualified
+    ? '🟢 Qualified (US/Canada) — routed to booking'
+    : '⚪️ Outside US/Canada — routed to the not-available page';
+
   const html = `
     <div style="font-family:Inter,Arial,sans-serif;color:#111;max-width:560px;">
-      <h2 style="margin:0 0 16px;">🤝 New partner inquiry: ${escapeHtml(`${row.first_name} ${row.last_name}`)}${row.firm_name ? ` — ${escapeHtml(row.firm_name)}` : ''}</h2>
+      <h2 style="margin:0 0 8px;">🤝 New partner inquiry: ${escapeHtml(`${row.first_name} ${row.last_name}`)}${row.firm_name ? ` — ${escapeHtml(row.firm_name)}` : ''}</h2>
+      <p style="margin:0 0 16px;font-size:13px;color:#555;">${banner}</p>
       <table style="border-collapse:collapse;font-size:14px;">${rows}</table>
     </div>
   `;
 
-  const text = ALLOWED_FIELDS
+  const text = `${banner}\n\n${ALLOWED_FIELDS
     .map((k) => `${FIELD_LABELS[k]}: ${row[k] ?? '—'}`)
-    .join('\n');
+    .join('\n')}`;
 
   return { html, text };
 }
@@ -99,6 +110,7 @@ export default async function handler(req, res) {
     'last_name',
     'firm_name',
     'email',
+    'country',
     'firm_type',
     'fit_clients',
     'client_income',
@@ -110,19 +122,23 @@ export default async function handler(req, res) {
   }
 
   // Truncate strings to a sensible length (defense in depth)
-  for (const k of ['first_name', 'last_name', 'firm_name', 'email', 'phone']) {
+  for (const k of ['first_name', 'last_name', 'firm_name', 'email', 'phone', 'country']) {
     if (typeof row[k] === 'string') row[k] = row[k].slice(0, 200);
   }
+
+  // Server-side qualification gate — US & Canada only. Non-qualifying
+  // firms are still stored (so Wally can revisit later) but flagged.
+  const qualified = QUALIFIED_COUNTRIES.includes(row.country);
 
   try {
     const sql = neon(process.env.DATABASE_URL);
     await sql`
       insert into partner_submissions (
-        first_name, last_name, firm_name, email, phone,
-        firm_type, fit_clients, client_income, current_handling, partnership_type
+        first_name, last_name, firm_name, email, phone, country,
+        firm_type, fit_clients, client_income, current_handling, partnership_type, qualified
       ) values (
-        ${row.first_name}, ${row.last_name}, ${row.firm_name}, ${row.email}, ${row.phone},
-        ${row.firm_type}, ${row.fit_clients}, ${row.client_income}, ${row.current_handling}, ${row.partnership_type}
+        ${row.first_name}, ${row.last_name}, ${row.firm_name}, ${row.email}, ${row.phone}, ${row.country},
+        ${row.firm_type}, ${row.fit_clients}, ${row.client_income}, ${row.current_handling}, ${row.partnership_type}, ${qualified}
       )
     `;
   } catch (err) {
@@ -145,8 +161,8 @@ export default async function handler(req, res) {
         .split(',')
         .map((addr) => addr.trim())
         .filter(Boolean);
-      const subject = `🤝 New partner inquiry: ${row.first_name} ${row.last_name}${row.firm_name ? ` (${row.firm_name})` : ''}`;
-      const { html, text } = buildEmail(row);
+      const subject = `${qualified ? '🟢' : '⚪️'} New partner inquiry: ${row.first_name} ${row.last_name}${row.firm_name ? ` (${row.firm_name})` : ''}`;
+      const { html, text } = buildEmail(row, qualified);
       const { error } = await resend.emails.send({
         from,
         to,

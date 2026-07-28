@@ -195,11 +195,18 @@
             <span>Last name</span>
             <input type="text" name="lastName" required autocomplete="family-name" />
           </label>
-          <label>
+          <label class="field-wide">
             <span>Firm name</span>
             <input type="text" name="firmName" required autocomplete="organization" />
           </label>
-          <label>
+          <label class="field-wide">
+            <span>Country</span>
+            <select name="country" required autocomplete="country-name">
+              <option value="" disabled selected>Select your country…</option>
+              <!-- Country list is populated by partners.js so it stays a single source of truth. -->
+            </select>
+          </label>
+          <label class="field-wide">
             <span>Work email</span>
             <input type="email" name="email" required autocomplete="email" placeholder="you@yourfirm.com" />
           </label>
