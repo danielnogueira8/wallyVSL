@@ -8,6 +8,77 @@
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// =========================================================
+// Country list + qualification gate
+// =========================================================
+// We only partner with accountants in the United States and Canada.
+// US & Canada are pinned to the top of the dropdown (separated by a
+// divider); everyone else can still submit, but they're routed to a
+// soft "not available in your region yet" page instead of the booking
+// calendar. QUALIFIED_COUNTRIES is the single source of truth for the
+// gate on the client — the server double-checks the same list.
+const QUALIFIED_COUNTRIES = ['United States', 'Canada'];
+
+const OTHER_COUNTRIES = [
+  'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda',
+  'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain',
+  'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan',
+  'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria',
+  'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
+  'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros',
+  'Congo (Brazzaville)', 'Congo (Kinshasa)', 'Costa Rica', 'Côte d’Ivoire',
+  'Croatia', 'Cuba', 'Cyprus', 'Czechia', 'Denmark', 'Djibouti', 'Dominica',
+  'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea',
+  'Eritrea', 'Estonia', 'Eswatini', 'Ethiopia', 'Fiji', 'Finland', 'France',
+  'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada',
+  'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary',
+  'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy',
+  'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kosovo',
+  'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia',
+  'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Madagascar', 'Malawi',
+  'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania',
+  'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia',
+  'Montenegro', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal',
+  'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea',
+  'North Macedonia', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama',
+  'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal',
+  'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia',
+  'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe',
+  'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore',
+  'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa',
+  'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname',
+  'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand',
+  'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey',
+  'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates',
+  'United Kingdom', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City',
+  'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe',
+];
+
+function populateCountries() {
+  const select = document.querySelector('select[name="country"]');
+  if (!select) return;
+
+  const makeOption = (name) => {
+    const opt = document.createElement('option');
+    opt.value = name;
+    opt.textContent = name;
+    return opt;
+  };
+
+  // Pinned qualifying countries first.
+  QUALIFIED_COUNTRIES.forEach((name) => select.appendChild(makeOption(name)));
+
+  // Visual divider, then the rest alphabetically.
+  const divider = document.createElement('option');
+  divider.disabled = true;
+  divider.textContent = '──────────';
+  select.appendChild(divider);
+
+  OTHER_COUNTRIES.forEach((name) => select.appendChild(makeOption(name)));
+}
+
+populateCountries();
+
 const form = document.getElementById('partnerForm');
 const steps = Array.from(form.querySelectorAll('.step'));
 const totalSteps = steps.length;
@@ -44,7 +115,8 @@ function showStep(i) {
 
 function validateStep(i) {
   const step = steps[i];
-  const inputs = step.querySelectorAll('input[required]');
+  // Required text fields AND the country <select> on the contact step.
+  const inputs = step.querySelectorAll('input[required], select[required]');
   const isRadioStep = step.querySelector('input[type="radio"]') !== null;
 
   if (isRadioStep) {
@@ -60,6 +132,7 @@ function validateStep(i) {
       if (!input.value.trim()) {
         input.focus();
         input.style.borderColor = '#c0392b';
+        if (input.tagName === 'SELECT') alert('Please select your country to continue.');
         return false;
       }
       if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
@@ -100,8 +173,11 @@ form.addEventListener('submit', async (e) => {
   const fd = new FormData(form);
   const data = Object.fromEntries(fd.entries());
 
+  // Qualification gate: only US & Canada accountants are routed to booking.
+  const qualified = QUALIFIED_COUNTRIES.includes(data.country);
+
   // Persist lead for the booking page (greeting + Calendly prefill)
-  const payload = { ...data, submittedAt: new Date().toISOString() };
+  const payload = { ...data, qualified, submittedAt: new Date().toISOString() };
   try {
     sessionStorage.setItem('wallyPartner', JSON.stringify(payload));
   } catch (_) {}
@@ -118,6 +194,7 @@ form.addEventListener('submit', async (e) => {
       firm_name: data.firmName,
       email: data.email,
       phone: data.phone || null,
+      country: data.country,
       firm_type: data.firm_type,
       fit_clients: data.fit_clients,
       client_income: data.client_income,
@@ -131,8 +208,9 @@ form.addEventListener('submit', async (e) => {
   const timeout = new Promise((resolve) => setTimeout(resolve, 4000));
   await Promise.race([dbWrite, timeout]);
 
-  // Everyone books — straight to the partner approved page
-  window.location.href = './approved/';
+  // US & Canada accountants book; everyone else gets the soft "not yet"
+  // page. We still captured their details above so Wally can revisit later.
+  window.location.href = qualified ? './approved/' : './not-available/';
 });
 
 // Init

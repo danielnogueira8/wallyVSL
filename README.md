@@ -174,15 +174,18 @@ Bump the threshold up to be more selective, or down to capture more leads. Each 
 
 ## Accountant partnership funnel (`/partners/`)
 
-A second, separate funnel aimed at **accountants** rather than consumers. The pitch: Wally partners with accounting firms to deliver tax-advantaged investment planning their higher-income clients need but the firm doesn't offer in-house, and shares the upside (referral fee / revenue share / co-branded). It's a partner channel, so **there is no qualifier** — every accountant who completes the form is routed straight to the booking page.
+A second, separate funnel aimed at **accountants** rather than consumers. The pitch: Wally partners with accounting firms to deliver tax-advantaged investment planning their higher-income clients need but the firm doesn't offer in-house, and shares the upside (referral fee / revenue share / co-branded). There's no scoring on the answers — but the funnel is **gated by region: only firms in the United States and Canada qualify**. Qualifying firms are routed straight to the booking page; everyone else is still captured in the database (so Wally can revisit as the program expands) but sent to a soft "not available in your region yet" page.
 
 ### Pages & files
 
-- `partners/index.html` — 6-question partnership form
-- `partners/approved/index.html` — booking page (Calendly embed, currently the same 30-min event as the consumer flow — swap the `data-url` to use a dedicated partnership event)
-- `assets/js/partners.js` — multi-step navigation (no scoring); POSTs to `/api/partner-submit`, then redirects to `partners/approved/`
-- `api/partner-submit.js` — Vercel function: validates, inserts into `partner_submissions`, emails a notification via Resend
-- `partners/SCHEMA.sql` — one-time Neon table setup
+- `partners/index.html` — 6-question partnership form (the contact step includes a **Country** dropdown)
+- `partners/approved/index.html` — booking page for US/Canada firms (Calendly embed, currently the same 30-min event as the consumer flow — swap the `data-url` to use a dedicated partnership event)
+- `partners/not-available/index.html` — soft "we're not in your region yet" page for firms outside US/Canada
+- `assets/js/partners.js` — multi-step navigation (no scoring); holds the `QUALIFIED_COUNTRIES` list + populates the country dropdown, POSTs to `/api/partner-submit`, then redirects to `partners/approved/` (US/Canada) or `partners/not-available/` (everyone else)
+- `api/partner-submit.js` — Vercel function: validates, re-checks the US/Canada gate server-side, inserts into `partner_submissions` (with `country` + `qualified`), emails a notification via Resend
+- `partners/SCHEMA.sql` — one-time Neon table setup (+ migration snippet for the new `country`/`qualified` columns)
+
+> **Region gate lives in two places** — `QUALIFIED_COUNTRIES` in `assets/js/partners.js` (client routing) and in `api/partner-submit.js` (server flag). Keep the two lists in sync if the qualifying regions ever change.
 
 ### The 6 questions
 
@@ -191,20 +194,29 @@ A second, separate funnel aimed at **accountants** rather than consumers. The pi
 3. **Client income** — typical income of their higher earners
 4. **Current handling** — what they do today when a client needs help they don't offer (surfaces the gap we fill)
 5. **Partnership interest** — referral fee, revenue share, white-label, open, or just exploring
-6. **Contact** — name, firm name, work email, optional phone
+6. **Contact** — name, firm name, **country** (US/Canada gate), work email, optional phone
 
 ### One-time setup
 
-1. Run `partners/SCHEMA.sql` in the Neon SQL Editor (same database as `submissions`) to create the `partner_submissions` table.
+1. Run `partners/SCHEMA.sql` in the Neon SQL Editor (same database as `submissions`) to create the `partner_submissions` table. **If the table already exists**, run the `alter table … add column` migration snippet in that file instead to add the new `country` and `qualified` columns.
 2. No new env vars are strictly required — `partner-submit.js` reuses `DATABASE_URL` and `RESEND_API_KEY`. Optionally set `PARTNER_NOTIFICATION_EMAIL` to send partner inquiries to a different inbox than consumer leads (it falls back to `LEAD_NOTIFICATION_EMAIL`, then `thewallacedarling@outlook.com`).
 
 ### Viewing partner inquiries
 
 ```sql
-select created_at, first_name, last_name, firm_name, email, firm_type, partnership_type
+select created_at, first_name, last_name, firm_name, email, country, qualified, partnership_type
 from partner_submissions
 order by created_at desc
 limit 50;
+```
+
+Only bookable (US/Canada) partners:
+
+```sql
+select created_at, first_name, last_name, firm_name, email, country
+from partner_submissions
+where qualified
+order by created_at desc;
 ```
 
 ### Swapping in a dedicated Calendly event
