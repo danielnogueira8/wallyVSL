@@ -11,20 +11,20 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // =========================================================
 // Country list + qualification gate
 // =========================================================
-// We only partner with accountants in the United States and Canada.
-// US & Canada are pinned to the top of the dropdown (separated by a
-// divider); everyone else can still submit, but they're routed to a
-// soft "not available in your region yet" page instead of the booking
-// calendar. QUALIFIED_COUNTRIES is the single source of truth for the
-// gate on the client — the server double-checks the same list.
-const QUALIFIED_COUNTRIES = ['United States', 'Canada'];
+// We only partner with accountants in the United States. The US is
+// pinned to the top of the dropdown (separated by a divider); everyone
+// else can still submit, but they're routed to a soft "not available in
+// your region yet" page instead of the booking calendar.
+// QUALIFIED_COUNTRIES is the single source of truth for the gate on the
+// client — the server double-checks the same list.
+const QUALIFIED_COUNTRIES = ['United States'];
 
 const OTHER_COUNTRIES = [
   'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda',
   'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain',
   'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan',
   'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria',
-  'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon',
+  'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada',
   'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros',
   'Congo (Brazzaville)', 'Congo (Kinshasa)', 'Costa Rica', 'Côte d’Ivoire',
   'Croatia', 'Cuba', 'Cyprus', 'Czechia', 'Denmark', 'Djibouti', 'Dominica',
@@ -173,7 +173,7 @@ form.addEventListener('submit', async (e) => {
   const fd = new FormData(form);
   const data = Object.fromEntries(fd.entries());
 
-  // Qualification gate: only US & Canada accountants are routed to booking.
+  // Qualification gate: only US accountants are routed to booking.
   const qualified = QUALIFIED_COUNTRIES.includes(data.country);
 
   // Persist lead for the booking page (greeting + Calendly prefill)
@@ -208,8 +208,8 @@ form.addEventListener('submit', async (e) => {
   const timeout = new Promise((resolve) => setTimeout(resolve, 4000));
   await Promise.race([dbWrite, timeout]);
 
-  // US & Canada accountants book; everyone else gets the soft "not yet"
-  // page. We still captured their details above so Wally can revisit later.
+  // US accountants book; everyone else gets the soft "not yet" page. We
+  // still captured their details above so Wally can revisit later.
   window.location.href = qualified ? './approved/' : './not-available/';
 });
 
