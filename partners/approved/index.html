@@ -13,6 +13,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../../assets/css/styles.css" />
 <link rel="stylesheet" href="../../assets/css/form.css" />
+<script>
+  // =========================================================
+  // Access gate — US-only, runs before anything else renders
+  // =========================================================
+  // The booking page is only reachable by completing /partners/ from a
+  // qualifying country. Without this, anyone could deep-link straight to
+  // the calendar and book a call we can't service. We re-check the
+  // country here rather than trusting the stored `qualified` flag, so
+  // the rule lives in one place per surface and a stale sessionStorage
+  // payload from an older visit can't grant access.
+  //
+  // This is a UX guard, not a security boundary — sessionStorage is
+  // user-editable. The server-side gate in api/partner-submit.js is what
+  // determines how a lead is actually recorded and notified.
+  (function () {
+    var QUALIFIED_COUNTRIES = ['United States'];
+    try {
+      var partner = JSON.parse(sessionStorage.getItem('wallyPartner') || '{}');
+      if (!partner.country || QUALIFIED_COUNTRIES.indexOf(partner.country) === -1) {
+        window.location.replace(partner.country ? '../not-available/' : '../');
+      }
+    } catch (_) {
+      window.location.replace('../');
+    }
+  })();
+</script>
 </head>
 <body>
 

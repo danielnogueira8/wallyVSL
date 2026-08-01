@@ -2,8 +2,8 @@
 -- Run this once in the Neon SQL Editor (same database as `submissions`).
 -- Mirrors the consumer `submissions` table but for partner inquiries.
 --
--- We only partner with accountants in the US & Canada: the funnel captures
--- the firm's country and stores a `qualified` flag. US/Canada firms are
+-- We only partner with accountants in the US: the funnel captures
+-- the firm's country and stores a `qualified` flag. US firms are
 -- routed to the booking page; everyone else is stored (so Wally can
 -- revisit later) but sent to a soft "not available yet" page.
 
@@ -21,7 +21,7 @@ create table partner_submissions (
   client_income     text not null,   -- under_250k | 250_500k | 500k_1m | over_1m | mixed
   current_handling  text not null,   -- nothing | informal_referral | existing_partner | in_house
   partnership_type  text not null,   -- referral_fee | revenue_share | white_label | open | exploring
-  qualified         boolean not null default false  -- true only for United States / Canada
+  qualified         boolean not null default false  -- true only for United States
 );
 
 create index partner_submissions_created_at_idx on partner_submissions (created_at desc);
@@ -42,7 +42,7 @@ create index partner_submissions_created_at_idx on partner_submissions (created_
 --   order by created_at desc
 --   limit 50;
 --
--- Only bookable (US/Canada) partners:
+-- Only bookable (US) partners:
 --   select created_at, first_name, last_name, firm_name, email, country
 --   from partner_submissions
 --   where qualified

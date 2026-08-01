@@ -17,9 +17,10 @@
 import { neon } from '@neondatabase/serverless';
 import { Resend } from 'resend';
 
-// We only partner with accountants in the US & Canada. This list must
-// stay in sync with QUALIFIED_COUNTRIES in assets/js/partners.js.
-const QUALIFIED_COUNTRIES = ['United States', 'Canada'];
+// We only partner with accountants in the US. This list must stay in
+// sync with QUALIFIED_COUNTRIES in assets/js/partners.js and the copy of
+// it in partners/approved/index.html.
+const QUALIFIED_COUNTRIES = ['United States'];
 
 const ALLOWED_FIELDS = [
   'first_name',
@@ -58,16 +59,15 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
-function buildEmail(row, qualified) {
+// Only ever called for qualified (US) leads — see the send gate below.
+function buildEmail(row) {
   const rows = ALLOWED_FIELDS.map((k) => {
     const label = FIELD_LABELS[k];
     const value = row[k] === null || row[k] === undefined || row[k] === '' ? '—' : row[k];
     return `<tr><td style="padding:6px 12px 6px 0;color:#555;white-space:nowrap;">${label}</td><td style="padding:6px 0;font-weight:600;">${escapeHtml(value)}</td></tr>`;
   }).join('');
 
-  const banner = qualified
-    ? '🟢 Qualified (US/Canada) — routed to booking'
-    : '⚪️ Outside US/Canada — routed to the not-available page';
+  const banner = '🟢 Qualified (US) — routed to booking';
 
   const html = `
     <div style="font-family:Inter,Arial,sans-serif;color:#111;max-width:560px;">
@@ -126,8 +126,8 @@ export default async function handler(req, res) {
     if (typeof row[k] === 'string') row[k] = row[k].slice(0, 200);
   }
 
-  // Server-side qualification gate — US & Canada only. Non-qualifying
-  // firms are still stored (so Wally can revisit later) but flagged.
+  // Server-side qualification gate — US only. Non-qualifying firms are
+  // still stored (so Wally can revisit later) but flagged.
   const qualified = QUALIFIED_COUNTRIES.includes(row.country);
 
   try {
@@ -148,7 +148,13 @@ export default async function handler(req, res) {
 
   // Fire-and-forget notification email. Failures here must not break the
   // submission flow — the partner is already saved in Neon.
-  if (process.env.RESEND_API_KEY) {
+  //
+  // Only qualified (US) leads generate a notification. Non-US firms are
+  // still written to partner_submissions above so Wally can query them
+  // later if the program opens up, but they don't hit his inbox.
+  if (!qualified) {
+    console.log(`partner-submit: skipping notification for non-US lead (${row.country})`);
+  } else if (process.env.RESEND_API_KEY) {
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
       const from = process.env.RESEND_FROM || 'Darling Financial <onboarding@resend.dev>';
@@ -161,8 +167,8 @@ export default async function handler(req, res) {
         .split(',')
         .map((addr) => addr.trim())
         .filter(Boolean);
-      const subject = `${qualified ? '🟢' : '⚪️'} New partner inquiry: ${row.first_name} ${row.last_name}${row.firm_name ? ` (${row.firm_name})` : ''}`;
-      const { html, text } = buildEmail(row, qualified);
+      const subject = `🟢 New partner inquiry: ${row.first_name} ${row.last_name}${row.firm_name ? ` (${row.firm_name})` : ''}`;
+      const { html, text } = buildEmail(row);
       const { error } = await resend.emails.send({
         from,
         to,
