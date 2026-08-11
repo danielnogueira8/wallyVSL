@@ -210,6 +210,13 @@
             <span>Phone (optional)</span>
             <input type="tel" name="phone" autocomplete="tel" placeholder="(555) 555-5555" />
           </label>
+          <label class="field-wide">
+            <span>Country</span>
+            <select name="country" required autocomplete="country-name">
+              <option value="" disabled selected>Select your country…</option>
+              <!-- Country list is populated by countries.js so it stays a single source of truth. -->
+            </select>
+          </label>
         </div>
         <p class="fineprint">By submitting, you agree to receive emails and/or calls from Darling Financial Group regarding your inquiry. We never sell your information.</p>
       </fieldset>
@@ -250,6 +257,7 @@
   </div>
 </footer>
 
+<script src="../assets/js/countries.js"></script>
 <script src="../assets/js/qualify.js"></script>
 </body>
 </html>
