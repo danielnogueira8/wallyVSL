@@ -4,6 +4,16 @@
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Populates the country <select> on the contact step. QUALIFIED_COUNTRIES
+// and populateCountries() come from assets/js/countries.js, which this
+// page loads first — the same list the partner funnel uses.
+//
+// Country does NOT affect scoring or routing here: every lead is still
+// scored and sent to /qualified/ or /thank-you/ as before. It only gates
+// the notification email server-side (see api/submit.js) so Wally's inbox
+// stays US-only.
+populateCountries();
+
 const form = document.getElementById('qualifyForm');
 const steps = Array.from(form.querySelectorAll('.step'));
 const totalSteps = steps.length;
@@ -40,7 +50,8 @@ function showStep(i) {
 
 function validateStep(i) {
   const step = steps[i];
-  const inputs = step.querySelectorAll('input[required]');
+  // Required text fields AND the country <select> on the contact step.
+  const inputs = step.querySelectorAll('input[required], select[required]');
   const isRadioStep = step.querySelector('input[type="radio"]') !== null;
 
   if (isRadioStep) {
@@ -56,6 +67,7 @@ function validateStep(i) {
       if (!input.value.trim()) {
         input.focus();
         input.style.borderColor = '#c0392b';
+        if (input.tagName === 'SELECT') alert('Please select your country to continue.');
         return false;
       }
       if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
@@ -182,6 +194,7 @@ form.addEventListener('submit', async (e) => {
       last_name: data.lastName,
       email: data.email,
       phone: data.phone || null,
+      country: data.country,
       income: data.income,
       assets: data.assets,
       tax: data.tax,

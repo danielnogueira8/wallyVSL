@@ -12,11 +12,18 @@
 import { neon } from '@neondatabase/serverless';
 import { Resend } from 'resend';
 
+// Wally only takes on clients in the US, so only US leads generate a
+// notification email. Everyone else is still scored, routed and stored in
+// `submissions` — they just don't hit his inbox. Keep this in sync with
+// QUALIFIED_COUNTRIES in assets/js/countries.js.
+const NOTIFY_COUNTRIES = ['United States'];
+
 const ALLOWED_FIELDS = [
   'first_name',
   'last_name',
   'email',
   'phone',
+  'country',
   'income',
   'assets',
   'tax',
@@ -31,6 +38,7 @@ const FIELD_LABELS = {
   last_name: 'Last name',
   email: 'Email',
   phone: 'Phone',
+  country: 'Country',
   income: 'Income',
   assets: 'Assets',
   tax: 'Tax',
@@ -91,7 +99,7 @@ export default async function handler(req, res) {
   for (const k of ALLOWED_FIELDS) row[k] = body?.[k] ?? null;
 
   // Minimal validation — required fields
-  const required = ['first_name', 'last_name', 'email', 'income', 'assets', 'tax', 'situation', 'timing'];
+  const required = ['first_name', 'last_name', 'email', 'country', 'income', 'assets', 'tax', 'situation', 'timing'];
   for (const k of required) {
     if (!row[k]) return res.status(400).json({ error: `Missing required field: ${k}` });
   }
@@ -99,7 +107,7 @@ export default async function handler(req, res) {
   row.qualified = Boolean(row.qualified);
 
   // Truncate strings to a sensible length (defense in depth)
-  for (const k of ['first_name', 'last_name', 'email', 'phone']) {
+  for (const k of ['first_name', 'last_name', 'email', 'phone', 'country']) {
     if (typeof row[k] === 'string') row[k] = row[k].slice(0, 200);
   }
 
@@ -107,11 +115,11 @@ export default async function handler(req, res) {
     const sql = neon(process.env.DATABASE_URL);
     await sql`
       insert into submissions (
-        first_name, last_name, email, phone,
+        first_name, last_name, email, phone, country,
         income, assets, tax, situation, timing,
         score, qualified
       ) values (
-        ${row.first_name}, ${row.last_name}, ${row.email}, ${row.phone},
+        ${row.first_name}, ${row.last_name}, ${row.email}, ${row.phone}, ${row.country},
         ${row.income}, ${row.assets}, ${row.tax}, ${row.situation}, ${row.timing},
         ${row.score}, ${row.qualified}
       )
@@ -123,7 +131,15 @@ export default async function handler(req, res) {
 
   // Fire-and-forget notification email. Failures here must not break the
   // submission flow — the lead is already saved in Neon.
-  if (process.env.RESEND_API_KEY) {
+  //
+  // Only US leads generate a notification. Everyone else is still stored
+  // in `submissions` above (and still saw their normal thank-you/booking
+  // page) so Wally can query them later — they just don't hit his inbox.
+  const notify = NOTIFY_COUNTRIES.includes(row.country);
+
+  if (!notify) {
+    console.log(`submit: skipping notification for non-US lead (${row.country})`);
+  } else if (process.env.RESEND_API_KEY) {
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
       const from = process.env.RESEND_FROM || 'Darling Financial <onboarding@resend.dev>';

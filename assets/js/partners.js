@@ -15,67 +15,10 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // pinned to the top of the dropdown (separated by a divider); everyone
 // else can still submit, but they're routed to a soft "not available in
 // your region yet" page instead of the booking calendar.
-// QUALIFIED_COUNTRIES is the single source of truth for the gate on the
-// client — the server double-checks the same list.
-const QUALIFIED_COUNTRIES = ['United States'];
-
-const OTHER_COUNTRIES = [
-  'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda',
-  'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain',
-  'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan',
-  'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria',
-  'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada',
-  'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros',
-  'Congo (Brazzaville)', 'Congo (Kinshasa)', 'Costa Rica', 'Côte d’Ivoire',
-  'Croatia', 'Cuba', 'Cyprus', 'Czechia', 'Denmark', 'Djibouti', 'Dominica',
-  'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea',
-  'Eritrea', 'Estonia', 'Eswatini', 'Ethiopia', 'Fiji', 'Finland', 'France',
-  'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada',
-  'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary',
-  'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy',
-  'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kosovo',
-  'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia',
-  'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Madagascar', 'Malawi',
-  'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania',
-  'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia',
-  'Montenegro', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal',
-  'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea',
-  'North Macedonia', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama',
-  'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal',
-  'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia',
-  'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe',
-  'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore',
-  'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa',
-  'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname',
-  'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand',
-  'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey',
-  'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates',
-  'United Kingdom', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City',
-  'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe',
-];
-
-function populateCountries() {
-  const select = document.querySelector('select[name="country"]');
-  if (!select) return;
-
-  const makeOption = (name) => {
-    const opt = document.createElement('option');
-    opt.value = name;
-    opt.textContent = name;
-    return opt;
-  };
-
-  // Pinned qualifying countries first.
-  QUALIFIED_COUNTRIES.forEach((name) => select.appendChild(makeOption(name)));
-
-  // Visual divider, then the rest alphabetically.
-  const divider = document.createElement('option');
-  divider.disabled = true;
-  divider.textContent = '──────────';
-  select.appendChild(divider);
-
-  OTHER_COUNTRIES.forEach((name) => select.appendChild(makeOption(name)));
-}
+//
+// QUALIFIED_COUNTRIES, OTHER_COUNTRIES and populateCountries() come from
+// assets/js/countries.js, which this page loads first — it's shared with
+// the consumer funnel. The server double-checks the same list.
 
 populateCountries();
 

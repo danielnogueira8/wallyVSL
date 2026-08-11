@@ -95,6 +95,10 @@ wallyVSL/
 
 Every form submission is persisted to a Neon Postgres database via a Vercel serverless function at `api/submit.js`. Qualified leads see Wally's Calendly afterward; unqualified leads see the thank-you page; both are saved.
 
+The contact step also captures the lead's **country**. Country does *not* affect scoring or routing — every lead is scored and routed exactly as before — but **only US leads trigger a notification email**. Non-US leads are still written to `submissions` so they can be queried later; they just don't reach Wally's inbox. The gate is `NOTIFY_COUNTRIES` in `api/submit.js`, which mirrors `QUALIFIED_COUNTRIES` in `assets/js/countries.js` (the country list shared with the partner funnel).
+
+> **Upgrading an existing database:** the `country` column is new. Run the `alter table … add column` migration in `form/SCHEMA.sql` **before** deploying, or inserts will fail.
+
 ### One-time setup
 
 1. **Create the table in Neon.** In Neon's SQL Editor, run:
@@ -107,6 +111,7 @@ Every form submission is persisted to a Neon Postgres database via a Vercel serv
      last_name     text not null,
      email         text not null,
      phone         text,
+     country       text not null,
      income        text not null,
      assets        text not null,
      tax           text not null,
