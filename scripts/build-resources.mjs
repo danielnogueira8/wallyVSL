@@ -269,14 +269,17 @@ function resourcePage(r) {
   const ctx = { slug: r.slug, audience }
   const url = `/resources/${r.slug}/`
 
+  // Sections marked unnumbered (an intro) get no number, so "section 3" in the copy matches
+  let n = 0
+  const nums = r.sections.map((s) => (s.unnumbered ? "" : pad(++n)))
   const toc = r.sections
-    .map((s, i) => `<li><a href="#${attr(s.id)}"><span>${pad(i + 1)}</span>${esc(s.nav)}</a></li>`)
+    .map((s, i) => `<li><a href="#${attr(s.id)}"><span>${nums[i] || "&middot;"}</span>${esc(s.nav)}</a></li>`)
     .join("")
 
   const sections = r.sections
     .map(
       (s, i) => `<section class="r-section" id="${attr(s.id)}" aria-labelledby="${attr(s.id)}-h">
-  <span class="r-eyebrow"><span>${pad(i + 1)}</span>${esc(s.eyebrow)}</span>
+  <span class="r-eyebrow">${nums[i] ? `<span>${nums[i]}</span>` : ""}${esc(s.eyebrow)}</span>
   <h2 id="${attr(s.id)}-h">${md(s.heading)}</h2>
   ${s.blocks.map((b) => block(b, ctx)).join("\n  ")}
 </section>`,
