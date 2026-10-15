@@ -130,7 +130,7 @@ function block(b, ctx) {
     case "cta":
       return `<p class="r-cta"><a class="btn btn-primary btn-lg" href="${attr(b.href)}">${esc(b.label)}</a>${b.note ? `<span>${md(b.note)}</span>` : ""}</p>`
     case "download":
-      return `<a class="r-download" href="${attr(b.href)}" target="_blank" rel="noopener">
+      return `<a class="r-download" href="${attr(b.href)}"${/^https?:/.test(b.href) ? " target=\"_blank\" rel=\"noopener\"" : " download"}>
   <span class="r-download-icon" aria-hidden="true">&darr;</span>
   <span><strong>${md(b.title)}</strong><span>${md(b.detail)}</span></span>
   <span class="r-download-go" aria-hidden="true">Open &rarr;</span>
