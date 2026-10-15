@@ -76,7 +76,8 @@ export default {
             "The setup steps, the \"Run it\" and \"Check it\" steps and the timing rules are written in simplified technical English: short sentences, one action per step, no contractions. They're meant to be followed exactly, so they read like instructions on purpose."
           ]
         }
-      ]
+      ],
+      "unnumbered": true
     },
     {
       "id": "what-you-need-and-connecting-claude-to-quickbooks",
