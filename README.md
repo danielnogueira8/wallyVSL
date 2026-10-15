@@ -251,3 +251,17 @@ cd wallyVSL
 python3 -m http.server 8000
 # visit http://localhost:8000
 ```
+
+---
+
+## Free resources library (`/resources/`)
+
+A static library of Wally's lead magnet resources, open to read (no email gate), modelled on the Scale Content Labs and Grow Predictably resource pages.
+
+- `content/resources/<slug>.mjs` holds one resource as data (sections and blocks). `_template.mjs` documents every block type and is never published.
+- `scripts/build-resources.mjs` (no dependencies) renders `resources/index.html`, `resources/<slug>/index.html` and `sitemap.xml`.
+- `assets/css/resources.css` and `assets/js/resources.js` style the pages and handle copy buttons, the "On this page" index and the audience filter.
+
+**Adding one:** copy `_template.mjs` to `<slug>.mjs`, fill it in, run `node scripts/build-resources.mjs`, and commit the content file together with the generated HTML. Vercel serves the committed HTML, so there's no build step to configure. `content/` and `scripts/` are excluded from the deploy by `.vercelignore`.
+
+**Audiences:** `high-earners` resources close on the qualifier (`/form/`); `cpas` resources close on the partner funnel (`/partners/`). The build fails if any copy contains an em or en dash.
