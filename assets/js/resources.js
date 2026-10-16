@@ -25,6 +25,18 @@ document.querySelectorAll('.r-copy').forEach((btn) => {
   })
 })
 
+// Folded code blocks: show the whole file
+document.querySelectorAll('.r-unfold').forEach((btn) => {
+  const label = btn.textContent
+  btn.addEventListener('click', () => {
+    const box = btn.closest('.r-code')
+    const open = box.classList.toggle('is-open')
+    btn.setAttribute('aria-expanded', String(open))
+    btn.textContent = open ? 'Fold it back' : label
+    if (!open) box.scrollIntoView({ block: 'nearest' })
+  })
+})
+
 // Highlight the current section in the index
 const tocLinks = [...document.querySelectorAll('.r-toc a[href^="#"]')]
 if (tocLinks.length && 'IntersectionObserver' in window) {

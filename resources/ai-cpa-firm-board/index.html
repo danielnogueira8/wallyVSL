@@ -10,8 +10,8 @@
 <meta property="og:description" content="A free Claude skill for US CPA firms: answer nine questions about your firm and it picks the three or four advisors your answers point to, then writes a 90-day plan from your own numbers. Every file in full, ready to install." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.wallacedarling.com/resources/ai-cpa-firm-board/" />
-<meta property="og:image" content="https://www.wallacedarling.com/assets/public/wallace.jpeg" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://www.wallacedarling.com/assets/public/resources/ai-cpa-firm-board/cover.webp" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" type="image/jpeg" href="/assets/public/wallace.jpeg" />
 <link rel="apple-touch-icon" href="/assets/public/wallace.jpeg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -58,12 +58,7 @@
           <a class="r-hero-link" href="/partners/">Partner with Darling FG &rarr;</a>
         </div>
       </div>
-      <div class="r-cover r-cover-lg" aria-hidden="true">
-  <span class="r-cover-kicker">Free Claude skill</span>
-  <span class="r-cover-big">8</span>
-  <span class="r-cover-small">advisors on one Claude skill</span>
-  <span class="r-cover-mark">Darling FG</span>
-</div>
+      <figure class="r-hero-img"><img src="/assets/public/resources/ai-cpa-firm-board/cover.webp" alt="The AI CPA Firm Board: eight advisor seats around your firm" width="1100" height="742" /></figure>
     </div>
     <div class="container">
       <div class="r-proof"><div><span class="r-proof-value">8</span><span class="r-proof-label">Advisor seats</span><span class="r-proof-detail">Strategy, offers, workflows, margin, tax planning, capacity, adoption and quality.</span></div><div><span class="r-proof-value">9</span><span class="r-proof-label">Diagnostic questions</span><span class="r-proof-detail">Asked one at a time, about your fees, clients, team and busy season.</span></div><div><span class="r-proof-value">90</span><span class="r-proof-label">Day plan</span><span class="r-proof-detail">Every action with a number, an owner and a week.</span></div></div>
@@ -85,8 +80,34 @@
   <span class="r-eyebrow">Read this first</span>
   <h2 id="start-here-h">Nobody runs the operating review on the firm itself</h2>
   <p class="r-lead">Hey, I'm Wallace Darling (most people call me Wally). I run Darling Financial Group (darling-fg.com). I work with people earning $500k+ and business owners with $1M+ in revenue on the tax strategy that sits beyond the return, and I partner with CPA firms on that strategy layer so their clients get it without ever leaving the firm.</p>
+  <dl class="r-quick"><div><dt>Time</dt><dd>About an hour, the first time</dd></div><div><dt>You need</dt><dd>A Claude plan with code execution on</dd></div><div><dt>You get</dt><dd>A 90-day plan with owners and dates</dd></div><div><dt>Run it again</dt><dd>Every quarter, in week 13</dd></div></dl>
   <p>I built this because nobody runs the operating review on the firm itself. You'd look at a client's business and spot the problem in an afternoon, but the firm's own numbers go years without anyone reading them that way. And the firms I partner with all hit the same constraint: no capacity in busy season, everything landing on the partner's desk, and fees that haven't moved since the client's situation was half as complicated.</p>
   <p>What you'll get: one complete Claude Skill, every file in full and ready to copy, that asks you nine questions about your firm, picks the three or four advisor seats your answers point to, and writes a 90-day plan from your own numbers.</p>
+  <figure class="r-figure">
+  <a href="/assets/public/resources/ai-cpa-firm-board/seats.webp" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/assets/public/resources/ai-cpa-firm-board/seats.webp" alt="The eight seats. Your answers decide which three or four sit on the board this quarter." width="1520" height="674" loading="lazy" decoding="async" /></a>
+  <figcaption><span class="r-figure-label">The board</span>The eight seats. Your answers decide which three or four sit on the board this quarter.</figcaption>
+</figure>
+  <ol class="r-flow" style="--cols:5"><li><a href="#install-the-cpa-firm-board">
+    <span class="r-flow-num">01</span>
+    <strong>Install the skill</strong>
+    <span class="r-flow-text">Ten minutes, or paste it as prompts</span>
+  </a></li><li><a href="#the-nine-questions">
+    <span class="r-flow-num">02</span>
+    <strong>Answer 9 questions</strong>
+    <span class="r-flow-text">One at a time, with your numbers</span>
+  </a></li><li><a href="#how-it-picks-the-seats">
+    <span class="r-flow-num">03</span>
+    <strong>It picks 3 or 4 seats</strong>
+    <span class="r-flow-text">Scored from your answers</span>
+  </a></li><li><div>
+    <span class="r-flow-num">04</span>
+    <strong>You confirm the board</strong>
+    <span class="r-flow-text">Swap a seat if you want</span>
+  </div></li><li class="row-end"><a href="#a-worked-illustration">
+    <span class="r-flow-num">05</span>
+    <strong>Get the 90-day plan</strong>
+    <span class="r-flow-text">Owners, weeks and the number that shows it worked</span>
+  </a></li></ol>
   <aside class="r-callout">
   <div>
     <strong class="r-callout-title">Have clients who need more than the return?</strong>
@@ -121,7 +142,7 @@
 </a>
   <p>A skill is a folder with a file called <code>SKILL.md</code> in it, plus any reference files that <code>SKILL.md</code> tells Claude to read. The CPA Firm Board is one folder, <code>cpa-firm-board</code>, holding <code>SKILL.md</code> and a <code>references</code> folder with one file for each seat.</p>
   <div class="r-code">
-  <div class="r-code-bar"><span>Folder layout</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Folder layout</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>cpa-firm-board/
 ├── SKILL.md
 └── references/
@@ -152,11 +173,15 @@
   <ol class="r-steps"><li><span>Right-click the <code>cpa-firm-board</code> folder.</span></li><li><span>On Windows 11, select <strong>Show more options</strong>.</span></li><li><span>Select <strong>Send to</strong>.</span></li><li><span>Select <strong>Compressed (zipped) folder</strong>.</span></li></ol>
   <p>On a Mac:</p>
   <ol class="r-steps"><li><span>Control-click the <code>cpa-firm-board</code> folder.</span></li><li><span>Select <strong>Compress &quot;cpa-firm-board&quot;</strong>.</span></li></ol>
-  <p><strong>Result.</strong> A file called <code>cpa-firm-board.zip</code> appears next to the folder. Open the ZIP to check it. The first item inside must be the <code>cpa-firm-board</code> folder. If the first item is <code>SKILL.md</code>, delete the ZIP and zip the folder again.</p>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>A file called <code>cpa-firm-board.zip</code> appears next to the folder. Open the ZIP to check it. The first item inside must be the <code>cpa-firm-board</code> folder. If the first item is <code>SKILL.md</code>, delete the ZIP and zip the folder again.</p></div></aside>
+  <figure class="r-figure">
+  <a href="/assets/public/resources/ai-cpa-firm-board/zip.webp" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/assets/public/resources/ai-cpa-firm-board/zip.webp" alt="Open the ZIP before you upload it. If the first thing inside is SKILL.md, zip the folder again." width="1520" height="1132" loading="lazy" decoding="async" /></a>
+  <figcaption>Open the ZIP before you upload it. If the first thing inside is <code>SKILL.md</code>, zip the folder again.</figcaption>
+</figure>
   <h3 class="r-h3">Upload it to Claude</h3>
   <ol class="r-steps"><li><span>Open Claude at <code>claude.ai</code>, or open the Claude desktop app.</span></li><li><span>Select <strong>Customize</strong>.</span></li><li><span>Select <strong>Skills</strong>.</span></li><li><span>Select the <strong>+</strong> button.</span></li><li><span>Select <strong>+ Create skill</strong>.</span></li><li><span>Select <strong>Upload a skill</strong>.</span></li><li><span>Select <code>cpa-firm-board.zip</code>.</span></li><li><span>Find <strong>cpa-firm-board</strong> in the list of skills.</span></li><li><span>Turn on the switch next to <strong>cpa-firm-board</strong>.</span></li></ol>
   <p>In a browser, <code>claude.ai/customize/skills</code> opens the same Skills page.</p>
-  <p><strong>Result.</strong> The cpa-firm-board skill is in your list of skills, and it is on.</p>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>The cpa-firm-board skill is in your list of skills, and it is on.</p></div></aside>
   <p>If the upload fails, check these three things:</p>
   <ul class="r-list"><li>The first item inside the ZIP is the <code>cpa-firm-board</code> folder.</li><li>The file is called <code>SKILL.md</code>, not <code>SKILL.md.txt</code>. In Windows File Explorer, the <strong>Type</strong> column must not say <strong>Text Document</strong>.</li><li>The first line of <code>SKILL.md</code> is <code>---</code>.</li></ul>
   <h3 class="r-h3">Share it with the partners (Team and Enterprise)</h3>
@@ -164,7 +189,7 @@
   <p>Shared skills are view-only. Colleagues turn the skill on and use it, and they cannot change it. One person keeps the skill files and uploads any new version.</p>
   <h3 class="r-h3">Start it</h3>
   <ol class="r-steps"><li><span>Start a new chat.</span></li><li><span>Type <code>Run the CPA Firm Board on my firm.</code></span></li><li><span>Send the message.</span></li></ol>
-  <p><strong>Result.</strong> Claude opens the cpa-firm-board skill, tells you how the review works, and asks question 1.</p>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>Claude opens the cpa-firm-board skill, tells you how the review works, and asks question 1.</p></div></aside>
   <p>If Claude answers without asking question 1, send <code>Use the cpa-firm-board skill.</code></p>
   <p>It also starts on &quot;Review my firm&quot; or &quot;Build a 90-day plan for the firm&quot;, because the skill's description lists those requests.</p>
 </section>
@@ -175,8 +200,8 @@
   <p>How to use them:</p>
   <ol class="r-steps"><li><span>Check that code execution is on in your Claude settings. The prompts do every calculation in code.</span></li><li><span>Start a new chat.</span></li><li><span>Copy the Board prompt below and paste it into the chat. Send it.</span></li><li><span>Claude asks nine questions, one at a time. Answer each one before you get the next. Use client codes, not client names.</span></li><li><span>When Claude picks the board, it shows the three or four seats and their scores. Confirm the board or swap one seat. Claude then writes the 90-day plan.</span></li><li><span>For a deeper run on one seat, open a new chat. Paste that seat's prompt from &quot;The eight advisor prompts&quot;, fill in the square brackets, and paste in your answers from the board chat.</span></li></ol>
   <h3 class="r-h3">The Board prompt</h3>
-  <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · The whole Board, no install</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code is-folded">
+  <div class="r-code-bar"><span>Prompt · The whole Board, no install</span><span class="r-code-actions"><button type="button" class="r-unfold" aria-expanded="false">Show all 72 lines</button><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>You are running the CPA Firm Board, the operating review an outside adviser runs on a business in a morning. The business is my own US CPA firm, not a client: look at it the way I look at a client's business. I am an accountant who runs or helps run the firm: use the profession's words (realization, WIP, A/R, write-down, engagement letter, extension, K-1) without explaining them.
 
 RULES FOR THE WHOLE REVIEW
@@ -255,7 +280,7 @@ Weeks 1 to 4 open with each seat's first action. Max three actions a week per ow
   <h3 class="r-h3">Practice Strategist</h3>
   <p>Use this when you need to know the one thing holding revenue where it is: demand, hours, price or the owner.</p>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Practice Strategist</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Practice Strategist</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>You are the Practice Strategist for my US CPA firm, [firm name, number of people]. You find the one constraint that holds back the firm's growth. Use client codes, never ask for client identifying data, and do every calculation in code with the code execution tool. Never invent a figure; label any assumption. Compare the firm only with its own past figures, never with benchmarks or other firms.
 
 Ask me for these numbers in one message, then wait: revenue for each of the last 3 years and the last 12 months; clients now and 2 years ago; headcount by role, now and 2 years ago; prospects turned away or waitlisted last year; clients with no repricing against current scope for more than 24 months; any months above 100% load or extensions filed because we ran out of time; my answer to &quot;If you were off for three months starting Monday, what would stop, which clients would call, and what would happen to new work and fee conversations?&quot;
@@ -281,7 +306,7 @@ Return my seat's part of a 90-day plan starting [Monday date]:
   <h3 class="r-h3">Offer Advisor</h3>
   <p>Use this when clients get advice for free inside the return fee and you want one priced service out of it.</p>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Offer Advisor</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Offer Advisor</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>You are the Offer Advisor for my US CPA firm, [firm name]. You turn one recurring client question the firm answers for free into a named service with a trigger, a scope, an output and a fixed fee. Use client codes only. Do every calculation in code with the code execution tool. Never invent a figure; label any assumption. Do not quote market prices or other firms' fees.
 
 Ask me for these in one message, then wait: advisory fees and jobs for the last 12 months; how advisory work is priced today; standard hourly rates by role; who would deliver; hours available by month; the firm's realization rate; and either a two-week question log (Date | Client code | The question | Who answered | Minutes | Billed?) or the five questions clients ask most outside the return, which you mark as estimates.
@@ -301,7 +326,7 @@ Return my seat's part of a 90-day plan starting [Monday date]: the decision; the
   <h3 class="r-h3">Workflow Architect</h3>
   <p>Use this when the team repeats the same tasks every week and you want to pick the two worth rebuilding with AI.</p>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Workflow Architect</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Workflow Architect</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>You are the Workflow Architect for my US CPA firm, [firm name]. You pick the two repeated tasks where AI can help most, and write the new workflow with a person checking each step. Use client codes only. Do not ask for or accept tax return information in this chat. Do every calculation in code with the code execution tool. Never invent a figure; label any assumption. Do not name or recommend a software vendor.
 
 Ask me for these in one message, then wait: our practice management software, document portal and tax software; whether written checklists exist; whether we have a written rule on client data in AI tools; and a two-week task log (Task | Who | Minutes | Times this week | Same steps every time? | Client data involved | Tax return information involved?) with jobs a year for each task, or my estimates.
@@ -322,7 +347,7 @@ Return my seat's part of a 90-day plan starting [Monday date]: the decision; the
   <h3 class="r-h3">Margin Analyst</h3>
   <p>Use this when you suspect fees, write-downs, scope creep or slow billing are costing the firm profit.</p>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Margin Analyst</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Margin Analyst</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>You are the Margin Analyst for my US CPA firm, [firm name]. You find where pricing, scope creep and slow billing reduce profit. Use client codes only. Do every calculation in code with the code execution tool. Never invent a figure; label any assumption. Show fees without sales tax. Compare the firm only with its own last year and last quarter, never with market rates or other firms.
 
 Ask me for these in one message, then wait, all for the same 12 months: fees billed; standard value of time recorded; write-downs by client and job type; write-offs; cash collected; WIP today and WIP over 60 days; A/R today; each client's fee and hours; each client's last repricing date against current scope; hours of out-of-scope work and clean-up not billed. Add last year's figures if I have them.
@@ -342,7 +367,7 @@ Return my seat's part of a 90-day plan starting [Monday date]: the decision; the
   <h3 class="r-h3">Tax Planning Advisor</h3>
   <p>Use this when clients' returns show they need planning every year and the conversation never happens.</p>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Tax Planning Advisor</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Tax Planning Advisor</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>You are the Tax Planning Advisor for my US CPA firm, [firm name]. You list the compliance clients whose returns show planning signals, size the fee from our own numbers, and lay out three ways to deliver the work. You never decide whether a strategy suits a client. Use client codes only. Never ask for SSNs, EINs or full returns. Do not accept tax return information in this chat: I apply the signals inside our own software and bring back counts and client codes. Do every calculation in code with the code execution tool. Never invent a figure.
 
 Ask me for these in one message, then wait: clients who paid for planning last year and those fees; counts of 1040, 1120-S, 1065 and 1120 returns; our planning fee per engagement; hours per engagement; who holds planning conversations; hours available by month; fees for the last 12 months; my thresholds for each signal below.
@@ -364,7 +389,7 @@ Return my seat's part of a 90-day plan starting [Monday date]: the decision; the
   <h3 class="r-h3">Capacity Planner</h3>
   <p>Use this when busy season runs on overtime and you want capacity as an hours number, month by month.</p>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Capacity Planner</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Capacity Planner</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>You are the Capacity Planner for my US CPA firm, [firm name]. You show hours available against hours needed, month by month for the next 12 months, and decide where hours released by AI go. Do every calculation in code with the code execution tool, including counting working days. Never invent a figure; label any assumption. Do not compare with benchmarks.
 
 Ask me for these in one message, then wait: people who record chargeable time, including partners, by role; per role, vacation days, non-chargeable days a month and chargeable hours a day in and out of busy season; days the firm closes; planned leave by month; chargeable hours by month for the last 12 months (or the job list with hours and the month each job is done); extensions filed last year and how many because we ran out of time; any measured AI hours released; hours needed for new planning or advisory work; my own chargeable and review hours by month.
@@ -387,7 +412,7 @@ Return my seat's part of a 90-day plan starting [Monday date]: the decision; the
   <h3 class="r-h3">Team Adoption Lead</h3>
   <p>Use this when a few people use AI, each in their own way, and the rest of the team has gone back to the old method.</p>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Team Adoption Lead</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Team Adoption Lead</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>You are the Team Adoption Lead for my US CPA firm, [firm name, teams and roles]. You get the team using AI on real work, the same way, every week. Use client codes only. Do every count in code with the code execution tool. Never invent a figure. Do not name or recommend an AI vendor; describe what the firm needs from the tool.
 
 Ask me for these in one message, then wait: who uses AI for work, by role, and which tools; business licenses bought and how many are used each week; the one or two workflows we want to roll out (or the repeated tasks the team does every week); whether we have a written rule on which client data can go into AI tools; busy season dates for each role; who in the firm knows how we use AI today.
@@ -410,7 +435,7 @@ Return my seat's part of a 90-day plan starting [Monday date]: the decision; the
   <h3 class="r-h3">Quality Controller</h3>
   <p>Use this when the firm has no written rule on client data in AI tools, or nobody records who checked AI-assisted work.</p>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Quality Controller</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Quality Controller</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>You are the Quality Controller for my US CPA firm, [firm name]. You build the process for client data in AI tools, the WISP and named sign-off on AI-assisted work. You never decide whether a specific use of client data is permitted: a person in the firm decides, with its adviser if needed. Use client codes. Accept no tax return information here, even to test a rule.
 
 The rules:
@@ -436,8 +461,8 @@ Return this seat's 90-day plan from [Monday date]: decision; number to move; own
   <p>Nine boxes, nine files. Copy each one exactly as it is. The words in square brackets inside the files are for Claude to fill in during the review, so leave them as they are.</p>
   <h3 class="r-h3"><code>SKILL.md</code> (<code>cpa-firm-board/SKILL.md</code>)</h3>
   <p>The file Claude reads first: the nine questions, the scoring, the tie-break, the plan template and the rules that stop it inventing numbers.</p>
-  <div class="r-code">
-  <div class="r-code-bar"><span>SKILL.md (cpa-firm-board/SKILL.md)</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code is-folded">
+  <div class="r-code-bar"><span>SKILL.md (cpa-firm-board/SKILL.md)</span><span class="r-code-actions"><button type="button" class="r-unfold" aria-expanded="false">Show all 356 lines</button><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>---
 name: cpa-firm-board
 description: Runs the AI CPA Firm Board, an operating review of a US CPA firm run on the firm itself and not on a client. Use when a firm owner, partner or firm administrator asks to run the CPA Firm Board or the AI CPA Firm Board, review their firm or practice, run a practice review, operating review or firm health check, or build a 90-day or quarterly plan for the firm. Also use when they ask about the firm's own growth, realization rate, write-downs, WIP, A/R, fee increases, scope creep, advisory services, tax planning for existing clients, busy season capacity, extensions, using AI in the firm, AI rollout to the team, Section 7216, the WISP or review and sign-off of AI-assisted work. Asks nine diagnostic questions one at a time, picks three or four of eight seats (Practice Strategist, Offer Advisor, Workflow Architect, Margin Analyst, Tax Planning Advisor, Capacity Planner, Team Adoption Lead, Quality Controller), reads only those seats' reference files and writes a 90-day plan from the firm's own numbers. Also use when the user brings back last quarter's CPA Firm Board plan to run the review again.
@@ -797,8 +822,8 @@ Use this section if the user gives you last quarter's CPA Firm Board plan.
 </div>
   <h3 class="r-h3">Practice Strategist (<code>cpa-firm-board/references/practice-strategist.md</code>)</h3>
   <p>Finds the one constraint holding back growth: demand, hours, price or the owner.</p>
-  <div class="r-code">
-  <div class="r-code-bar"><span>Practice Strategist (cpa-firm-board/references/practice-strategist.md)</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code is-folded">
+  <div class="r-code-bar"><span>Practice Strategist (cpa-firm-board/references/practice-strategist.md)</span><span class="r-code-actions"><button type="button" class="r-unfold" aria-expanded="false">Show all 78 lines</button><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code># Practice Strategist
 
 This seat reads the answers to questions 1, 2, 5, 8 and 9.
@@ -880,8 +905,8 @@ If the three-month score is 4 or more, test the owner constraint first. When the
 </div>
   <h3 class="r-h3">Offer Advisor (<code>cpa-firm-board/references/offer-advisor.md</code>)</h3>
   <p>Turns the advice clients already get for free into one service with a trigger, a scope and a fixed fee.</p>
-  <div class="r-code">
-  <div class="r-code-bar"><span>Offer Advisor (cpa-firm-board/references/offer-advisor.md)</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code is-folded">
+  <div class="r-code-bar"><span>Offer Advisor (cpa-firm-board/references/offer-advisor.md)</span><span class="r-code-actions"><button type="button" class="r-unfold" aria-expanded="false">Show all 76 lines</button><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code># Offer Advisor
 
 This seat reads the answers to questions 3, 4, 5, 7 and 9.
@@ -961,8 +986,8 @@ If only the user can deliver the service, name a second role who learns it this 
 </div>
   <h3 class="r-h3">Workflow Architect (<code>cpa-firm-board/references/workflow-architect.md</code>)</h3>
   <p>Finds the repeated work AI can help the team complete faster, and measures the time on real jobs before anyone counts it.</p>
-  <div class="r-code">
-  <div class="r-code-bar"><span>Workflow Architect (cpa-firm-board/references/workflow-architect.md)</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code is-folded">
+  <div class="r-code-bar"><span>Workflow Architect (cpa-firm-board/references/workflow-architect.md)</span><span class="r-code-actions"><button type="button" class="r-unfold" aria-expanded="false">Show all 80 lines</button><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code># Workflow Architect
 
 This seat reads the answers to questions 5, 6, 7 and 9.
@@ -1046,8 +1071,8 @@ If a repeated task only works because the user does it, it stops when the user i
 </div>
   <h3 class="r-h3">Margin Analyst (<code>cpa-firm-board/references/margin-analyst.md</code>)</h3>
   <p>Finds where pricing, scope creep and slow billing take profit out of the firm.</p>
-  <div class="r-code">
-  <div class="r-code-bar"><span>Margin Analyst (cpa-firm-board/references/margin-analyst.md)</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code is-folded">
+  <div class="r-code-bar"><span>Margin Analyst (cpa-firm-board/references/margin-analyst.md)</span><span class="r-code-actions"><button type="button" class="r-unfold" aria-expanded="false">Show all 99 lines</button><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code># Margin Analyst
 
 This seat reads the answers to questions 2, 3, 4 and 9.
@@ -1150,8 +1175,8 @@ If only the user can hold a repricing conversation, add an action: a second part
 </div>
   <h3 class="r-h3">Tax Planning Advisor (<code>cpa-firm-board/references/tax-planning-advisor.md</code>)</h3>
   <p>Builds the list of compliance clients whose returns already show planning signals, sizes the fee from your own numbers, and sets out three ways to deliver it.</p>
-  <div class="r-code">
-  <div class="r-code-bar"><span>Tax Planning Advisor (cpa-firm-board/references/tax-planning-advisor.md)</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code is-folded">
+  <div class="r-code-bar"><span>Tax Planning Advisor (cpa-firm-board/references/tax-planning-advisor.md)</span><span class="r-code-actions"><button type="button" class="r-unfold" aria-expanded="false">Show all 105 lines</button><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code># Tax Planning Advisor
 
 This seat reads the answers to questions 2, 4, 5, 7 and 9.
@@ -1267,8 +1292,8 @@ If the user is the only person who holds planning conversations, they stop when 
 </aside>
   <h3 class="r-h3">Capacity Planner (<code>cpa-firm-board/references/capacity-planner.md</code>)</h3>
   <p>Turns &quot;we're slammed&quot; into hours available against hours needed, and gives every hour AI releases a destination before it disappears.</p>
-  <div class="r-code">
-  <div class="r-code-bar"><span>Capacity Planner (cpa-firm-board/references/capacity-planner.md)</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code is-folded">
+  <div class="r-code-bar"><span>Capacity Planner (cpa-firm-board/references/capacity-planner.md)</span><span class="r-code-actions"><button type="button" class="r-unfold" aria-expanded="false">Show all 94 lines</button><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code># Capacity Planner
 
 This seat reads the answers to questions 5, 6, 8 and 9.
@@ -1366,8 +1391,8 @@ Find the chargeable and review hours the user does in each month. If the user is
 </div>
   <h3 class="r-h3">Team Adoption Lead (<code>cpa-firm-board/references/team-adoption-lead.md</code>)</h3>
   <p>A rollout the team will follow: one or two workflows, a champion per team, practice time on real jobs, and use counted every week.</p>
-  <div class="r-code">
-  <div class="r-code-bar"><span>Team Adoption Lead (cpa-firm-board/references/team-adoption-lead.md)</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code is-folded">
+  <div class="r-code-bar"><span>Team Adoption Lead (cpa-firm-board/references/team-adoption-lead.md)</span><span class="r-code-actions"><button type="button" class="r-unfold" aria-expanded="false">Show all 66 lines</button><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code># Team Adoption Lead
 
 This seat reads the answers to questions 5, 6, 7 and 9.
@@ -1437,8 +1462,8 @@ If the user is the only person who knows how the firm uses AI, the rollout stops
 </div>
   <h3 class="r-h3">Quality Controller (<code>cpa-firm-board/references/quality-controller.md</code>)</h3>
   <p>The review process that keeps client data protected and AI-assisted work defensible: the data rule, Section 7216, the WISP and human sign-off.</p>
-  <div class="r-code">
-  <div class="r-code-bar"><span>Quality Controller (cpa-firm-board/references/quality-controller.md)</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code is-folded">
+  <div class="r-code-bar"><span>Quality Controller (cpa-firm-board/references/quality-controller.md)</span><span class="r-code-actions"><button type="button" class="r-unfold" aria-expanded="false">Show all 102 lines</button><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code># Quality Controller
 
 This seat reads the answers to questions 6, 7 and 9.
@@ -1548,42 +1573,43 @@ If the user is the only person who signs off returns or AI-assisted work, sign-o
   <h2 id="the-nine-questions-h">The Nine Questions</h2>
   <p>The skill asks these one at a time and waits for each answer. After each one, it asks for the numbers that answer makes relevant, if you have them. None of them is compulsory. A number the firm doesn't know is a finding in its own right, and the skill treats it as one.</p>
   <p>Most of the numbers come from two places: your practice management software (time, standard value, WIP, write-downs, hours per client) and your own QuickBooks Online (fees, A/R, fees per client).</p>
-  <p><strong>Question 1: growth and the constraint</strong></p>
-  <p>&quot;What has held the firm's revenue where it is over the last two years: not enough of the right clients, not enough hours, or fees that have not moved?&quot;</p>
-  <p><em>Why it's asked.</em> Revenue is clients times the average fee, and growth stalls in one of four places: demand, hours, price or the owner. Most owners name all four. The skill splits your revenue change into the part that came from more clients and the part that came from higher fees, and the split usually points to one.</p>
-  <p><em>Have ready.</em> Revenue for the last three years and the last 12 months, the client count now and two years ago, headcount, and roughly how many prospects you turned away last year.</p>
-  <p><strong>Question 2: fees and realization</strong></p>
-  <p>&quot;When did the firm last reprice each client against the work that client now needs, and do you know your realization rate? A percentage increase on everyone does not count as a repricing.&quot;</p>
-  <p><em>Why it's asked.</em> A flat increase every January isn't a repricing. Any client past 24 months without one is a fee conversation that hasn't happened, and the write-downs show which ones first.</p>
-  <p><em>Have ready.</em> Fees billed and the standard value of time for the same 12 months, write-downs and write-offs, cash collected, WIP and how much of it is over 60 days, and A/R.</p>
-  <p><strong>Question 3: scope and pricing</strong></p>
-  <p>&quot;How do you price the work: per return, a monthly fee, or by the hour? And what happens when a client sends a shoebox in March, or asks for something the engagement letter does not cover?&quot;</p>
-  <p><em>Why it's asked.</em> Per-return pricing rewards the shoebox. The second state return, the payroll notice and the forty-minute &quot;quick question&quot; all sit outside the letter, and most of them never reach an invoice.</p>
-  <p><em>Have ready.</em> How many clients pay monthly, what your engagement letter says about records, and a rough figure for out-of-scope hours you didn't bill.</p>
-  <p><strong>Question 4: advisory and tax planning</strong></p>
-  <p>&quot;How many clients paid the firm last year for tax planning or advisory work separate from the return, and how many do you think should have?&quot;</p>
-  <p><em>Why it's asked.</em> Your team sees the planning signals every year while they prepare the return: an S corporation salary that hasn't moved, a large capital gains year, a rental on straight-line depreciation. The conversation gets pushed past October 15, and then nobody makes the call. The difference between the two numbers in your answer is the Tax Planning Advisor's starting point.</p>
-  <p><em>Have ready.</em> Clients who paid for planning last year and those fees, your return counts by form, and whether your tax software can export a client list by code.</p>
-  <p><strong>Question 5: busy season capacity</strong></p>
-  <p>&quot;How did last busy season go, and how many chargeable hours does the team have against the hours the work needs, month by month from January to April 15 and through the extension deadlines?&quot;</p>
-  <p><em>Why it's asked.</em> &quot;We're slammed&quot; is a feeling. Hours available against hours needed, month by month, is a plan, and it shows which months have spare hours to move work into.</p>
-  <p><em>Have ready.</em> Who records chargeable time, their vacation and non-chargeable days, hours recorded by month last year, and how many extensions you filed because you ran out of time.</p>
-  <p><strong>Question 6: repeated work</strong></p>
-  <p>&quot;What work does the team do every week that follows the same steps each time: chasing documents, reviewing bank feeds, preparing workpapers, writing the same client emails?&quot;</p>
-  <p><em>Why it's asked.</em> Repeated work with the same steps is where AI helps first. The best first task has many hours a year, the same steps each time, and a person checking the result before it goes anywhere.</p>
-  <p><em>Have ready.</em> The tasks, with a rough figure for hours a week each one takes across the team.</p>
-  <p><strong>Question 7: AI in the firm today</strong></p>
-  <p>&quot;Who in the firm uses AI tools now, for what, and is there a written rule about which client data can go into them?&quot;</p>
-  <p><em>Why it's asked.</em> In most firms, somebody is already pasting client information into a personal AI account. If tax return information is going in with no Section 7216 check, the Quality Controller takes a seat on the board whatever else scores higher.</p>
-  <p><em>Have ready.</em> Who uses what, personal or business accounts, and the date your WISP was last reviewed.</p>
-  <p><strong>Question 8: the goal for the quarter</strong></p>
-  <p>&quot;Which week of the last year would you most like back, and what is the one thing you want to be different by the end of the next 90 days?&quot;</p>
-  <p><em>Why it's asked.</em> The plan opens with your answer, in your words. The seats that serve it get extra points, and they take the first places if more than four seats qualify.</p>
-  <p><em>Have ready.</em> The one number that would tell you it worked, and where it stands today.</p>
-  <p><strong>Question 9: the three-month test</strong></p>
-  <p>&quot;If you were off for three months starting Monday, and nobody could reach you, what would stop, which clients would call, and what would happen to new work and fee conversations?&quot;</p>
-  <p><em>Why it's asked.</em> Every seat reads it. What would stop goes to capacity and sign-off. Who would call goes to client relationships. What happens to new work goes to growth, pricing and planning, because in most firms the owner is the only one holding those conversations. The skill scores the answer from 0 to 6.</p>
-  <p><em>Have ready.</em> How many clients deal only with you and roughly what they pay, the work only you review or sign, and any plan to sell, merge or step back.</p>
+  <div class="r-qcards"><article class="r-qcard" id="question-1">
+  <header><span class="r-qcard-num">01</span><h3>Growth and the constraint</h3></header>
+  <blockquote>What has held the firm's revenue where it is over the last two years: not enough of the right clients, not enough hours, or fees that have not moved?</blockquote>
+  <dl><div><dt>Why it's asked</dt><dd>Revenue is clients times the average fee, and growth stalls in one of four places: demand, hours, price or the owner. Most owners name all four. The skill splits your revenue change into the part that came from more clients and the part that came from higher fees, and the split usually points to one.</dd></div><div><dt>Have ready</dt><dd>Revenue for the last three years and the last 12 months, the client count now and two years ago, headcount, and roughly how many prospects you turned away last year.</dd></div></dl>
+</article><article class="r-qcard" id="question-2">
+  <header><span class="r-qcard-num">02</span><h3>Fees and realization</h3></header>
+  <blockquote>When did the firm last reprice each client against the work that client now needs, and do you know your realization rate? A percentage increase on everyone does not count as a repricing.</blockquote>
+  <dl><div><dt>Why it's asked</dt><dd>A flat increase every January isn't a repricing. Any client past 24 months without one is a fee conversation that hasn't happened, and the write-downs show which ones first.</dd></div><div><dt>Have ready</dt><dd>Fees billed and the standard value of time for the same 12 months, write-downs and write-offs, cash collected, WIP and how much of it is over 60 days, and A/R.</dd></div></dl>
+</article><article class="r-qcard" id="question-3">
+  <header><span class="r-qcard-num">03</span><h3>Scope and pricing</h3></header>
+  <blockquote>How do you price the work: per return, a monthly fee, or by the hour? And what happens when a client sends a shoebox in March, or asks for something the engagement letter does not cover?</blockquote>
+  <dl><div><dt>Why it's asked</dt><dd>Per-return pricing rewards the shoebox. The second state return, the payroll notice and the forty-minute &quot;quick question&quot; all sit outside the letter, and most of them never reach an invoice.</dd></div><div><dt>Have ready</dt><dd>How many clients pay monthly, what your engagement letter says about records, and a rough figure for out-of-scope hours you didn't bill.</dd></div></dl>
+</article><article class="r-qcard" id="question-4">
+  <header><span class="r-qcard-num">04</span><h3>Advisory and tax planning</h3></header>
+  <blockquote>How many clients paid the firm last year for tax planning or advisory work separate from the return, and how many do you think should have?</blockquote>
+  <dl><div><dt>Why it's asked</dt><dd>Your team sees the planning signals every year while they prepare the return: an S corporation salary that hasn't moved, a large capital gains year, a rental on straight-line depreciation. The conversation gets pushed past October 15, and then nobody makes the call. The difference between the two numbers in your answer is the Tax Planning Advisor's starting point.</dd></div><div><dt>Have ready</dt><dd>Clients who paid for planning last year and those fees, your return counts by form, and whether your tax software can export a client list by code.</dd></div></dl>
+</article><article class="r-qcard" id="question-5">
+  <header><span class="r-qcard-num">05</span><h3>Busy season capacity</h3></header>
+  <blockquote>How did last busy season go, and how many chargeable hours does the team have against the hours the work needs, month by month from January to April 15 and through the extension deadlines?</blockquote>
+  <dl><div><dt>Why it's asked</dt><dd>&quot;We're slammed&quot; is a feeling. Hours available against hours needed, month by month, is a plan, and it shows which months have spare hours to move work into.</dd></div><div><dt>Have ready</dt><dd>Who records chargeable time, their vacation and non-chargeable days, hours recorded by month last year, and how many extensions you filed because you ran out of time.</dd></div></dl>
+</article><article class="r-qcard" id="question-6">
+  <header><span class="r-qcard-num">06</span><h3>Repeated work</h3></header>
+  <blockquote>What work does the team do every week that follows the same steps each time: chasing documents, reviewing bank feeds, preparing workpapers, writing the same client emails?</blockquote>
+  <dl><div><dt>Why it's asked</dt><dd>Repeated work with the same steps is where AI helps first. The best first task has many hours a year, the same steps each time, and a person checking the result before it goes anywhere.</dd></div><div><dt>Have ready</dt><dd>The tasks, with a rough figure for hours a week each one takes across the team.</dd></div></dl>
+</article><article class="r-qcard" id="question-7">
+  <header><span class="r-qcard-num">07</span><h3>AI in the firm today</h3></header>
+  <blockquote>Who in the firm uses AI tools now, for what, and is there a written rule about which client data can go into them?</blockquote>
+  <dl><div><dt>Why it's asked</dt><dd>In most firms, somebody is already pasting client information into a personal AI account. If tax return information is going in with no Section 7216 check, the Quality Controller takes a seat on the board whatever else scores higher.</dd></div><div><dt>Have ready</dt><dd>Who uses what, personal or business accounts, and the date your WISP was last reviewed.</dd></div></dl>
+</article><article class="r-qcard" id="question-8">
+  <header><span class="r-qcard-num">08</span><h3>The goal for the quarter</h3></header>
+  <blockquote>Which week of the last year would you most like back, and what is the one thing you want to be different by the end of the next 90 days?</blockquote>
+  <dl><div><dt>Why it's asked</dt><dd>The plan opens with your answer, in your words. The seats that serve it get extra points, and they take the first places if more than four seats qualify.</dd></div><div><dt>Have ready</dt><dd>The one number that would tell you it worked, and where it stands today.</dd></div></dl>
+</article><article class="r-qcard" id="question-9">
+  <header><span class="r-qcard-num">09</span><h3>The three-month test</h3></header>
+  <blockquote>If you were off for three months starting Monday, and nobody could reach you, what would stop, which clients would call, and what would happen to new work and fee conversations?</blockquote>
+  <dl><div><dt>Why it's asked</dt><dd>Every seat reads it. What would stop goes to capacity and sign-off. Who would call goes to client relationships. What happens to new work goes to growth, pricing and planning, because in most firms the owner is the only one holding those conversations. The skill scores the answer from 0 to 6.</dd></div><div><dt>Have ready</dt><dd>How many clients deal only with you and roughly what they pay, the work only you review or sign, and any plan to sell, merge or step back.</dd></div></dl>
+</article></div>
   <p>A flattering answer to question 9 gets you a plan that fixes the wrong thing.</p>
 </section>
 <section class="r-section" id="how-it-picks-the-seats" aria-labelledby="how-it-picks-the-seats-h">
@@ -1597,6 +1623,10 @@ If the user is the only person who signs off returns or AI-assisted work, sign-o
   <p><strong>The data rule comes first.</strong> If tax return information is already going into an AI tool with no Section 7216 check, the Quality Controller takes a place on the board whatever its score. Everything else in the plan would be built on a process the firm hasn't checked.</p>
   <p><strong>When more than four qualify.</strong> The skill fills the four places in this order:</p>
   <ol class="r-steps"><li><span>The Quality Controller, if the data rule applies.</span></li><li><span>The qualifying seats with goal points.</span></li><li><span>The other qualifying seats, highest score first.</span></li><li><span>On a tie, the Offer Advisor and the Tax Planning Advisor give way to the Capacity Planner and the Workflow Architect, because a new service needs hours before it needs a price.</span></li><li><span>On a tie, the Team Adoption Lead gives way to the Workflow Architect, because the firm picks the workflow before it rolls out the tool.</span></li><li><span>On a tie, the Practice Strategist gives way to any seat that can start this week, unless revenue has been flat or falling for two years.</span></li><li><span>If it's still a tie, the seat that can start with numbers you already have goes first. If that doesn't settle it, the skill asks you.</span></li></ol>
+  <figure class="r-figure">
+  <a href="/assets/public/resources/ai-cpa-firm-board/scores.webp" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/assets/public/resources/ai-cpa-firm-board/scores.webp" alt="How the made-up firm in section 7 came out. Every seat that qualified and missed out goes into &quot;What we are not doing this quarter&quot;." width="1520" height="1072" loading="lazy" decoding="async" /></a>
+  <figcaption><span class="r-figure-label">Illustration</span>How the made-up firm in section 7 came out. Every seat that qualified and missed out goes into &quot;What we are not doing this quarter&quot;.</figcaption>
+</figure>
   <p>If fewer than three qualify, it adds the next highest until there are three. Every seat that qualified and missed out goes into &quot;What we are not doing this quarter&quot;, so it's parked rather than lost.</p>
   <p><strong>You confirm before it writes.</strong> The skill shows you the board, the scores and the answers behind them, and asks whether you want to swap a seat. If you swap one, the plan says &quot;Chosen by the owner&quot; against it.</p>
   <h3 class="r-h3">The 90-day plan it writes</h3>
@@ -1619,11 +1649,19 @@ If the user is the only person who signs off returns or AI-assisted work, sign-o
   <p>The firm lost 22 clients over two years and still grew, because the average fee rose. That backs the owner's answer to question 1: the constraint is hours, not demand. The Practice Strategist isn't on the board this quarter, but its split sits in the plan's starting numbers.</p>
   <p>For capacity, the illustration assumes 8 chargeable hours a day for everyone, non-chargeable days of 4 a month for partners, 2 for managers and 1.5 for everyone else, planned vacation of 6 days in November, 24 in December and 2 in February across the team, and closures on Thanksgiving, the day after, Christmas Day and New Year's Day. Hours needed are last year's timesheet hours for the same month.</p>
   <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>Month</th><th>Working days</th><th>Hours available</th><th>Hours needed</th><th>Difference</th><th>Load</th></tr></thead><tbody><tr><td>November 2026</td><td>19</td><td>1,304</td><td>1,020</td><td>+284</td><td>78%</td></tr><tr><td>December 2026</td><td>22</td><td>1,400</td><td>960</td><td>+440</td><td>69%</td></tr><tr><td>January 2027</td><td>20</td><td>1,432</td><td>1,420</td><td>+12</td><td>99%</td></tr><tr><td>February 2027</td><td>20</td><td>1,416</td><td>1,690</td><td>-274</td><td>119%</td></tr><tr><td>March 2027</td><td>23</td><td>1,672</td><td>1,980</td><td>-308</td><td>118%</td></tr><tr><td>April 2027</td><td>22</td><td>1,592</td><td>1,760</td><td>-168</td><td>111%</td></tr></tbody></table></div>
+  <figure class="r-figure">
+  <a href="/assets/public/resources/ai-cpa-firm-board/capacity.webp" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/assets/public/resources/ai-cpa-firm-board/capacity.webp" alt="The capacity table as a chart: the spare hours come first, so work can move into November and December." width="1520" height="906" loading="lazy" decoding="async" /></a>
+  <figcaption><span class="r-figure-label">Illustration</span>The capacity table as a chart: the spare hours come first, so work can move into November and December.</figcaption>
+</figure>
   <p>The firm is 750 hours short from February to April, and it has 724 spare hours in November and December. The spare hours come first, in time to take work. Moving the year-end QuickBooks review for 60 business clients into December, at the owner's estimate of 4 hours each, moves 240 hours (60 × 4 = 240) and leaves 510 short.</p>
   <p>The Tax Planning Advisor's numbers, from a client export run inside the firm's tax software, with codes and counts only:</p>
   <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>Signal</th><th>Clients</th></tr></thead><tbody><tr><td>S corporation owner, salary unchanged for 3+ years</td><td>34</td></tr><tr><td>Rental on straight-line depreciation, no cost segregation study</td><td>27</td></tr><tr><td>Pass-through owner in a PTET state, no election</td><td>22</td></tr><tr><td>Owner profit over $400,000, no plan beyond a 401(k)</td><td>19</td></tr><tr><td>Capital gain over $250,000 last year</td><td>12</td></tr><tr><td>Equity compensation</td><td>9</td></tr><tr><td>Business sale planned within 3 years</td><td>4</td></tr><tr><td>Signals in total</td><td>127</td></tr><tr><td>Unique clients, after removing the overlap</td><td>81</td></tr></tbody></table></div>
   <p>The thresholds are the partners' own choices for the illustration. At the firm's planning fee of $3,500, 81 clients is $283,500 (81 × $3,500), or 15.3% of the firm's fees, against $33,000 from 11 clients last year. At 8 hours each, the list needs 648 hours (81 × 8). A first group of 20 is $70,000 and 160 hours, and the 484 spare hours left in November and December after the move cover it.</p>
   <h3 class="r-h3">An excerpt from the plan</h3>
+  <figure class="r-figure">
+  <a href="/assets/public/resources/ai-cpa-firm-board/plan.webp" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/assets/public/resources/ai-cpa-firm-board/plan.webp" alt="What the start of the plan looks like. The full excerpt follows." width="1520" height="1456" loading="lazy" decoding="async" /></a>
+  <figcaption><span class="r-figure-label">Illustration</span>What the start of the plan looks like. The full excerpt follows.</figcaption>
+</figure>
   <p><strong>CPA Firm Board: 90-day plan for the illustration firm</strong></p>
   <p>Quarter: 10/19/2026 to 01/17/2027, 13 weeks. Next CPA Firm Board: week 13, week beginning 01/11/2027.</p>
   <p><strong>The goal.</strong> &quot;The week of April 12. I was here until midnight every night, and we still filed extensions we didn't want to file. By mid-January I want a plan that makes this busy season lighter.&quot;</p>
@@ -1669,7 +1707,7 @@ If the user is the only person who signs off returns or AI-assisted work, sign-o
   <h3 class="r-h3">Run it with QuickBooks</h3>
   <ol class="r-steps"><li><span>Start a new chat.</span></li><li><span>Attach the time, WIP and write-down reports from your practice management software.</span></li><li><span>Copy the prompt below into the chat.</span></li><li><span>Change the parts in square brackets.</span></li><li><span>Send the prompt.</span></li></ol>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Start with the firm's QuickBooks</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Start with the firm's QuickBooks</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Run the CPA Firm Board on my firm. The QuickBooks connector is
 connected to our firm's own company, [FIRM NAME AS IT APPEARS IN
 QUICKBOOKS].
@@ -1691,7 +1729,7 @@ QuickBooks report or file each one came from, and ask me to confirm
 them. Then start the nine questions, and do not ask me again for a
 number you already have.</code></pre>
 </div>
-  <p><strong>Result.</strong> Claude shows the figures with their sources, asks you to confirm them, and then asks question 1.</p>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>Claude shows the figures with their sources, asks you to confirm them, and then asks question 1.</p></div></aside>
   <h3 class="r-h3">Switch back to client work</h3>
   <ol class="r-steps"><li><span>Disconnect QuickBooks in <strong>Connectors</strong>.</span></li><li><span>Connect again and choose the client's company.</span></li><li><span>Start a new chat.</span></li></ol>
 </section>
@@ -1707,7 +1745,7 @@ number you already have.</code></pre>
   <h3 class="r-h3">Run it</h3>
   <ol class="r-steps"><li><span>Open the <code>CPA Firm Board</code> project.</span></li><li><span>Start a new chat in the project.</span></li><li><span>Copy the prompt below into the chat.</span></li><li><span>Change the parts in square brackets.</span></li><li><span>Send the prompt.</span></li></ol>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Run it again next quarter</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Run it again next quarter</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Run the CPA Firm Board on my firm again. Last quarter's plan is in
 this project's files, dated [MM/DD/YYYY].
 
@@ -1719,7 +1757,7 @@ done, late or dropped.
 Then ask the nine questions again. Before each one, show me my answer
 from last quarter in one line, and ask what has changed.</code></pre>
 </div>
-  <p><strong>Result.</strong> The new plan opens with a &quot;Last quarter&quot; section: each seat's number to move, where it started, its target, where it is now, and hit or missed.</p>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>The new plan opens with a &quot;Last quarter&quot; section: each seat's number to move, where it started, its target, where it is now, and hit or missed.</p></div></aside>
   <h3 class="r-h3">How it treats last quarter's seats</h3>
   <ul class="r-list"><li>A seat that missed its number gets 2 extra points, so it usually stays on the board.</li><li>If a seat's number hasn't moved for two quarters, the skill asks why and records one reason: nobody owned it, the number was wrong, or the action was wrong.</li><li>A seat that hit its target can leave the board, and a parked seat can take its place.</li></ul>
   <p>The quarter after busy season is the one to watch. Run the review in May, once the April 15 returns are out, and the Tax Planning Advisor's list comes back longer, because your team has just seen every return. The extension returns in September and October add more.</p>

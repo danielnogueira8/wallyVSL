@@ -1,4 +1,4 @@
-// Generated from the Notion resource by md2res.mjs. Edit here from now on.
+// The AI CPA Firm Board. Visuals added: hero cover, quick start, flow, figures, question cards.
 
 export default {
   "slug": "ai-cpa-firm-board",
@@ -51,12 +51,71 @@ export default {
           "text": "Hey, I'm Wallace Darling (most people call me Wally). I run Darling Financial Group (darling-fg.com). I work with people earning $500k+ and business owners with $1M+ in revenue on the tax strategy that sits beyond the return, and I partner with CPA firms on that strategy layer so their clients get it without ever leaving the firm."
         },
         {
+          "type": "quickstart",
+          "items": [
+            {
+              "label": "Time",
+              "value": "About an hour, the first time"
+            },
+            {
+              "label": "You need",
+              "value": "A Claude plan with code execution on"
+            },
+            {
+              "label": "You get",
+              "value": "A 90-day plan with owners and dates"
+            },
+            {
+              "label": "Run it again",
+              "value": "Every quarter, in week 13"
+            }
+          ]
+        },
+        {
           "type": "p",
           "text": "I built this because nobody runs the operating review on the firm itself. You'd look at a client's business and spot the problem in an afternoon, but the firm's own numbers go years without anyone reading them that way. And the firms I partner with all hit the same constraint: no capacity in busy season, everything landing on the partner's desk, and fees that haven't moved since the client's situation was half as complicated."
         },
         {
           "type": "p",
           "text": "What you'll get: one complete Claude Skill, every file in full and ready to copy, that asks you nine questions about your firm, picks the three or four advisor seats your answers point to, and writes a 90-day plan from your own numbers."
+        },
+        {
+          "type": "figure",
+          "src": "/assets/public/resources/ai-cpa-firm-board/seats.webp",
+          "width": 1520,
+          "height": 674,
+          "alt": "The eight seats. Your answers decide which three or four sit on the board this quarter.",
+          "caption": "The eight seats. Your answers decide which three or four sit on the board this quarter.",
+          "label": "The board"
+        },
+        {
+          "type": "flow",
+          "items": [
+            {
+              "title": "Install the skill",
+              "text": "Ten minutes, or paste it as prompts",
+              "href": "#install-the-cpa-firm-board"
+            },
+            {
+              "title": "Answer 9 questions",
+              "text": "One at a time, with your numbers",
+              "href": "#the-nine-questions"
+            },
+            {
+              "title": "It picks 3 or 4 seats",
+              "text": "Scored from your answers",
+              "href": "#how-it-picks-the-seats"
+            },
+            {
+              "title": "You confirm the board",
+              "text": "Swap a seat if you want"
+            },
+            {
+              "title": "Get the 90-day plan",
+              "text": "Owners, weeks and the number that shows it worked",
+              "href": "#a-worked-illustration"
+            }
+          ]
         },
         {
           "type": "callout",
@@ -326,6 +385,14 @@ export default {
         {
           "type": "p",
           "text": "**Result.** A file called `cpa-firm-board.zip` appears next to the folder. Open the ZIP to check it. The first item inside must be the `cpa-firm-board` folder. If the first item is `SKILL.md`, delete the ZIP and zip the folder again."
+        },
+        {
+          "type": "figure",
+          "src": "/assets/public/resources/ai-cpa-firm-board/zip.webp",
+          "width": 1520,
+          "height": 1132,
+          "alt": "Open the ZIP before you upload it. If the first thing inside is SKILL.md, zip the folder again.",
+          "caption": "Open the ZIP before you upload it. If the first thing inside is `SKILL.md`, zip the folder again."
         },
         {
           "type": "h3",
@@ -712,148 +779,153 @@ export default {
           "text": "Most of the numbers come from two places: your practice management software (time, standard value, WIP, write-downs, hours per client) and your own QuickBooks Online (fees, A/R, fees per client)."
         },
         {
-          "type": "p",
-          "text": "**Question 1: growth and the constraint**"
-        },
-        {
-          "type": "p",
-          "text": "\"What has held the firm's revenue where it is over the last two years: not enough of the right clients, not enough hours, or fees that have not moved?\""
-        },
-        {
-          "type": "p",
-          "text": "*Why it's asked.* Revenue is clients times the average fee, and growth stalls in one of four places: demand, hours, price or the owner. Most owners name all four. The skill splits your revenue change into the part that came from more clients and the part that came from higher fees, and the split usually points to one."
-        },
-        {
-          "type": "p",
-          "text": "*Have ready.* Revenue for the last three years and the last 12 months, the client count now and two years ago, headcount, and roughly how many prospects you turned away last year."
-        },
-        {
-          "type": "p",
-          "text": "**Question 2: fees and realization**"
-        },
-        {
-          "type": "p",
-          "text": "\"When did the firm last reprice each client against the work that client now needs, and do you know your realization rate? A percentage increase on everyone does not count as a repricing.\""
-        },
-        {
-          "type": "p",
-          "text": "*Why it's asked.* A flat increase every January isn't a repricing. Any client past 24 months without one is a fee conversation that hasn't happened, and the write-downs show which ones first."
-        },
-        {
-          "type": "p",
-          "text": "*Have ready.* Fees billed and the standard value of time for the same 12 months, write-downs and write-offs, cash collected, WIP and how much of it is over 60 days, and A/R."
-        },
-        {
-          "type": "p",
-          "text": "**Question 3: scope and pricing**"
-        },
-        {
-          "type": "p",
-          "text": "\"How do you price the work: per return, a monthly fee, or by the hour? And what happens when a client sends a shoebox in March, or asks for something the engagement letter does not cover?\""
-        },
-        {
-          "type": "p",
-          "text": "*Why it's asked.* Per-return pricing rewards the shoebox. The second state return, the payroll notice and the forty-minute \"quick question\" all sit outside the letter, and most of them never reach an invoice."
-        },
-        {
-          "type": "p",
-          "text": "*Have ready.* How many clients pay monthly, what your engagement letter says about records, and a rough figure for out-of-scope hours you didn't bill."
-        },
-        {
-          "type": "p",
-          "text": "**Question 4: advisory and tax planning**"
-        },
-        {
-          "type": "p",
-          "text": "\"How many clients paid the firm last year for tax planning or advisory work separate from the return, and how many do you think should have?\""
-        },
-        {
-          "type": "p",
-          "text": "*Why it's asked.* Your team sees the planning signals every year while they prepare the return: an S corporation salary that hasn't moved, a large capital gains year, a rental on straight-line depreciation. The conversation gets pushed past October 15, and then nobody makes the call. The difference between the two numbers in your answer is the Tax Planning Advisor's starting point."
-        },
-        {
-          "type": "p",
-          "text": "*Have ready.* Clients who paid for planning last year and those fees, your return counts by form, and whether your tax software can export a client list by code."
-        },
-        {
-          "type": "p",
-          "text": "**Question 5: busy season capacity**"
-        },
-        {
-          "type": "p",
-          "text": "\"How did last busy season go, and how many chargeable hours does the team have against the hours the work needs, month by month from January to April 15 and through the extension deadlines?\""
-        },
-        {
-          "type": "p",
-          "text": "*Why it's asked.* \"We're slammed\" is a feeling. Hours available against hours needed, month by month, is a plan, and it shows which months have spare hours to move work into."
-        },
-        {
-          "type": "p",
-          "text": "*Have ready.* Who records chargeable time, their vacation and non-chargeable days, hours recorded by month last year, and how many extensions you filed because you ran out of time."
-        },
-        {
-          "type": "p",
-          "text": "**Question 6: repeated work**"
-        },
-        {
-          "type": "p",
-          "text": "\"What work does the team do every week that follows the same steps each time: chasing documents, reviewing bank feeds, preparing workpapers, writing the same client emails?\""
-        },
-        {
-          "type": "p",
-          "text": "*Why it's asked.* Repeated work with the same steps is where AI helps first. The best first task has many hours a year, the same steps each time, and a person checking the result before it goes anywhere."
-        },
-        {
-          "type": "p",
-          "text": "*Have ready.* The tasks, with a rough figure for hours a week each one takes across the team."
-        },
-        {
-          "type": "p",
-          "text": "**Question 7: AI in the firm today**"
-        },
-        {
-          "type": "p",
-          "text": "\"Who in the firm uses AI tools now, for what, and is there a written rule about which client data can go into them?\""
-        },
-        {
-          "type": "p",
-          "text": "*Why it's asked.* In most firms, somebody is already pasting client information into a personal AI account. If tax return information is going in with no Section 7216 check, the Quality Controller takes a seat on the board whatever else scores higher."
-        },
-        {
-          "type": "p",
-          "text": "*Have ready.* Who uses what, personal or business accounts, and the date your WISP was last reviewed."
-        },
-        {
-          "type": "p",
-          "text": "**Question 8: the goal for the quarter**"
-        },
-        {
-          "type": "p",
-          "text": "\"Which week of the last year would you most like back, and what is the one thing you want to be different by the end of the next 90 days?\""
-        },
-        {
-          "type": "p",
-          "text": "*Why it's asked.* The plan opens with your answer, in your words. The seats that serve it get extra points, and they take the first places if more than four seats qualify."
-        },
-        {
-          "type": "p",
-          "text": "*Have ready.* The one number that would tell you it worked, and where it stands today."
-        },
-        {
-          "type": "p",
-          "text": "**Question 9: the three-month test**"
-        },
-        {
-          "type": "p",
-          "text": "\"If you were off for three months starting Monday, and nobody could reach you, what would stop, which clients would call, and what would happen to new work and fee conversations?\""
-        },
-        {
-          "type": "p",
-          "text": "*Why it's asked.* Every seat reads it. What would stop goes to capacity and sign-off. Who would call goes to client relationships. What happens to new work goes to growth, pricing and planning, because in most firms the owner is the only one holding those conversations. The skill scores the answer from 0 to 6."
-        },
-        {
-          "type": "p",
-          "text": "*Have ready.* How many clients deal only with you and roughly what they pay, the work only you review or sign, and any plan to sell, merge or step back."
+          "type": "qcards",
+          "items": [
+            {
+              "num": "01",
+              "title": "Growth and the constraint",
+              "id": "question-1",
+              "quote": "What has held the firm's revenue where it is over the last two years: not enough of the right clients, not enough hours, or fees that have not moved?",
+              "fields": [
+                [
+                  "Why it's asked",
+                  "Revenue is clients times the average fee, and growth stalls in one of four places: demand, hours, price or the owner. Most owners name all four. The skill splits your revenue change into the part that came from more clients and the part that came from higher fees, and the split usually points to one."
+                ],
+                [
+                  "Have ready",
+                  "Revenue for the last three years and the last 12 months, the client count now and two years ago, headcount, and roughly how many prospects you turned away last year."
+                ]
+              ]
+            },
+            {
+              "num": "02",
+              "title": "Fees and realization",
+              "id": "question-2",
+              "quote": "When did the firm last reprice each client against the work that client now needs, and do you know your realization rate? A percentage increase on everyone does not count as a repricing.",
+              "fields": [
+                [
+                  "Why it's asked",
+                  "A flat increase every January isn't a repricing. Any client past 24 months without one is a fee conversation that hasn't happened, and the write-downs show which ones first."
+                ],
+                [
+                  "Have ready",
+                  "Fees billed and the standard value of time for the same 12 months, write-downs and write-offs, cash collected, WIP and how much of it is over 60 days, and A/R."
+                ]
+              ]
+            },
+            {
+              "num": "03",
+              "title": "Scope and pricing",
+              "id": "question-3",
+              "quote": "How do you price the work: per return, a monthly fee, or by the hour? And what happens when a client sends a shoebox in March, or asks for something the engagement letter does not cover?",
+              "fields": [
+                [
+                  "Why it's asked",
+                  "Per-return pricing rewards the shoebox. The second state return, the payroll notice and the forty-minute \"quick question\" all sit outside the letter, and most of them never reach an invoice."
+                ],
+                [
+                  "Have ready",
+                  "How many clients pay monthly, what your engagement letter says about records, and a rough figure for out-of-scope hours you didn't bill."
+                ]
+              ]
+            },
+            {
+              "num": "04",
+              "title": "Advisory and tax planning",
+              "id": "question-4",
+              "quote": "How many clients paid the firm last year for tax planning or advisory work separate from the return, and how many do you think should have?",
+              "fields": [
+                [
+                  "Why it's asked",
+                  "Your team sees the planning signals every year while they prepare the return: an S corporation salary that hasn't moved, a large capital gains year, a rental on straight-line depreciation. The conversation gets pushed past October 15, and then nobody makes the call. The difference between the two numbers in your answer is the Tax Planning Advisor's starting point."
+                ],
+                [
+                  "Have ready",
+                  "Clients who paid for planning last year and those fees, your return counts by form, and whether your tax software can export a client list by code."
+                ]
+              ]
+            },
+            {
+              "num": "05",
+              "title": "Busy season capacity",
+              "id": "question-5",
+              "quote": "How did last busy season go, and how many chargeable hours does the team have against the hours the work needs, month by month from January to April 15 and through the extension deadlines?",
+              "fields": [
+                [
+                  "Why it's asked",
+                  "\"We're slammed\" is a feeling. Hours available against hours needed, month by month, is a plan, and it shows which months have spare hours to move work into."
+                ],
+                [
+                  "Have ready",
+                  "Who records chargeable time, their vacation and non-chargeable days, hours recorded by month last year, and how many extensions you filed because you ran out of time."
+                ]
+              ]
+            },
+            {
+              "num": "06",
+              "title": "Repeated work",
+              "id": "question-6",
+              "quote": "What work does the team do every week that follows the same steps each time: chasing documents, reviewing bank feeds, preparing workpapers, writing the same client emails?",
+              "fields": [
+                [
+                  "Why it's asked",
+                  "Repeated work with the same steps is where AI helps first. The best first task has many hours a year, the same steps each time, and a person checking the result before it goes anywhere."
+                ],
+                [
+                  "Have ready",
+                  "The tasks, with a rough figure for hours a week each one takes across the team."
+                ]
+              ]
+            },
+            {
+              "num": "07",
+              "title": "AI in the firm today",
+              "id": "question-7",
+              "quote": "Who in the firm uses AI tools now, for what, and is there a written rule about which client data can go into them?",
+              "fields": [
+                [
+                  "Why it's asked",
+                  "In most firms, somebody is already pasting client information into a personal AI account. If tax return information is going in with no Section 7216 check, the Quality Controller takes a seat on the board whatever else scores higher."
+                ],
+                [
+                  "Have ready",
+                  "Who uses what, personal or business accounts, and the date your WISP was last reviewed."
+                ]
+              ]
+            },
+            {
+              "num": "08",
+              "title": "The goal for the quarter",
+              "id": "question-8",
+              "quote": "Which week of the last year would you most like back, and what is the one thing you want to be different by the end of the next 90 days?",
+              "fields": [
+                [
+                  "Why it's asked",
+                  "The plan opens with your answer, in your words. The seats that serve it get extra points, and they take the first places if more than four seats qualify."
+                ],
+                [
+                  "Have ready",
+                  "The one number that would tell you it worked, and where it stands today."
+                ]
+              ]
+            },
+            {
+              "num": "09",
+              "title": "The three-month test",
+              "id": "question-9",
+              "quote": "If you were off for three months starting Monday, and nobody could reach you, what would stop, which clients would call, and what would happen to new work and fee conversations?",
+              "fields": [
+                [
+                  "Why it's asked",
+                  "Every seat reads it. What would stop goes to capacity and sign-off. Who would call goes to client relationships. What happens to new work goes to growth, pricing and planning, because in most firms the owner is the only one holding those conversations. The skill scores the answer from 0 to 6."
+                ],
+                [
+                  "Have ready",
+                  "How many clients deal only with you and roughly what they pay, the work only you review or sign, and any plan to sell, merge or step back."
+                ]
+              ]
+            }
+          ]
         },
         {
           "type": "p",
@@ -985,6 +1057,15 @@ export default {
             "On a tie, the Practice Strategist gives way to any seat that can start this week, unless revenue has been flat or falling for two years.",
             "If it's still a tie, the seat that can start with numbers you already have goes first. If that doesn't settle it, the skill asks you."
           ]
+        },
+        {
+          "type": "figure",
+          "src": "/assets/public/resources/ai-cpa-firm-board/scores.webp",
+          "width": 1520,
+          "height": 1072,
+          "alt": "How the made-up firm in section 7 came out. Every seat that qualified and missed out goes into \"What we are not doing this quarter\".",
+          "caption": "How the made-up firm in section 7 came out. Every seat that qualified and missed out goes into \"What we are not doing this quarter\".",
+          "label": "Illustration"
         },
         {
           "type": "p",
@@ -1308,6 +1389,15 @@ export default {
           ]
         },
         {
+          "type": "figure",
+          "src": "/assets/public/resources/ai-cpa-firm-board/capacity.webp",
+          "width": 1520,
+          "height": 906,
+          "alt": "The capacity table as a chart: the spare hours come first, so work can move into November and December.",
+          "caption": "The capacity table as a chart: the spare hours come first, so work can move into November and December.",
+          "label": "Illustration"
+        },
+        {
           "type": "p",
           "text": "The firm is 750 hours short from February to April, and it has 724 spare hours in November and December. The spare hours come first, in time to take work. Moving the year-end QuickBooks review for 60 business clients into December, at the owner's estimate of 4 hours each, moves 240 hours (60 × 4 = 240) and leaves 510 short."
         },
@@ -1367,6 +1457,15 @@ export default {
         {
           "type": "h3",
           "text": "An excerpt from the plan"
+        },
+        {
+          "type": "figure",
+          "src": "/assets/public/resources/ai-cpa-firm-board/plan.webp",
+          "width": 1520,
+          "height": 1456,
+          "alt": "What the start of the plan looks like. The full excerpt follows.",
+          "caption": "What the start of the plan looks like. The full excerpt follows.",
+          "label": "Illustration"
         },
         {
           "type": "p",
@@ -2026,5 +2125,11 @@ export default {
         }
       ]
     }
-  ]
+  ],
+  "heroImage": {
+    "src": "/assets/public/resources/ai-cpa-firm-board/cover.webp",
+    "alt": "The AI CPA Firm Board: eight advisor seats around your firm",
+    "width": 1100,
+    "height": 742
+  }
 }

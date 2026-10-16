@@ -14,6 +14,15 @@
 //   - No LinkedIn CTAs on CPA resources. Default to US sources and figures.
 //   - Proof cards count what's inside. Never invent results or client numbers.
 //
+// Visual blocks (see the three October resources for examples):
+//   { type: "quickstart", items: [{ label, value }] }           time / you need / you get strip
+//   { type: "flow", items: [{ title, text, href }] }              numbered steps with arrows
+//   { type: "figure", src, width, height, caption, label, narrow } image in /assets/public/resources/<slug>/
+//   { type: "qcards", items: [{ num, title, quote, fields }] }   question cards
+//   A paragraph starting "**Result.**" renders as a green outcome box.
+//   Code blocks over 40 lines fold to a preview (set collapsed: false to stop it).
+//   heroImage: { src, alt, width, height } replaces the typographic cover in the hero.
+//
 // Inline markup in any text: **bold**  *italic*  `code`  [label](/path or https://... or #section-id)
 
 export default {

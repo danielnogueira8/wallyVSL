@@ -10,8 +10,8 @@
 <meta property="og:description" content="A free Claude workflow for US CPA firms: a week-by-week 13-week cash forecast built from a client's QuickBooks Online data, with receipts timed by real payment history, every IRS and state payment in the week it leaves, and a ten-minute Monday roll-forward." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.wallacedarling.com/resources/13-week-cash-flow-quickbooks/" />
-<meta property="og:image" content="https://www.wallacedarling.com/assets/public/wallace.jpeg" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://www.wallacedarling.com/assets/public/resources/13-week-cash-flow-quickbooks/cover.webp" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" type="image/jpeg" href="/assets/public/wallace.jpeg" />
 <link rel="apple-touch-icon" href="/assets/public/wallace.jpeg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -58,12 +58,7 @@
           <a class="r-hero-link" href="/partners/">Partner with Darling FG &rarr;</a>
         </div>
       </div>
-      <div class="r-cover r-cover-lg" aria-hidden="true">
-  <span class="r-cover-kicker">Free Claude workflow</span>
-  <span class="r-cover-big">13</span>
-  <span class="r-cover-small">weeks of cash from QuickBooks</span>
-  <span class="r-cover-mark">Darling FG</span>
-</div>
+      <figure class="r-hero-img"><img src="/assets/public/resources/13-week-cash-flow-quickbooks/cover.webp" alt="The 13-Week Cash Flow Forecast, QuickBooks edition" width="1000" height="1144" /></figure>
     </div>
     <div class="container">
       <div class="r-proof"><div><span class="r-proof-value">13</span><span class="r-proof-label">Weeks, week by week</span><span class="r-proof-detail">Built in Excel by Claude from eight QuickBooks reports.</span></div><div><span class="r-proof-value">5</span><span class="r-proof-label">Questions first</span><span class="r-proof-detail">What the client knows that QuickBooks can't see.</span></div><div><span class="r-proof-value">10 min</span><span class="r-proof-label">Every Monday</span><span class="r-proof-detail">Roll forward and check last week against the bank.</span></div></div>
@@ -85,8 +80,34 @@
   <span class="r-eyebrow">Read this first</span>
   <h2 id="start-here-h">The number an owner checks first</h2>
   <p class="r-lead">Hey, I'm Wallace Darling (most people call me Wally). I run Darling Financial Group (darling-fg.com). I work with people earning $500k+ and business owners with $1M+ in revenue on the tax strategy that sits beyond the return, and I partner with CPA firms on that strategy layer so their clients get it without ever leaving the firm.</p>
+  <dl class="r-quick"><div><dt>Time</dt><dd>About 20 minutes the first time</dd></div><div><dt>Then</dt><dd>Ten minutes every Monday</dd></div><div><dt>You need</dt><dd>A Claude plan and the client's QuickBooks Online</dd></div><div><dt>You get</dt><dd>A 13-week Excel workbook and the client email</dd></div></dl>
   <p>I put this together because the short-term cash view is the number an owner checks first, before profit and long before the return, and most firms build it by hand once, usually when the client is already worried, and never touch it again. From where I sit there's a second reason: the rows that surprise owners most in a cash forecast are the tax payments, the payroll deposits, the state payments, the pass-through entity tax and their own estimates, because nobody put them in the week the money actually leaves.</p>
   <p>What you'll get: a 13-week, week-by-week cash forecast for one client, built by Claude from the client's QuickBooks Online data and handed back as an Excel workbook, with the five questions to ask first, every IRS and state payment in its real week, the three moves when a week runs short, the email to the client, and a roll-forward every Monday.</p>
+  <ol class="r-flow" style="--cols:3"><li><a href="#what-you-need-and-connecting-claude-to-quickbooks">
+    <span class="r-flow-num">01</span>
+    <strong>Connect and export</strong>
+    <span class="r-flow-text">Eight QuickBooks reports</span>
+  </a></li><li><a href="#the-front-sheet-five-questions-before-anyone-relies-on-week-">
+    <span class="r-flow-num">02</span>
+    <strong>Ask five questions</strong>
+    <span class="r-flow-text">What QuickBooks can't see</span>
+  </a></li><li class="row-end"><a href="#build-the-13-weeks">
+    <span class="r-flow-num">03</span>
+    <strong>Build the 13 weeks</strong>
+    <span class="r-flow-text">Receipts timed by who pays</span>
+  </a></li><li><a href="#the-week-it-runs-short-and-the-three-moves">
+    <span class="r-flow-num">04</span>
+    <strong>Find the short week</strong>
+    <span class="r-flow-text">And the three moves</span>
+  </a></li><li><a href="#the-client-email-and-one-chart">
+    <span class="r-flow-num">05</span>
+    <strong>Email the client</strong>
+    <span class="r-flow-text">One chart they'll read</span>
+  </a></li><li class="row-end"><a href="#every-monday-in-ten-minutes">
+    <span class="r-flow-num">06</span>
+    <strong>Roll it forward</strong>
+    <span class="r-flow-text">Every Monday</span>
+  </a></li></ol>
   <aside class="r-callout">
   <div>
     <strong class="r-callout-title">Have clients whose cash forecast keeps turning into a tax question?</strong>
@@ -115,7 +136,7 @@
   <h3 class="r-h3">Test it</h3>
   <ol class="r-steps"><li><span>Start a new chat.</span></li><li><span>Send the question below.</span></li><li><span>Compare the company name with the client's QuickBooks.</span></li><li><span>Compare each balance with the bank accounts in QuickBooks.</span></li></ol>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Test the connection</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Test the connection</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Use the QuickBooks connector for reading only. Do not create, send,
 change or delete anything.
 
@@ -123,7 +144,7 @@ change or delete anything.
 2. List every bank account in this company with its balance today.
    One row per account, and a total.</code></pre>
 </div>
-  <p><strong>Result.</strong> If the company name and the balances match, the connection works. You use the same check at the start of every chat.</p>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>If the company name and the balances match, the connection works. You use the same check at the start of every chat.</p></div></aside>
   <h3 class="r-h3">Export the reports</h3>
   <p>The forecast is built from these eight reports. Export each one from <strong>Reports</strong> in QuickBooks Online, as Excel. Report names can vary slightly by edition.</p>
   <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>Report</th><th>Settings</th><th>What the forecast uses it for</th></tr></thead><tbody><tr><td>A/R Aging Detail</td><td>As of the Sunday before week 1</td><td>Every open invoice, with invoice date, due date and amount</td></tr><tr><td>A/P Aging Detail</td><td>As of the Sunday before week 1</td><td>Every open bill, with bill date, due date and amount</td></tr><tr><td>Invoices and Received Payments</td><td>Last 12 months</td><td>Invoice dates and the dates each invoice was paid, for each customer's payment history</td></tr><tr><td>Bill Payment List</td><td>Last 12 months</td><td>When each supplier was actually paid</td></tr><tr><td>Recurring Template List</td><td>All</td><td>Rent, subscriptions and other bills already set to repeat, with their next dates</td></tr><tr><td>Profit and Loss by Month</td><td>Last 12 months, and the prior year if available</td><td>The sales run rate and the overhead run rate</td></tr><tr><td>Balance Sheet</td><td>As of the last month end</td><td>Loans, credit cards, payroll liabilities and sales tax owed</td></tr><tr><td>Transaction Detail by Account (or the bank register)</td><td>Operating bank accounts, last 3 months</td><td>Loan payments, distributions and anything paid outside bills</td></tr></tbody></table></div>
@@ -143,7 +164,7 @@ change or delete anything.
   <h3 class="r-h3">The message to send the client</h3>
   <p>Send it the week before you build. It's written to be answered on a phone.</p>
   <div class="r-code">
-  <div class="r-code-bar"><span>The message to send the client</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>The message to send the client</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Subject: Five quick questions before we build your cash forecast
 
 Hi [FIRST NAME],
@@ -199,8 +220,8 @@ Thanks,
   <h3 class="r-h3">Run it</h3>
   <p>Read this before you start. If the bank reconciliation in QuickBooks is behind, reconcile it first. Opening cash comes from the books, so a wrong balance makes all 13 weeks wrong.</p>
   <ol class="r-steps"><li><span>Export the eight reports (section 1).</span></li><li><span>Start a new chat.</span></li><li><span>Upload the eight exports.</span></li><li><span>Copy the prompt below into the message box.</span></li><li><span>Fill in every square bracket.</span></li><li><span>Paste the client's five answers where the prompt asks for them.</span></li><li><span>Send the prompt.</span></li></ol>
-  <div class="r-code">
-  <div class="r-code-bar"><span>Master prompt · Build the 13 weeks</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code is-folded">
+  <div class="r-code-bar"><span>Master prompt · Build the 13 weeks</span><span class="r-code-actions"><button type="button" class="r-unfold" aria-expanded="false">Show all 202 lines</button><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Build a 13-week cash flow forecast for [CLIENT CODE] from the
 QuickBooks Online exports attached. The client is a US [S corporation
 / C corporation / partnership / sole proprietorship] in [STATE].
@@ -404,7 +425,7 @@ WHEN YOU FINISH, TELL ME
    invoice.
 5. Every figure flagged for my review.</code></pre>
 </div>
-  <p><strong>Result.</strong> Claude gives you an Excel file in the chat, and a short summary: the lowest week, the first short week, the assumptions it made and the figures it flagged.</p>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>Claude gives you an Excel file in the chat, and a short summary: the lowest week, the first short week, the assumptions it made and the figures it flagged.</p></div></aside>
   <h3 class="r-h3">Check it</h3>
   <ol class="r-steps"><li><span>Open the <strong>Checks</strong> tab.</span></li><li><span>Confirm that every check shows zero difference.</span></li><li><span>Compare week 1 opening cash with the client's bank statements.</span></li><li><span>Ask Claude: <code>Show me the code that worked out opening cash and the week 1 totals.</code></span></li><li><span>Read every assumption in Claude's summary.</span></li><li><span>Agree each line on the <strong>Taxes</strong> tab to the payroll register, the state filings and your tax projection.</span></li><li><span>Do the payment history check in section 4.</span></li></ol>
 </section>
@@ -412,6 +433,10 @@ WHEN YOU FINISH, TELL ME
   <span class="r-eyebrow"><span>04</span>Time Receipts by Who Actually Pays</span>
   <h2 id="time-receipts-by-who-actually-pays-h">Time Receipts by Who Actually Pays</h2>
   <p>Most cash forecasts time receipts by the terms printed on the invoice. Customers don't pay by the terms printed on the invoice. They pay the way they've always paid, and QuickBooks already holds the record of exactly how that is.</p>
+  <figure class="r-figure">
+  <a href="/assets/public/resources/13-week-cash-flow-quickbooks/terms.webp" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/assets/public/resources/13-week-cash-flow-quickbooks/terms.webp" alt="Why the due date is the wrong date. The forecast lands each customer's money when that customer usually pays." width="1520" height="800" loading="lazy" decoding="async" /></a>
+  <figcaption>Why the due date is the wrong date. The forecast lands each customer's money when that customer usually pays.</figcaption>
+</figure>
   <p>Take a client on $1.5M in revenue whose customers pay at 50 days against net 30 terms. $1.5M ÷ 365 × 20 is $82,192 of sales landing twenty days later than a terms-based forecast says. If the client charged sales tax, the cash would be higher again, but this one sells for resale and charges none. That's $82,192 the forecast puts in the bank that isn't there, every single week, and it can be enough to hide a line of credit running out completely (section 6 shows one).</p>
   <h3 class="r-h3">The timing rules</h3>
   <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>Situation</th><th>How the receipt is timed</th></tr></thead><tbody><tr><td>The customer has at least 3 paid invoices in the last 12 months</td><td>Invoice date plus the customer's average days to pay, weighted by invoice value</td></tr><tr><td>The customer has fewer than 3 paid invoices</td><td>Due date plus the delay the client gave in the five answers</td></tr><tr><td>Fewer than 3 paid invoices, and no estimate from the client</td><td>Due date plus the average days late of all customers. Claude flags the customer</td></tr><tr><td>The expected date is already past</td><td>Week 2, and the invoice goes on the chase list</td></tr><tr><td>The invoice is in dispute, or more than 30 days older than the customer's average</td><td>Not forecast. Claude lists it for you and the client to decide</td></tr><tr><td>Sales not yet invoiced</td><td>Split by each customer's share of the last 12 months' sales, then timed by that customer's average days</td></tr></tbody></table></div>
@@ -420,7 +445,7 @@ WHEN YOU FINISH, TELL ME
   <p>Run this prompt when you take on a new client. Run it again on the first Monday of each month. The prompt refreshes the payment history on the Inputs tab. It also lists the customers who pay more slowly than before.</p>
   <ol class="r-steps"><li><span>Export <strong>Invoices and Received Payments</strong> and <strong>A/R Aging Detail</strong> (section 1).</span></li><li><span>Start a new chat.</span></li><li><span>Upload the two exports.</span></li><li><span>Copy the prompt below into the message box.</span></li><li><span>Fill in the square brackets.</span></li><li><span>Send the prompt.</span></li></ol>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Payment history table</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Payment history table</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Using the attached QuickBooks Online exports, build a payment history
 table for [CLIENT CODE]. Do every calculation in code. Use the
 QuickBooks connector, for reading only, to confirm the company name is
@@ -445,7 +470,7 @@ QuickBooks connector, for reading only, to confirm the company name is
 Give me the table as an Excel file, and show the calculation for the
 largest customer.</code></pre>
 </div>
-  <p><strong>Result.</strong> A table with one row per customer, the all-customer average at the bottom, and a list of customers who are slowing down.</p>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>A table with one row per customer, the all-customer average at the bottom, and a list of customers who are slowing down.</p></div></aside>
   <h3 class="r-h3">Check it</h3>
   <ol class="r-steps"><li><span>Take the largest customer on the table.</span></li><li><span>Open that customer in QuickBooks.</span></li><li><span>Select three paid invoices.</span></li><li><span>For each invoice, count the days from the invoice date to the payment date.</span></li><li><span>Confirm that each count is between the shortest and the longest days on the table.</span></li></ol>
   <h3 class="r-h3">What the table looks like</h3>
@@ -491,12 +516,20 @@ largest customer.</code></pre>
   <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>#</th><th>Question</th><th>MRW01's answer</th></tr></thead><tbody><tr><td>1</td><td>Orders not invoiced</td><td>A new customer's holiday order, $60,000, invoiced on 11/16. The stock for it costs $39,600, billed on 11/09 and paid on net 30</td></tr><tr><td>2</td><td>Finance not in QuickBooks</td><td>A forklift on a new equipment loan: $1,240 a month on the 20th, from 11/20</td></tr><tr><td>3</td><td>One-off payments</td><td>Insurance renewal, $9,600 on 12/15</td></tr><tr><td>4</td><td>Late or early payers</td><td>Customer D disputes a $9,800 invoice from July, so don't count on it. The new customer expects to pay about two weeks after the due date</td></tr><tr><td>5</td><td>Distributions and taxes</td><td>A $14,000 PTET payment on 12/16, decided with the CPA so it's deducted in 2026. A $30,000 year-end distribution on 12/18. The owner's fourth 2026 federal estimate, $16,000, paid from the business on 01/15/2027</td></tr></tbody></table></div>
   <h3 class="r-h3">The 13 weeks</h3>
   <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>Week</th><th>Week starting</th><th>Opening cash</th><th>Money in</th><th>Money out</th><th>Taxes</th><th>Closing cash</th><th>Headroom</th><th>Closing cash if customers paid on terms</th></tr></thead><tbody><tr><td>1</td><td>Oct 19</td><td>$2,000</td><td>$14,382</td><td>$19,630</td><td>$2,144</td><td>$(5,392)</td><td>$69,608</td><td>$93,429</td></tr><tr><td>2</td><td>Oct 26</td><td>$(5,392)</td><td>$42,256</td><td>$39,651</td><td>$380</td><td>$(3,167)</td><td>$71,833</td><td>$83,597</td></tr><tr><td>3</td><td>Nov 2</td><td>$(3,167)</td><td>$29,143</td><td>$21,290</td><td>$2,144</td><td>$2,542</td><td>$77,542</td><td>$91,203</td></tr><tr><td>4</td><td>Nov 9</td><td>$2,542</td><td>$28,236</td><td>$23,734</td><td>$672</td><td>$6,373</td><td>$81,373</td><td>$90,562</td></tr><tr><td>5</td><td>Nov 16</td><td>$6,373</td><td>$30,996</td><td>$21,833</td><td>$2,144</td><td>$13,392</td><td>$88,392</td><td>$96,289</td></tr><tr><td>6</td><td>Nov 23</td><td>$13,392</td><td>$27,569</td><td>$20,593</td><td>$0</td><td>$20,367</td><td>$95,367</td><td>$105,458</td></tr><tr><td>7</td><td>Nov 30</td><td>$20,367</td><td>$30,088</td><td>$42,553</td><td>$2,144</td><td>$5,759</td><td>$80,759</td><td>$92,403</td></tr><tr><td>8</td><td>Dec 7</td><td>$5,759</td><td>$29,829</td><td>$58,818</td><td>$0</td><td>$(23,231)</td><td>$51,769</td><td>$59,901</td></tr><tr><td>9</td><td>Dec 14</td><td>$(23,231)</td><td>$28,104</td><td>$69,633</td><td>$16,816</td><td><strong>$(81,576)</strong></td><td><strong>$(6,576)</strong></td><td>$66,347</td></tr><tr><td>10</td><td>Dec 21</td><td>$(81,576)</td><td>$25,855</td><td>$18,318</td><td>$0</td><td>$(74,039)</td><td>$961</td><td>$74,344</td></tr><tr><td>11</td><td>Dec 28</td><td>$(74,039)</td><td>$89,173</td><td>$39,424</td><td>$0</td><td>$(24,290)</td><td>$50,710</td><td>$60,339</td></tr><tr><td>12</td><td>Jan 4</td><td>$(24,290)</td><td>$34,856</td><td>$21,360</td><td>$2,144</td><td>$(12,938)</td><td>$62,062</td><td>$70,926</td></tr><tr><td>13</td><td>Jan 11</td><td>$(12,938)</td><td>$28,071</td><td>$25,832</td><td>$16,672</td><td>$(27,371)</td><td>$47,629</td><td>$56,831</td></tr><tr><td><strong>Total</strong></td><td></td><td></td><td><strong>$438,557</strong></td><td><strong>$422,668</strong></td><td><strong>$45,260</strong></td><td></td><td></td><td></td></tr></tbody></table></div>
+  <figure class="r-figure">
+  <a href="/assets/public/resources/13-week-cash-flow-quickbooks/13wk.webp" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/assets/public/resources/13-week-cash-flow-quickbooks/13wk.webp" alt="The same 13 weeks as a chart. Paying on terms, MRW01 never touches its line." width="1520" height="1042" loading="lazy" decoding="async" /></a>
+  <figcaption><span class="r-figure-label">Illustration</span>The same 13 weeks as a chart. Paying on terms, MRW01 never touches its line.</figcaption>
+</figure>
   <p>Headroom is closing cash plus the $75,000 line. Negative closing cash means the line is drawn. Negative headroom is a week the client would need more than the whole line.</p>
   <p>Week 1 money in is light and week 2 is heavy because of rule R4: twelve open invoices worth $12,097 had expected dates that were already past, so they sit in week 2 and on the chase list.</p>
   <h3 class="r-h3">What it shows</h3>
   <p><strong>Week 9, the week of 12/14, is the short week.</strong> MRW01 closes $81,576 into its line, $6,576 more than the whole $75,000. Week 10 is inside the line by only $961.</p>
   <p>Here's what goes out in week 9:</p>
   <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>Money out and taxes, week 9</th><th>Amount</th><th>Where it came from</th></tr></thead><tbody><tr><td>Year-end distribution</td><td>$30,000</td><td>Front sheet, answer 5</td></tr><tr><td>Suppliers</td><td>$21,711</td><td>Purchases not yet billed (rule P2)</td></tr><tr><td>PTET</td><td>$14,000</td><td>Front sheet, answer 5</td></tr><tr><td>Insurance renewal</td><td>$9,600</td><td>Front sheet, answer 3</td></tr><tr><td>Net pay</td><td>$5,732</td><td>Inputs tab</td></tr><tr><td>Federal payroll tax deposit</td><td>$2,144</td><td>Taxes tab, rule T1</td></tr><tr><td>Forklift loan</td><td>$1,240</td><td>Front sheet, answer 2</td></tr><tr><td>Other overheads</td><td>$950</td><td>Profit and loss run rate</td></tr><tr><td>State withholding</td><td>$672</td><td>Taxes tab, rule T2</td></tr><tr><td>401(k) deferrals</td><td>$400</td><td>Inputs tab</td></tr><tr><td><strong>Total</strong></td><td><strong>$86,449</strong></td><td></td></tr></tbody></table></div>
+  <figure class="r-figure">
+  <a href="/assets/public/resources/13-week-cash-flow-quickbooks/week9.webp" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/assets/public/resources/13-week-cash-flow-quickbooks/week9.webp" alt="Week 9's payments, by where they came from. Most of the pinch was in the client's answers, not in QuickBooks." width="1520" height="1032" loading="lazy" decoding="async" /></a>
+  <figcaption><span class="r-figure-label">Illustration</span>Week 9's payments, by where they came from. Most of the pinch was in the client's answers, not in QuickBooks.</figcaption>
+</figure>
   <p>The week before, MRW01 pays $39,600 for the holiday stock on 12/09. The new customer's $60,000 for it doesn't arrive until 12/30, in week 11. So the client pays for the stock, renews the insurance, pays the PTET and takes a year-end distribution, all before the money for the order comes in.</p>
   <p><strong>Without the five answers, there's no short week at all.</strong> The holiday order, the forklift loan, the insurance, the PTET, the year-end distribution and the January estimate weren't in QuickBooks on 10/19. Leave them out and week 9 closes at $14,104, with cash in the bank and the line untouched, and wrong. Weeks 1 to 4 are all money from invoices already in QuickBooks. By week 8, more than half the money in comes from sales MRW01 hadn't made when the forecast was built.</p>
   <p><strong>The terms-based version never draws the line.</strong> The last column is the same forecast with every customer paying on the due date. Its lowest week is $56,831 in cash. From week 2 to week 8 it sits between $82,898 and $88,661 above the payment-history version, which is the $82,192 from section 4, give or take the week-to-week swing in sales. Built that way, the forecast tells the owner the PTET payment and the distribution are fine.</p>
@@ -508,7 +541,7 @@ largest customer.</code></pre>
   <h3 class="r-h3">Find the short week</h3>
   <ol class="r-steps"><li><span>Open the chat that holds the client's workbook.</span></li><li><span>Copy the prompt below into the message box.</span></li><li><span>Send the prompt.</span></li></ol>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Find the short week</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Find the short week</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Use the 13-week cash flow tab for [CLIENT CODE]. Do every
 calculation in code.
 
@@ -518,7 +551,7 @@ calculation in code.
    receipt and payment over $[1,000], largest first.
 4. Explain in two plain sentences what causes the shortfall.</code></pre>
 </div>
-  <p><strong>Result.</strong> The short week, the size of the shortfall, the payments behind it, and two sentences you can reuse in the client email.</p>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>The short week, the size of the shortfall, the payments behind it, and two sentences you can reuse in the client email.</p></div></aside>
   <h3 class="r-h3">The three moves</h3>
   <p>They're in the order they usually land. A chased invoice can arrive in days. A supplier can agree a new date on one phone call. A bank takes longest, so ask early even if you hope not to need it.</p>
   <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>Move</th><th>The rule</th></tr></thead><tbody><tr><td>1. Who to chase</td><td>Take the invoices due on or before the last day of the short week that the forecast lands after it, plus anything already more than 60 days overdue. Group them by customer. Score each customer: amount × average days late. Chase the highest scores first</td></tr><tr><td>2. What to hold back</td><td>Take the supplier payments in the short week and the week before, largest first. Mark each one as a key supplier, a supplier who could take a later date, or unsure. The client decides which suppliers to ask</td></tr><tr><td>3. What to ask the bank for</td><td>Take the lowest closing cash, add a buffer, and round up to the next $5,000. That's the temporary line to ask for. Give the weeks it's needed, and the week the client comes back inside the current line</td></tr></tbody></table></div>
@@ -527,7 +560,7 @@ calculation in code.
   <h3 class="r-h3">Run it</h3>
   <ol class="r-steps"><li><span>Open the same chat.</span></li><li><span>Copy the prompt below into the message box.</span></li><li><span>Fill in the square brackets.</span></li><li><span>Send the prompt.</span></li></ol>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · The three moves</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · The three moves</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>The forecast for [CLIENT CODE] needs more than the line of credit in
 week [N]. Work out the three moves that close it soonest. Do every
 calculation in code.
@@ -568,7 +601,7 @@ MOVE 3: WHAT TO ASK THE BANK FOR
 Then show closing cash for weeks [N-2] to [N+2]: before any move,
 after move 1, after move 2, and after moves 1 and 2 together.</code></pre>
 </div>
-  <p><strong>Result.</strong> A ranked chase list, a list of payments the client could ask to move, the bank request with its numbers, and a before-and-after table.</p>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>A ranked chase list, a list of payments the client could ask to move, the bank request with its numbers, and a before-and-after table.</p></div></aside>
   <h3 class="r-h3">What a bank will want to see</h3>
   <p>The one-page summary covers what a lender will ask: how much, from when, until when, and why. The why matters most. A one-off pinch with a dated way out (a holiday order paid in week 11) is a different conversation from a business that runs short every month. If a distribution falls in the short week, expect the bank to ask about it.</p>
   <h3 class="r-h3">If the pinch is an IRS payment</h3>
@@ -580,6 +613,10 @@ after move 1, after move 2, and after moves 1 and 2 together.</code></pre>
   <p>D's disputed $9,800 goes on the list too. It isn't in the forecast, so settling it is pure upside.</p>
   <p><strong>What each move does to week 9:</strong></p>
   <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>Move</th><th>What it means for MRW01</th><th>Week 9 closes at</th><th>Against the line</th></tr></thead><tbody><tr><td>None</td><td></td><td>$(81,576)</td><td>$6,576 more than the line</td></tr><tr><td>1. Chase F</td><td>The new customer pays the holiday order on the due date, 12/16, instead of 12/30</td><td>$(21,576)</td><td>$53,424 inside</td></tr><tr><td>1. Chase A</td><td>A pays a week faster on the invoices due by 12/20, bringing $8,929 forward</td><td>$(72,647)</td><td>$2,353 inside</td></tr><tr><td>2. Hold back</td><td>The holiday stock supplier takes its $39,600 on 12/30, the day the customer pays, instead of 12/09</td><td>$(41,976)</td><td>$33,024 inside</td></tr><tr><td>3. Bank</td><td>A temporary line of $90,000 ($81,576 plus a $5,000 buffer, rounded up), from 12/14 to 12/27, because week 10 is only $961 inside. Comfortably back inside $75,000 in week 11, when the holiday order is paid</td><td>$(81,576)</td><td>$8,424 inside the temporary line</td></tr><tr><td>Owner's call</td><td>The $14,000 PTET payment moves from 12/16 to 12/31. It's still paid in 2026</td><td>$(67,576)</td><td>$7,424 inside</td></tr><tr><td>Owner's call</td><td>The $30,000 year-end distribution moves from 12/18 to 01/08/2027</td><td>$(51,576)</td><td>$23,424 inside</td></tr></tbody></table></div>
+  <figure class="r-figure">
+  <a href="/assets/public/resources/13-week-cash-flow-quickbooks/moves.webp" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/assets/public/resources/13-week-cash-flow-quickbooks/moves.webp" alt="Each move on its own, against the $75,000 line. The owner's calls sit apart from the recommendation." width="1520" height="1018" loading="lazy" decoding="async" /></a>
+  <figcaption><span class="r-figure-label">Illustration</span>Each move on its own, against the $75,000 line. The owner's calls sit apart from the recommendation.</figcaption>
+</figure>
   <p>Each move closes week 9 on its own. Asking the new customer to pay the holiday order on terms, or for a deposit, is the cleanest, and it's a conversation the client can have this week, eight weeks before it matters. Chasing A works, but only by $2,353.</p>
   <p>The PTET row needs a second look before anyone moves it. Paid on 12/31, it lands the day after the new customer is expected to pay, and the year of the deduction doesn't change. But that 12/30 date is itself the client's estimate of a late payer. If the customer slips into January, week 11 closes at $(84,290), $9,290 more than the line, and a PTET payment made after 12/31 is deducted in 2027, not 2026. Don't put a tax deadline behind a late payer without a fallback.</p>
   <aside class="r-callout">
@@ -599,7 +636,7 @@ after move 1, after move 2, and after moves 1 and 2 together.</code></pre>
   <h3 class="r-h3">Run it</h3>
   <ol class="r-steps"><li><span>Open the chat that holds the client's workbook.</span></li><li><span>Copy the prompt below into the message box.</span></li><li><span>Paste the email template under it.</span></li><li><span>Send the prompt.</span></li><li><span>Read the email before you send it to the client.</span></li></ol>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Chart and client email</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Chart and client email</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Using the 13-week cash flow for [CLIENT CODE]:
 
 1. Make one line chart, in code: closing cash for each week, and the
@@ -620,10 +657,10 @@ after move 1, after move 2, and after moves 1 and 2 together.</code></pre>
 
 [PASTE THE EMAIL TEMPLATE]</code></pre>
 </div>
-  <p><strong>Result.</strong> A chart in the workbook, the same chart as an image, and a draft email with a list of where each figure came from.</p>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>A chart in the workbook, the same chart as an image, and a draft email with a list of where each figure came from.</p></div></aside>
   <h3 class="r-h3">The email template</h3>
-  <div class="r-code">
-  <div class="r-code-bar"><span>The email template</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code is-folded">
+  <div class="r-code-bar"><span>The email template</span><span class="r-code-actions"><button type="button" class="r-unfold" aria-expanded="false">Show all 46 lines</button><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Subject: Your cash for the next 13 weeks, and one week to plan for
 
 Hi [FIRST NAME],
@@ -679,7 +716,7 @@ let us know and we'll put it in.
   <h3 class="r-h3">Run it</h3>
   <ol class="r-steps"><li><span>Export the eight reports again, dated to yesterday (section 1).</span></li><li><span>Start a new chat.</span></li><li><span>Upload last week's workbook and this week's exports.</span></li><li><span>Copy the prompt below into the message box.</span></li><li><span>Fill in the square brackets.</span></li><li><span>Send the prompt.</span></li><li><span>Read the <strong>Variance</strong> tab and Claude's five lines.</span></li></ol>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt · Monday roll-forward</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt · Monday roll-forward</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Attached is last week's 13-week cash flow for [CLIENT CODE], and this
 week's QuickBooks Online exports.
 
@@ -712,7 +749,7 @@ the lowest week and its closing cash, the first short week and the
 size of the shortfall (or &quot;none&quot;), what changed since last week and
 why, and who to chase this week.</code></pre>
 </div>
-  <p><strong>Result.</strong> This week's workbook, with last week checked against the bank on the <strong>Variance</strong> tab.</p>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>This week's workbook, with last week checked against the bank on the <strong>Variance</strong> tab.</p></div></aside>
   <h3 class="r-h3">When last week missed</h3>
   <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>What happened</th><th>What to do</th></tr></thead><tbody><tr><td>Money in from customers missed by less than the threshold</td><td>Nothing. The Variance tab keeps the record</td></tr><tr><td>Money in from customers missed by more than the threshold</td><td>Find the customers. Ask the client why. If a customer's habit has changed, re-time all of that customer's invoices, then look at the short week again</td></tr><tr><td>The same customer missed two Mondays running</td><td>Refresh that customer's average now, not at the month end. Put them on the chase list</td></tr><tr><td>Closing cash moved by more than the receipts and payments explain</td><td>Check the bank reconciliation before you trust anything else in the forecast</td></tr></tbody></table></div>
   <p>Set the threshold per client. For a business with weekly money in around $25,000, $5,000 is a fifth of a week. For MRW01, the firm uses $3,000, about a tenth of a normal week. For a bigger client, use a percentage of the week's forecast money in instead.</p>
@@ -726,14 +763,14 @@ why, and who to chase this week.</code></pre>
   <p>Read this before you set it up. The QuickBooks connector reads whichever company it's connected to at the time. If someone switches the connection to a different client during the week, the task reads that client. Step 1 of the prompt checks the company name against the exports, so a wrong client stops the task.</p>
   <ol class="r-steps"><li><span>Open Cowork in the Claude desktop app.</span></li><li><span>In the sidebar, select <strong>Scheduled</strong>.</span></li><li><span>Select <strong>New task</strong>.</span></li><li><span>Select <strong>Create with Claude</strong>.</span></li><li><span>Type the description below.</span></li><li><span>Paste the roll-forward prompt under it.</span></li><li><span>Check that the task shows under <strong>Scheduled</strong>.</span></li><li><span>Confirm that the next run is on a Monday morning.</span></li></ol>
   <div class="r-code">
-  <div class="r-code-bar"><span>Scheduled task description</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Scheduled task description</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Every Monday at 7am, run the prompt below for [CLIENT CODE]. Use the
 latest workbook and this week's exports in the folder [FOLDER NAME].
 If this week's exports are not in the folder, stop and tell me. Save
 the new workbook in the same folder. Use the QuickBooks connector for
 reading only. Do not send anything to anyone.</code></pre>
 </div>
-  <p><strong>Result.</strong> Each run shows under <strong>Scheduled</strong>, with the new workbook in the client's folder for you to review.</p>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>Each run shows under <strong>Scheduled</strong>, with the new workbook in the client's folder for you to review.</p></div></aside>
 </section>
 <section class="r-section" id="the-checks" aria-labelledby="the-checks-h">
   <span class="r-eyebrow"><span>10</span>The Checks</span>
