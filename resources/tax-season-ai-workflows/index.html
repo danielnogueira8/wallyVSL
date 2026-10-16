@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The AI Workflow for Modern CPA Firms | Darling Financial Group</title>
+<meta name="description" content="A free playbook for US CPA firms: ten Claude workflows for tax season, from the engagement letter and organizer to the document chase, the K-1 tracker, extension triage, IRS notices, the review checklist, the planning signal list and a capacity tracker. Each one sets out who runs it, who reviews it and what client data can go in." />
+<link rel="canonical" href="https://www.wallacedarling.com/resources/tax-season-ai-workflows/" />
+<meta property="og:title" content="The AI Workflow for Modern CPA Firms | Darling Financial Group" />
+<meta property="og:description" content="A free playbook for US CPA firms: ten Claude workflows for tax season, from the engagement letter and organizer to the document chase, the K-1 tracker, extension triage, IRS notices, the review checklist, the planning signal list and a capacity tracker. Each one sets out who runs it, who reviews it and what client data can go in." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.wallacedarling.com/resources/tax-season-ai-workflows/" />
+<meta property="og:image" content="https://www.wallacedarling.com/assets/public/resources/tax-season-ai-workflows/cover.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/jpeg" href="/assets/public/wallace.jpeg" />
+<link rel="apple-touch-icon" href="/assets/public/wallace.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/styles.css" />
+<link rel="stylesheet" href="/assets/css/resources.css" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The AI Workflow for Modern CPA Firms","description":"A free playbook for US CPA firms: ten Claude workflows for tax season, from the engagement letter and organizer to the document chase, the K-1 tracker, extension triage, IRS notices, the review checklist, the planning signal list and a capacity tracker. Each one sets out who runs it, who reviews it and what client data can go in.","dateModified":"2026-10-16","url":"https://www.wallacedarling.com/resources/tax-season-ai-workflows/","author":{"@type":"Person","name":"Wallace Darling","url":"https://www.wallacedarling.com"},"publisher":{"@type":"Organization","name":"Darling Financial Group","url":"https://darling-fg.com"},"isAccessibleForFree":true,"audience":{"@type":"Audience","audienceType":"CPAs & accountants"}}</script>
+</head>
+<body class="r-body">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-name">Darling Financial Group</span>
+      <span class="brand-divider"></span>
+      <span class="brand-tag">The Family Office for Mainstreet</span>
+    </a>
+    <nav class="header-nav r-nav" aria-label="Main">
+      <a href="/resources/">Resources</a>
+      <a href="/partners/" class="r-nav-cta">For CPAs</a>
+    </nav>
+  </div>
+</header>
+
+<main class="r-main">
+  <div class="container">
+    <nav class="r-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/resources/">Resources</a><span>/</span><span aria-current="page">The AI Workflow for Modern CPA Firms</span></nav>
+  </div>
+
+  <header class="r-hero">
+    <div class="container r-hero-grid">
+      <div>
+        <span class="r-tag">For CPAs &amp; accountants</span>
+        <h1>Ten AI workflows for tax season, from the engagement letter to the filed return</h1>
+        <p class="r-hero-lead">One workflow for each stage of the season, written for a US firm, with who runs it, who reviews it and what client data can go in set out on every one.</p>
+        <div class="r-byline">
+          <img src="/assets/public/wallace.jpeg" alt="Wallace Darling" width="48" height="48" />
+          <span><strong>Wallace Darling</strong><span>Darling Financial Group</span></span>
+        </div>
+        <p class="r-hero-meta">Free &middot; 10 workflows &middot; Copy-paste prompts &middot; Data rule included</p>
+        <div class="r-hero-actions">
+          <a class="btn btn-primary" href="#start-here">Start reading</a>
+          <a class="r-hero-link" href="/partners/">Partner with Darling FG &rarr;</a>
+        </div>
+      </div>
+      <figure class="r-hero-img"><img src="/assets/public/resources/tax-season-ai-workflows/cover.webp" alt="The AI Workflow for Modern CPA Firms" width="1000" height="1174" /></figure>
+    </div>
+    <div class="container">
+      <div class="r-proof"><div><span class="r-proof-value">10</span><span class="r-proof-label">Workflows</span><span class="r-proof-detail">December to October, one per stage of the season.</span></div><div><span class="r-proof-value">3</span><span class="r-proof-label">Data tiers</span><span class="r-proof-detail">What never goes in, what needs consent, what's free to use.</span></div><div><span class="r-proof-value">1</span><span class="r-proof-label">Capacity tracker</span><span class="r-proof-detail">Hours per return, before and after.</span></div></div>
+    </div>
+  </header>
+
+  <div class="container r-layout">
+    <aside class="r-toc">
+      <div class="r-toc-inner">
+        <details class="r-toc-box" open>
+          <summary>On this page</summary>
+          <ol><li><a href="#start-here"><span>&middot;</span>Why I built this</a></li><li><a href="#set-it-up"><span>&middot;</span>Set it up once</a></li><li><a href="#organizer-sender"><span>&middot;</span>1. The Organizer Sender</a></li><li><a href="#document-chaser"><span>&middot;</span>2. The Document Chaser</a></li><li><a href="#document-reader"><span>&middot;</span>3. The Document Reader</a></li><li><a href="#prior-year-comparison"><span>&middot;</span>4. The Prior-Year Comparison</a></li><li><a href="#k1-tracker"><span>&middot;</span>5. The K-1 Tracker</a></li><li><a href="#extension-triage"><span>&middot;</span>6. The Extension Triage</a></li><li><a href="#notice-reader"><span>&middot;</span>7. The Notice Reader</a></li><li><a href="#review-checklist"><span>&middot;</span>8. The Review Checklist</a></li><li><a href="#planning-signal-list"><span>&middot;</span>9. The Planning Signal List</a></li><li><a href="#capacity-tracker"><span>&middot;</span>10. The Capacity Tracker</a></li><li><a href="#rolling-it-out"><span>&middot;</span>Rolling it out</a></li><li><a href="#whats-next"><span>&middot;</span>What's next</a></li></ol>
+        </details>
+        <a class="btn btn-primary r-toc-cta" href="/partners/">Partner with Darling FG</a>
+      </div>
+    </aside>
+    <article class="r-article">
+<section class="r-section" id="start-here" aria-labelledby="start-here-h">
+  <span class="r-eyebrow">Read this first</span>
+  <h2 id="start-here-h">Everyone uses it their own way, and nobody can say what it saved</h2>
+  <p class="r-lead">Hey, I'm Wallace Darling (most people call me Wally). I run Darling Financial Group (darling-fg.com). I work with people earning $500k+ and business owners with $1M+ in revenue on the tax strategy that sits beyond the return, and I partner with CPA firms on that strategy layer so their clients get it without ever leaving the firm.</p>
+  <dl class="r-quick"><div><dt>Set up</dt><dd>One afternoon in November</dd></div><div><dt>You need</dt><dd>A Claude Team plan and your tax software's exports</dd></div><div><dt>You get</dt><dd>Ten workflows, each with a prompt, a check and a reviewer</dd></div><div><dt>Measure</dt><dd>Hours per return, before and after</dd></div></dl>
+  <p>Most firm owners already know AI can handle a big chunk of tax season. What they don't have is a way to roll it out, so one person uses it their own way, everyone else keeps keying 1099s by hand, and nobody can say whether it's saving a single hour.</p>
+  <p>So I wrote one workflow for each stage of the season, in the order the season runs. Every one sets out who runs it, who reviews it, what client data can go in and what comes back, then gives you the prompt, the check before you move on and where it goes wrong. Nobody on the team gets replaced. The same people take on more returns, and the hours your seniors spend ticking off 1099s go on planning work you can bill for.</p>
+  <figure class="r-figure">
+  <a href="/assets/public/resources/tax-season-ai-workflows/season.webp" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/assets/public/resources/tax-season-ai-workflows/season.webp" alt="When each workflow runs. Set them up in November, before the first organizer goes out." width="1520" height="1112" loading="lazy" decoding="async" /></a>
+  <figcaption><span class="r-figure-label">The season</span>When each workflow runs. Set them up in November, before the first organizer goes out.</figcaption>
+</figure>
+  <ol class="r-flow" style="--cols:5"><li><a href="#set-it-up">
+    <span class="r-flow-num">01</span>
+    <strong>Set it up once</strong>
+    <span class="r-flow-text">Plan, projects, the data rule</span>
+  </a></li><li><a href="#organizer-sender">
+    <span class="r-flow-num">02</span>
+    <strong>Get the documents in</strong>
+    <span class="r-flow-text">Workflows 1 to 3</span>
+  </a></li><li><a href="#prior-year-comparison">
+    <span class="r-flow-num">03</span>
+    <strong>Prepare and track</strong>
+    <span class="r-flow-text">Workflows 4 to 6</span>
+  </a></li><li><a href="#notice-reader">
+    <span class="r-flow-num">04</span>
+    <strong>Review and respond</strong>
+    <span class="r-flow-text">Workflows 7 and 8</span>
+  </a></li><li class="row-end"><a href="#planning-signal-list">
+    <span class="r-flow-num">05</span>
+    <strong>Plan and measure</strong>
+    <span class="r-flow-text">Workflows 9 and 10</span>
+  </a></li></ol>
+  <aside class="r-callout">
+  <div>
+    <strong class="r-callout-title">Workflow 9 finds the planning work. I can help you deliver it.</strong>
+    <p>I partner with CPA firms on the tax strategy work. I work through you and never approach your clients directly, I don't take the compliance work, and your firm earns from the added service.</p>
+  </div>
+  <a class="btn btn-primary" href="/partners/">Partner with Darling FG</a>
+</aside>
+  <aside class="r-note">
+  <strong class="r-note-title">A note on the writing</strong>
+  <p>The setup steps and the &quot;Check it&quot; steps are written in simplified technical English: short sentences, one action per step, no contractions. They're meant to be followed exactly. The rest reads like I talk.</p>
+</aside>
+</section>
+<section class="r-section" id="set-it-up" aria-labelledby="set-it-up-h">
+  <span class="r-eyebrow">Set It Up</span>
+  <h2 id="set-it-up-h">Set it up once, before the first organizer goes out</h2>
+  <p>Do this in November. Once the season starts, nobody has an afternoon.</p>
+  <h3 class="r-h3">The plan</h3>
+  <p>Use Claude Team or Enterprise for client work, so it sits under business terms, isn't used to train Claude's models, and the firm controls who has access. Check current plans and prices at <code>claude.com/pricing</code>. Turn on file creation, because several workflows hand back an Excel file or a Word letter.</p>
+  <ol class="r-steps"><li><span>Open <strong>Settings</strong> (on Team and Enterprise, the owner opens <strong>Organization settings</strong>).</span></li><li><span>Select <strong>Capabilities</strong>.</span></li><li><span>Turn on <strong>Code execution and file creation</strong>.</span></li></ol>
+  <h3 class="r-h3">One project per workflow</h3>
+  <p>Make a Claude project for each workflow you roll out, and paste the workflow's standing instructions into the project instructions. Then everyone runs the same steps the same way, and the reviewer knows what to expect. Name them with a number, so they sort in season order: <code>01 Organizer Sender</code>, <code>02 Document Chaser</code> and so on.</p>
+  <ol class="r-steps"><li><span>In Claude, select <strong>Projects</strong>.</span></li><li><span>Select <strong>New project</strong>.</span></li><li><span>Name the project, for example <code>03 Document Reader</code>.</span></li><li><span>Paste the standing instructions from the workflow into the project instructions.</span></li><li><span>Add the firm's templates to the project files: letters, checklists, the organizer.</span></li><li><span>On Team, share the project with the people in the workflow's &quot;Who runs it&quot; row.</span></li></ol>
+  <h3 class="r-h3">The data rule</h3>
+  <p>Every workflow card says which tier of client data can go in. Write the rule down once, put it in the firm's WISP, and make it the first line of every project's instructions.</p>
+  <figure class="r-figure">
+  <a href="/assets/public/resources/tax-season-ai-workflows/tiers.webp" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/assets/public/resources/tax-season-ai-workflows/tiers.webp" alt="The three tiers. Every workflow card names the highest tier it needs." width="1520" height="858" loading="lazy" decoding="async" /></a>
+  <figcaption>The three tiers. Every workflow card names the highest tier it needs.</figcaption>
+</figure>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>Tier</th><th>What it covers</th><th>Rule</th></tr></thead><tbody><tr><th scope="row">Tier 1: never</th><td>Full Social Security numbers, bank and card numbers, ID images, passwords, IRS PINs</td><td>Never goes into any AI tool. Redact it before upload, or use the last four digits.</td></tr><tr><th scope="row">Tier 2: with consent</th><td>Tax return information: the return, the source documents, the workpapers, IRS notices</td><td>Only in the firm's business account, only where the firm's Section 7216 setup covers it, and only by the people on the workflow.</td></tr><tr><th scope="row">Tier 3: free to use</th><td>Firm templates, checklists, anonymized examples, counts and codes</td><td>Use it anywhere in the firm's business account.</td></tr></tbody></table></div>
+  <p><strong>Section 7216.</strong> A return preparer generally needs the client's written consent before using or disclosing tax return information for purposes other than preparing the return (<a href="https://www.law.cornell.edu/cfr/text/26/301.7216-3" target="_blank" rel="noopener">26 CFR 301.7216-3</a>). Some of these workflows prepare the return. Some, like the planning signal list, go beyond it. Take the question of which is which to the firm's adviser before the season, not during it, and write the answer into the engagement letter.</p>
+  <h3 class="r-h3">Who does what</h3>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>Role</th><th>Runs</th><th>Reviews</th></tr></thead><tbody><tr><th scope="row">Admin</th><td>1 Organizer Sender, 2 Document Chaser</td><td>Nothing on its own</td></tr><tr><th scope="row">Staff accountant</th><td>3 Document Reader, 4 Prior-Year Comparison</td><td>Nothing on its own</td></tr><tr><th scope="row">Senior</th><td>5 K-1 Tracker, 6 Extension Triage, 7 Notice Reader</td><td>3 and 4</td></tr><tr><th scope="row">Manager</th><td>8 Review Checklist, 10 Capacity Tracker</td><td>5, 6 and 7</td></tr><tr><th scope="row">Partner</th><td>9 Planning Signal List</td><td>8, 9, and anything that goes to the IRS</td></tr></tbody></table></div>
+  <p>Smaller firms merge roles. Keep one rule whatever the size: the person who runs a workflow is never the only person who reviews it.</p>
+</section>
+<section class="r-section" id="organizer-sender" aria-labelledby="organizer-sender-h">
+  <span class="r-eyebrow">Workflow 1</span>
+  <h2 id="organizer-sender-h">The Organizer Sender</h2>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>At a glance</th><th></th></tr></thead><tbody><tr><th scope="row">When</th><td>December, before the holidays</td></tr><tr><th scope="row">Who runs it</th><td>Admin</td></tr><tr><th scope="row">Who reviews it</th><td>Manager, on a sample of five</td></tr><tr><th scope="row">Client data that can go in</th><td>Tier 3 for the letters. Tier 2 only for the client list with return types</td></tr><tr><th scope="row">What comes back</th><td>An engagement letter, a Section 7216 consent and the right organizer for each client, ready to send</td></tr></tbody></table></div>
+  <p>The season starts late when the organizer goes out in February. This one sends the engagement letter, the consent and the organizer together, matched to what each client filed last year.</p>
+  <div class="r-code">
+  <div class="r-code-bar"><span>Prompt · Build the December send list</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
+  <pre><code>The attached list is last year's clients, by client code, with the forms we filed for each (1040, Schedule C, Schedule E, 1120-S, 1065, state returns) and the fee.
+
+For each client:
+1. Pick the organizer version from the project files: individual, individual with business, individual with rentals, or business entity.
+2. Pick the engagement letter template that matches the return types.
+3. Note anything that changed last year that the letter or organizer must cover: a new state, a new entity, a K-1 that arrived late, a return we extended.
+4. Flag any client with no signed Section 7216 consent on file.
+
+Give me one table: client code, organizer, letter, notes, consent status.
+Do not write to any client. Do not invent a fee change.</code></pre>
+</div>
+  <h3 class="r-h3">Check it</h3>
+  <ol class="r-steps"><li><span>Open five rows at random. Compare each with last year's return.</span></li><li><span>Confirm every client with an extension last year has a note.</span></li><li><span>Send only after the manager signs off the sample.</span></li></ol>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>Every client gets the right letter and organizer in December, and the list of missing consents goes to the partner before any return information goes near an AI tool.</p></div></aside>
+  <aside class="r-note r-note-warn">
+  <strong class="r-note-title">Where it goes wrong</strong>
+  <p>A client who added a rental or a state in the year gets last year's organizer. The notes column is there to catch it, so read it.</p>
+</aside>
+</section>
+<section class="r-section" id="document-chaser" aria-labelledby="document-chaser-h">
+  <span class="r-eyebrow">Workflow 2</span>
+  <h2 id="document-chaser-h">The Document Chaser</h2>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>At a glance</th><th></th></tr></thead><tbody><tr><th scope="row">When</th><td>Every Monday, February to April</td></tr><tr><th scope="row">Who runs it</th><td>Admin</td></tr><tr><th scope="row">Who reviews it</th><td>Senior, for the first round of each client</td></tr><tr><th scope="row">Client data that can go in</th><td>Tier 2: last year's document list and this year's portal index, by client code</td></tr><tr><th scope="row">What comes back</th><td>A missing-documents list per client and the reminder email in the firm's tone</td></tr></tbody></table></div>
+  <p>Last year's return is the best checklist you have. Every W-2, 1099 and K-1 that was there last year should turn up again, or someone should know why it didn't.</p>
+  <div class="r-code">
+  <div class="r-code-bar"><span>Prompt · What's still missing</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
+  <pre><code>For client [CODE]:
+- Last year's document list is attached (payer and form type for every source document we used).
+- This year's portal index is attached (file names and dates received).
+
+1. Match this year's documents to last year's, payer by payer.
+2. List what is missing. For each item: payer, form type, and whether it usually arrives late (K-1s, corrected 1099s).
+3. List anything new this year that wasn't there last year.
+4. Draft a short reminder email in the firm's tone from the project files. Name each missing document by payer and form. Do not list documents we already have.
+
+If a file name does not tell you the payer, say so. Do not guess.</code></pre>
+</div>
+  <h3 class="r-h3">Check it</h3>
+  <ol class="r-steps"><li><span>Compare the missing list with the portal for one client each week.</span></li><li><span>Read the email before it goes. Check every payer name.</span></li></ol>
+  <aside class="r-note r-note-warn">
+  <strong class="r-note-title">Where it goes wrong</strong>
+  <p>A payer whose name changed, a bank merger for example, shows up as one missing and one new. Read the &quot;new this year&quot; list next to the missing list.</p>
+</aside>
+</section>
+<section class="r-section" id="document-reader" aria-labelledby="document-reader-h">
+  <span class="r-eyebrow">Workflow 3</span>
+  <h2 id="document-reader-h">The Document Reader</h2>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>At a glance</th><th></th></tr></thead><tbody><tr><th scope="row">When</th><td>As documents arrive</td></tr><tr><th scope="row">Who runs it</th><td>Staff accountant</td></tr><tr><th scope="row">Who reviews it</th><td>Senior, on every flagged document and a sample of the rest</td></tr><tr><th scope="row">Client data that can go in</th><td>Tier 2, with Social Security numbers and account numbers redacted (Tier 1)</td></tr><tr><th scope="row">What comes back</th><td>A table of every box on every form, with a flag on anything it couldn't read</td></tr></tbody></table></div>
+  <p>This is the hours. Keying W-2s, 1099s, 1098s and K-1s into a worksheet is the most repeated job in the season, and the one where a tired person transposes two digits.</p>
+  <div class="r-code">
+  <div class="r-code-bar"><span>Standing instructions · Document Reader project</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
+  <pre><code>You read US tax source documents for a CPA firm: W-2, 1099-INT, 1099-DIV, 1099-B, 1099-NEC, 1099-MISC, 1099-R, 1098, 1098-T, Schedule K-1 (1065, 1120-S, 1041).
+
+For every document:
+- Record the form type, the payer or issuer, the tax year and every box with a value, box by box, exactly as printed.
+- If the form is marked CORRECTED, say so on its own line.
+- If a box is unreadable, blurred, cut off or handwritten, write UNREADABLE for that box. Never estimate a number.
+- If the tax year is not the year we are preparing, flag it.
+- For consolidated brokerage statements, record the summary totals and list the pages you read.
+
+Output one row per box: client code, form, payer, box number, box label, amount, flag.
+Data rule: if you see a full Social Security number or account number, do not repeat it. Write REDACT and tell me which page.</code></pre>
+</div>
+  <h3 class="r-h3">Check it</h3>
+  <ol class="r-steps"><li><span>Open every row with a flag and read the box on the source document yourself.</span></li><li><span>For each client, add up wages and withholding from the table. Compare the totals with the documents.</span></li><li><span>Check one random box on every third document.</span></li></ol>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>A table the preparer can import or key from in minutes, and a short list of the documents a person must read.</p></div></aside>
+  <aside class="r-note r-note-warn">
+  <strong class="r-note-title">Where it goes wrong</strong>
+  <p>Photographed documents with a shadow across a box, and K-1 footnotes that carry the real information. The UNREADABLE flag catches the first. Tell the preparer to read every K-1 footnote page themselves.</p>
+</aside>
+</section>
+<section class="r-section" id="prior-year-comparison" aria-labelledby="prior-year-comparison-h">
+  <span class="r-eyebrow">Workflow 4</span>
+  <h2 id="prior-year-comparison-h">The Prior-Year Comparison</h2>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>At a glance</th><th></th></tr></thead><tbody><tr><th scope="row">When</th><td>When the draft return is ready</td></tr><tr><th scope="row">Who runs it</th><td>Staff accountant</td></tr><tr><th scope="row">Who reviews it</th><td>Senior</td></tr><tr><th scope="row">Client data that can go in</th><td>Tier 2: this year's draft and last year's return, by client code</td></tr><tr><th scope="row">What comes back</th><td>A line-by-line comparison and a list of every swing over your threshold</td></tr></tbody></table></div>
+  <p>The 1099 that disappeared is the one the IRS notices later. This compares the draft with last year line by line, before a reviewer spends time on it.</p>
+  <div class="r-code">
+  <div class="r-code-bar"><span>Prompt · Compare with last year</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
+  <pre><code>Compare this year's draft return for [CODE] with last year's return, both attached.
+
+1. Line by line: last year, this year, change in dollars, change in percent.
+2. Flag every line that changed by more than [THRESHOLD] dollars or [PERCENT] percent.
+3. List every income source (payer or schedule) on last year's return that is missing this year.
+4. List every new income source.
+5. Check estimated payments claimed against the payments in the client file.
+
+For each flag, write one question the preparer should be able to answer before review.
+Do not explain the changes yourself. List them.</code></pre>
+</div>
+  <h3 class="r-h3">Check it</h3>
+  <ol class="r-steps"><li><span>The preparer answers every question on the list in the workpapers.</span></li><li><span>The senior reads the answers before reviewing the return.</span></li></ol>
+  <aside class="r-note r-note-warn">
+  <strong class="r-note-title">Where it goes wrong</strong>
+  <p>A sold rental, a closed account or a retirement looks like a missing source. That's why the prompt asks for questions, not explanations: the preparer knows the client.</p>
+</aside>
+</section>
+<section class="r-section" id="k1-tracker" aria-labelledby="k1-tracker-h">
+  <span class="r-eyebrow">Workflow 5</span>
+  <h2 id="k1-tracker-h">The K-1 Tracker</h2>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>At a glance</th><th></th></tr></thead><tbody><tr><th scope="row">When</th><td>Weekly from February to the extension deadlines</td></tr><tr><th scope="row">Who runs it</th><td>Senior</td></tr><tr><th scope="row">Who reviews it</th><td>Manager</td></tr><tr><th scope="row">Client data that can go in</th><td>Tier 2: client codes, entity names and the date each K-1 arrived last year</td></tr><tr><th scope="row">What comes back</th><td>Who's waiting on which K-1, when it's expected, and which returns it will push past the deadline</td></tr></tbody></table></div>
+  <p>Most late returns are late for one reason: a K-1 that hasn't arrived. Last year's arrival dates tell you which ones to expect late, so the extension conversation happens in February, not on April 14.</p>
+  <div class="r-code">
+  <div class="r-code-bar"><span>Prompt · The K-1 board</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
+  <pre><code>Attached: every client who received a K-1 last year, with the issuing entity and the date the K-1 arrived; and the K-1s received so far this year.
+
+1. Build one table: client code, entity, received this year (yes or no), date it arrived last year, expected this year.
+2. Expected this year = last year's arrival date, moved to the same weekday this year. If last year's arrived after March 15, mark it LIKELY LATE.
+3. For each client, the latest expected K-1 decides when the return can be finished. Sort by that date.
+4. List every client whose return can't be finished before April 15 on these dates.
+
+Give me the table and the list. Do not contact anyone.</code></pre>
+</div>
+  <aside class="r-note r-note-warn">
+  <strong class="r-note-title">Where it goes wrong</strong>
+  <p>An entity that extended last year but filed on time this year. Update the table the day a K-1 arrives, or the list goes stale fast.</p>
+</aside>
+</section>
+<section class="r-section" id="extension-triage" aria-labelledby="extension-triage-h">
+  <span class="r-eyebrow">Workflow 6</span>
+  <h2 id="extension-triage-h">The Extension Triage</h2>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>At a glance</th><th></th></tr></thead><tbody><tr><th scope="row">When</th><td>First week of March, then weekly</td></tr><tr><th scope="row">Who runs it</th><td>Senior</td></tr><tr><th scope="row">Who reviews it</th><td>Manager, then the partner for any payment over your threshold</td></tr><tr><th scope="row">Client data that can go in</th><td>Tier 2: the status list, last year's tax and this year's payments, by client code</td></tr><tr><th scope="row">What comes back</th><td>Which returns won't make April 15, the payment to send with each extension, and the email to the client</td></tr></tbody></table></div>
+  <p>An extension extends the time to file, not the time to pay. Form 4868 moves an individual return to October 15, but tax owed is still due on April 15, so every extension needs a payment estimate and a client who knows about it.</p>
+  <div class="r-code">
+  <div class="r-code-bar"><span>Prompt · Who will miss April 15</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
+  <pre><code>Attached: the return status list (client code, documents complete yes or no, K-1 expected date from the K-1 tracker, preparer, review status), last year's total tax, and this year's estimates and withholding so far.
+
+1. List every return that will not be filed by April 15 on the current status. Give the reason in one phrase.
+2. For each one, estimate the balance due: last year's total tax, adjusted for anything the file already shows changed this year, minus payments so far. Show the working.
+3. Mark each estimate HIGH, MEDIUM or LOW confidence, and say why.
+4. Draft the client email: why we are extending, what they need to send, and the payment to make by April 15 with the amount.
+
+Do not file or send anything. List anything you assumed.</code></pre>
+</div>
+  <h3 class="r-h3">Check it</h3>
+  <ol class="r-steps"><li><span>The manager reads every LOW confidence estimate.</span></li><li><span>The partner approves any payment estimate over the firm's threshold.</span></li><li><span>Check each email's amount against the working before it goes.</span></li></ol>
+  <aside class="r-note r-note-warn">
+  <strong class="r-note-title">Where it goes wrong</strong>
+  <p>A big capital gain or a year-end bonus that isn't in the file yet. The estimate is only as good as what the firm knows, which is why the email asks the client to confirm.</p>
+</aside>
+</section>
+<section class="r-section" id="notice-reader" aria-labelledby="notice-reader-h">
+  <span class="r-eyebrow">Workflow 7</span>
+  <h2 id="notice-reader-h">The Notice Reader</h2>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>At a glance</th><th></th></tr></thead><tbody><tr><th scope="row">When</th><td>Whenever an IRS notice arrives</td></tr><tr><th scope="row">Who runs it</th><td>Senior</td></tr><tr><th scope="row">Who reviews it</th><td>Manager, and the partner before anything goes to the IRS</td></tr><tr><th scope="row">Client data that can go in</th><td>Tier 2: the notice and the return as filed, with identifying numbers redacted</td></tr><tr><th scope="row">What comes back</th><td>What the notice says, whether the IRS is right, the response letter and the client email</td></tr></tbody></table></div>
+  <p>A CP2000 proposes changes to a return when the income or payments reported to the IRS don't match it. Most of them are a missing 1099, a cost basis that wasn't reported, or a payment applied to the wrong year. Reading one against the return is mechanical, so let Claude do the first pass. A person decides what goes back.</p>
+  <div class="r-code">
+  <div class="r-code-bar"><span>Prompt · Read the notice against the return</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
+  <pre><code>Attached: an IRS notice for [CODE] and the return as filed for the same year.
+
+1. What type of notice is it, what year, and what is the response date printed on it?
+2. List each change the IRS proposes, with the amount, and find the matching line on the return.
+3. For each change: does the return already include it (for example under a different payer name or on a consolidated statement)? Say AGREE, DISAGREE or NEED DOCUMENTS, and why.
+4. Draft the response letter for each DISAGREE item, citing the return line and the document.
+5. Draft a short client email: what the notice is, what we think, what we need from them, and the date.
+
+Do not tell the client what they owe until a person has reviewed this.</code></pre>
+</div>
+  <aside class="r-note r-note-warn">
+  <strong class="r-note-title">Where it goes wrong</strong>
+  <p>Cost basis. The notice shows gross proceeds with no basis, and the answer is on a brokerage statement page Claude didn't get. NEED DOCUMENTS is the honest answer there, so don't push it to AGREE.</p>
+</aside>
+</section>
+<section class="r-section" id="review-checklist" aria-labelledby="review-checklist-h">
+  <span class="r-eyebrow">Workflow 8</span>
+  <h2 id="review-checklist-h">The Review Checklist</h2>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>At a glance</th><th></th></tr></thead><tbody><tr><th scope="row">When</th><td>Before anything is filed or sent</td></tr><tr><th scope="row">Who runs it</th><td>Manager</td></tr><tr><th scope="row">Who reviews it</th><td>Partner signs</td></tr><tr><th scope="row">Client data that can go in</th><td>Tier 2: the return, the workpapers and the outputs of workflows 3, 4 and 6</td></tr><tr><th scope="row">What comes back</th><td>A completed checklist with every item ticked, explained or sent back</td></tr></tbody></table></div>
+  <p>This is the workflow that keeps the rest safe. Claude prepares the checklist from the file. A person ticks it, and nothing goes out with an open item.</p>
+  <div class="r-code">
+  <div class="r-code-bar"><span>Prompt · Prepare the review</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
+  <pre><code>Prepare the review checklist for [CODE] from the attached return, workpapers, document table (workflow 3) and prior-year comparison (workflow 4).
+
+For each item, write DONE, OPEN or N/A, and cite the page or row:
+1. Every source document in the document table is on the return.
+2. Every flag from the document table has a note from the preparer.
+3. Every question from the prior-year comparison has an answer.
+4. Estimated payments claimed match the payments in the file.
+5. Dependents, filing status and address match last year or the change is explained.
+6. State returns match the federal return where they should.
+7. Any extension payment made is claimed.
+8. The client's Section 7216 consent is on file if any workflow used their information beyond preparing the return.
+
+List the OPEN items first. Do not mark anything DONE that you cannot cite.</code></pre>
+</div>
+  <aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>Result</strong><p>The reviewer starts with the open items instead of hunting for them, and the file shows who checked what.</p></div></aside>
+</section>
+<section class="r-section" id="planning-signal-list" aria-labelledby="planning-signal-list-h">
+  <span class="r-eyebrow">Workflow 9</span>
+  <h2 id="planning-signal-list-h">The Planning Signal List</h2>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>At a glance</th><th></th></tr></thead><tbody><tr><th scope="row">When</th><td>After each return is prepared, and in a batch in May</td></tr><tr><th scope="row">Who runs it</th><td>Partner, or a manager the partner names</td></tr><tr><th scope="row">Who reviews it</th><td>Partner</td></tr><tr><th scope="row">Client data that can go in</th><td>Tier 3 where you can: codes and counts from a tax software export. Tier 2 only with the consent your adviser says this use needs</td></tr><tr><th scope="row">What comes back</th><td>A list of clients whose returns show planning work, by signal, with a rough fee</td></tr></tbody></table></div>
+  <p>Your team sees the planning signals every year while they prepare the return, and most of them never become a conversation. This turns the season's returns into next season's planning list.</p>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>Signal on the return</th><th>The conversation it starts</th></tr></thead><tbody><tr><th scope="row">S corporation owner, salary unchanged for three or more years</th><td>Whether the salary still holds up as reasonable compensation, and the split between salary and distributions</td></tr><tr><th scope="row">Pass-through owner in a state with a PTET election, no election made</th><td>Whether electing would cut the client's federal tax</td></tr><tr><th scope="row">Owner profit over $400,000, no plan beyond a 401(k)</th><td>Whether a cash balance plan fits</td></tr><tr><th scope="row">Rental on straight-line depreciation, no cost segregation study</th><td>Whether a study would move deductions forward</td></tr><tr><th scope="row">Capital gain over $250,000</th><td>Timing, harvesting and where the next sale lands</td></tr><tr><th scope="row">Equity compensation</th><td>When to exercise or sell, and what the next grant does to the year</td></tr><tr><th scope="row">Business sale planned within three years</th><td>Entity, timing and structure before the sale, not after</td></tr></tbody></table></div>
+  <div class="r-code">
+  <div class="r-code-bar"><span>Prompt · Build the planning list</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
+  <pre><code>Attached: an export from our tax software with client codes and the fields listed below. No names.
+
+Fields: entity type, owner salary for the last three years, state, PTET election (yes or no), ordinary business income, retirement plan type, rental depreciation method, capital gains, equity compensation (yes or no), sale planned (yes or no from our notes).
+
+1. Apply these thresholds: [FIRM THRESHOLDS].
+2. For each signal, list the client codes that meet it.
+3. Count unique clients across all signals.
+4. At our planning fee of $[FEE], what is the total?
+
+Give me the counts and the codes. Do not suggest a strategy for any client: a signal means a conversation is worth having, not that a strategy applies.</code></pre>
+</div>
+  <aside class="r-callout">
+  <div>
+    <strong class="r-callout-title">This list is where my work starts.</strong>
+    <p>If the list comes back longer than the hours your team has, that's what I do with CPA firms. You bring me the clients the list flags, I build the strategy with your team, and your firm holds the client conversation. I never contact your clients directly, the return stays with you, and the firm earns from every engagement.</p>
+  </div>
+  <a class="btn btn-primary" href="/partners/">Partner with Darling FG</a>
+</aside>
+</section>
+<section class="r-section" id="capacity-tracker" aria-labelledby="capacity-tracker-h">
+  <span class="r-eyebrow">Workflow 10</span>
+  <h2 id="capacity-tracker-h">The Capacity Tracker</h2>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>At a glance</th><th></th></tr></thead><tbody><tr><th scope="row">When</th><td>Baseline in January, then monthly</td></tr><tr><th scope="row">Who runs it</th><td>Manager</td></tr><tr><th scope="row">Who reviews it</th><td>Partner</td></tr><tr><th scope="row">Client data that can go in</th><td>Tier 3: hours by return type and by workflow, no client data</td></tr><tr><th scope="row">What comes back</th><td>Hours per return before and after each workflow, and how many more returns the same team can take</td></tr></tbody></table></div>
+  <p>Most AI adoption in firms has never been measured. People feel faster and nobody wrote down the before number. This is the before number.</p>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>Return type</th><th>Hours per return, last season</th><th>Hours per return, this season</th><th>Returns this season</th><th>Hours saved</th></tr></thead><tbody><tr><th scope="row">1040, wages and investments</th><td></td><td></td><td></td><td></td></tr><tr><th scope="row">1040 with Schedule C or E</th><td></td><td></td><td></td><td></td></tr><tr><th scope="row">1120-S</th><td></td><td></td><td></td><td></td></tr><tr><th scope="row">1065</th><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+  <div class="r-code">
+  <div class="r-code-bar"><span>Prompt · What the hours mean</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
+  <pre><code>Attached: hours per return by return type for last season and this season so far, from our time records, and the number of returns of each type.
+
+1. Hours saved by return type, and in total.
+2. Which workflow each saving most likely came from, using the workflow log attached (which workflows ran on which return types).
+3. At this season's hours per return, how many more returns of each type the same team could take next season, with the same hours available.
+4. Where hours went up, say so.
+
+Show the working. Do not round before the final line.</code></pre>
+</div>
+  <p>Fill the &quot;last season&quot; column in January, before the first workflow runs. Without it, the season ends with a feeling instead of a number.</p>
+</section>
+<section class="r-section" id="rolling-it-out" aria-labelledby="rolling-it-out-h">
+  <span class="r-eyebrow">Rolling It Out</span>
+  <h2 id="rolling-it-out-h">Rolling it out without stalling the season</h2>
+  <p>Don't start all ten in February. Start with the ones that run before the pressure does, and add the rest as each one proves itself.</p>
+  <div class="r-table-wrap" tabindex="0"><table class="r-table"><thead><tr><th>When</th><th>What to do</th></tr></thead><tbody><tr><th scope="row">November</th><td>Plan, file creation, the data rule in the WISP, the Section 7216 question to your adviser, and the projects for workflows 1, 2 and 10.</td></tr><tr><th scope="row">December</th><td>Workflow 1 goes out. Workflow 10's baseline from last season's timesheets.</td></tr><tr><th scope="row">January</th><td>Workflows 2 and 3 on ten clients each, checked line by line against the old way.</td></tr><tr><th scope="row">February</th><td>Workflows 3 and 4 on every return. Workflow 5 weekly.</td></tr><tr><th scope="row">March</th><td>Workflow 6 in the first week. Workflow 8 on every return.</td></tr><tr><th scope="row">April to October</th><td>Workflow 7 as notices arrive. Workflow 9 in May. Workflow 10 monthly, and the full comparison after October 15.</td></tr></tbody></table></div>
+  <p>Every key date in this page is for the 2026 returns filed in 2027: W-2 and 1099-NEC by February 1, 2027 (January 31 is a Sunday); partnership and S corporation returns by March 15, 2027, or September 15 on extension; individual returns by April 15, 2027, or October 15 on extension; and the fourth 2026 estimate on January 15, 2027. Check each date with the IRS before the season.</p>
+</section>
+<section class="r-section" id="whats-next" aria-labelledby="whats-next-h">
+  <span class="r-eyebrow">What's Next</span>
+  <h2 id="whats-next-h">Where I fit</h2>
+  <p>Pick the workflow that would have saved the most hours last season and set it up this week. For most firms it's the Document Reader. For the partner it's usually the extension conversation that happened too late.</p>
+  <p>Then look at workflow 9 in May. The list it builds is the planning work your clients would pay for, and the work most firms don't have the hours to deliver after April.</p>
+  <aside class="r-callout">
+  <div>
+    <strong class="r-callout-title">Partner with Darling FG</strong>
+    <p>I do the tax strategy work through your firm. Your team keeps the client relationship and the return, I never approach your clients directly, and the firm earns from the added service.</p>
+  </div>
+  <a class="btn btn-primary" href="/partners/">Partner with Darling FG</a>
+</aside>
+</section>
+      <aside class="r-author">
+  <img src="/assets/public/wallace.jpeg" alt="Wallace Darling" width="112" height="112" loading="lazy" />
+  <div>
+    <span class="r-author-kicker">Written by</span>
+    <strong class="r-author-name">Wallace Darling</strong>
+    <p>Wally runs Darling Financial Group. He works with people earning $500k+ and business owners with $1M+ in revenue on the tax strategy that sits beyond the return, and partners with CPA firms on that strategy layer so their clients get it without ever leaving the firm.</p>
+    <a class="r-hero-link" href="/partners/">Partner with Darling FG &rarr;</a>
+  </div>
+</aside>
+      <p class="r-disclaimer">This page is general educational information. It is not tax, legal or investment advice, and it does not create an adviser relationship. Deadlines and product features change, so check each date with the IRS and each feature with Anthropic before you rely on it. Section 7216 questions belong with the firm's own adviser.</p>
+      <p class="r-updated">Last updated October 16, 2026</p>
+    </article>
+  </div>
+</main>
+
+<section class="r-ways">
+  <div class="container">
+    <div class="r-ways-grid">
+      <div class="r-way">
+        <span class="section-eyebrow light">For high earners</span>
+        <h2>Have Wally read your returns.</h2>
+        <p>A free tax audit of your last two returns, with an itemized savings tally for your actual numbers. Sixty-second qualifier first.</p>
+        <a class="btn btn-light" href="/form/">Apply for the free audit</a>
+      </div>
+      <div class="r-way">
+        <span class="section-eyebrow light">For CPAs &amp; accountants</span>
+        <h2>Send the client you've run out of moves on.</h2>
+        <p>Wally works through you, never around you. You keep the client and the compliance work. The firm earns from the added service.</p>
+        <a class="btn btn-light" href="/partners/">Partner with Darling FG</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <strong>Darling Financial Group</strong>
+        <span>The Family Office for Mainstreet</span>
+      </div>
+      <div class="footer-links">
+        <a href="/resources/">Free resources</a>
+        <a href="/partners/">For CPAs</a>
+        <a href="https://darling-fg.com" target="_blank" rel="noopener">darling-fg.com</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>&copy; <span id="year">2026</span> Darling Financial Group. All rights reserved.</p>
+      <p>
+        The information presented is for educational purposes only and does not constitute individualized tax, legal, or investment advice. Strategies referenced may not be appropriate for your particular situation. Please consult a qualified professional before acting on any of this material. Darling Financial Group is a registered investment adviser. Registration does not imply a certain level of skill or training.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/resources.js" defer></script>
+</body>
+</html>
