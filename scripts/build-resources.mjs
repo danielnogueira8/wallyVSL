@@ -100,7 +100,7 @@ function block(b, ctx) {
     case "figure": {
       const img = `<img src="${attr(b.src)}" alt="${attr(b.alt || "")}"${b.width ? ` width="${b.width}" height="${b.height}"` : ""} loading="lazy" decoding="async" />`
       return `<figure class="r-figure${b.narrow ? " r-figure-narrow" : ""}${b.frame === false ? " r-figure-plain" : ""}">
-  ${b.zoom === false ? img : `<a href="${attr(b.src)}" target="_blank" rel="noopener" aria-label="Open the full-size image">${img}</a>`}
+  ${img}
   ${b.caption ? `<figcaption>${b.label ? `<span class="r-figure-label">${esc(b.label)}</span>` : ""}${md(b.caption)}</figcaption>` : ""}
 </figure>`
     }
