@@ -259,6 +259,19 @@ function cover(r, size = "") {
 </div>`
 }
 
+/** Closing card with Wally's photo, so the page ends on the person behind it. */
+function author(audience) {
+  return `<aside class="r-author">
+  <img src="/assets/public/wallace.jpeg" alt="Wallace Darling" width="112" height="112" loading="lazy" />
+  <div>
+    <span class="r-author-kicker">Written by</span>
+    <strong class="r-author-name">Wallace Darling</strong>
+    <p>Wally runs Darling Financial Group. He works with people earning $500k+ and business owners with $1M+ in revenue on the tax strategy that sits beyond the return, and partners with CPA firms on that strategy layer so their clients get it without ever leaving the firm.</p>
+    <a class="r-hero-link" href="${attr(audience.cta.href)}">${esc(audience.cta.label)} &rarr;</a>
+  </div>
+</aside>`
+}
+
 /* ------------------------------------------------------------------ */
 /* Resource page                                                       */
 /* ------------------------------------------------------------------ */
@@ -313,6 +326,10 @@ function resourcePage(r) {
         <span class="r-tag">${esc(audience.tag)}</span>
         <h1>${md(r.headline)}</h1>
         <p class="r-hero-lead">${md(r.lead)}</p>
+        <div class="r-byline">
+          <img src="/assets/public/wallace.jpeg" alt="Wallace Darling" width="48" height="48" />
+          <span><strong>Wallace Darling</strong><span>Darling Financial Group</span></span>
+        </div>
         <p class="r-hero-meta">${r.meta.map(esc).join(" &middot; ")}</p>
         <div class="r-hero-actions">
           <a class="btn btn-primary" href="#${attr(r.sections[0].id)}">Start reading</a>
@@ -338,6 +355,7 @@ function resourcePage(r) {
     </aside>
     <article class="r-article">
 ${sections}
+      ${author(audience)}
       ${r.disclaimer ? `<p class="r-disclaimer">${md(r.disclaimer)}</p>` : ""}
       <p class="r-updated">Last updated ${esc(new Date(r.updated + "T12:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }))}</p>
     </article>

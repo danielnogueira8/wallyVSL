@@ -575,6 +575,21 @@
   .r-hero-actions .btn { width: 100%; text-align: center; }
 }
 
+/* Wally's photo: hero byline and closing author card */
+.r-byline { display: flex; align-items: center; gap: 12px; margin: 4px 0 14px; font-family: var(--sans); }
+.r-byline img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--white); box-shadow: 0 0 0 1px var(--rule); flex: none; }
+.r-byline strong { display: block; font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+.r-byline span span { display: block; font-size: 13px; color: var(--ink-3); line-height: 1.3; }
+.r-author { display: flex; gap: 28px; align-items: flex-start; margin: 56px 0 32px; padding: 32px; background: var(--paper-2); border: 1px solid var(--rule); border-radius: 6px; }
+.r-author img { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; flex: none; border: 3px solid var(--white); box-shadow: 0 0 0 1px var(--rule); }
+.r-author-kicker { display: block; font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+.r-author-name { display: block; font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+.r-author p { margin: 0 0 16px; color: var(--ink-2); line-height: 1.6; }
+@media (max-width: 760px) {
+  .r-author { flex-direction: column; gap: 18px; padding: 24px; }
+  .r-author img { width: 88px; height: 88px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .r-lib-card { transition: none; }
   .r-lib-card:hover { transform: none; }
