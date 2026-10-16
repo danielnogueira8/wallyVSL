@@ -1,4 +1,4 @@
-// Generated from the Notion resource by md2res.mjs. Edit here from now on.
+// The 13-Week Cash Flow From QuickBooks. Visuals added: hero cover, quick start, flow, figures.
 
 export default {
   "slug": "13-week-cash-flow-quickbooks",
@@ -51,12 +51,68 @@ export default {
           "text": "Hey, I'm Wallace Darling (most people call me Wally). I run Darling Financial Group (darling-fg.com). I work with people earning $500k+ and business owners with $1M+ in revenue on the tax strategy that sits beyond the return, and I partner with CPA firms on that strategy layer so their clients get it without ever leaving the firm."
         },
         {
+          "type": "quickstart",
+          "items": [
+            {
+              "label": "Time",
+              "value": "About 20 minutes the first time"
+            },
+            {
+              "label": "Then",
+              "value": "Ten minutes every Monday"
+            },
+            {
+              "label": "You need",
+              "value": "A Claude plan and the client's QuickBooks Online"
+            },
+            {
+              "label": "You get",
+              "value": "A 13-week Excel workbook and the client email"
+            }
+          ]
+        },
+        {
           "type": "p",
           "text": "I put this together because the short-term cash view is the number an owner checks first, before profit and long before the return, and most firms build it by hand once, usually when the client is already worried, and never touch it again. From where I sit there's a second reason: the rows that surprise owners most in a cash forecast are the tax payments, the payroll deposits, the state payments, the pass-through entity tax and their own estimates, because nobody put them in the week the money actually leaves."
         },
         {
           "type": "p",
           "text": "What you'll get: a 13-week, week-by-week cash forecast for one client, built by Claude from the client's QuickBooks Online data and handed back as an Excel workbook, with the five questions to ask first, every IRS and state payment in its real week, the three moves when a week runs short, the email to the client, and a roll-forward every Monday."
+        },
+        {
+          "type": "flow",
+          "items": [
+            {
+              "title": "Connect and export",
+              "text": "Eight QuickBooks reports",
+              "href": "#what-you-need-and-connecting-claude-to-quickbooks"
+            },
+            {
+              "title": "Ask five questions",
+              "text": "What QuickBooks can't see",
+              "href": "#the-front-sheet-five-questions-before-anyone-relies-on-week-"
+            },
+            {
+              "title": "Build the 13 weeks",
+              "text": "Receipts timed by who pays",
+              "href": "#build-the-13-weeks"
+            },
+            {
+              "title": "Find the short week",
+              "text": "And the three moves",
+              "href": "#the-week-it-runs-short-and-the-three-moves"
+            },
+            {
+              "title": "Email the client",
+              "text": "One chart they'll read",
+              "href": "#the-client-email-and-one-chart"
+            },
+            {
+              "title": "Roll it forward",
+              "text": "Every Monday",
+              "href": "#every-monday-in-ten-minutes"
+            }
+          ]
         },
         {
           "type": "callout",
@@ -686,6 +742,14 @@ export default {
         {
           "type": "p",
           "text": "Most cash forecasts time receipts by the terms printed on the invoice. Customers don't pay by the terms printed on the invoice. They pay the way they've always paid, and QuickBooks already holds the record of exactly how that is."
+        },
+        {
+          "type": "figure",
+          "src": "/assets/public/resources/13-week-cash-flow-quickbooks/terms.webp",
+          "width": 1520,
+          "height": 800,
+          "alt": "Why the due date is the wrong date. The forecast lands each customer's money when that customer usually pays.",
+          "caption": "Why the due date is the wrong date. The forecast lands each customer's money when that customer usually pays."
         },
         {
           "type": "p",
@@ -1466,6 +1530,15 @@ export default {
           ]
         },
         {
+          "type": "figure",
+          "src": "/assets/public/resources/13-week-cash-flow-quickbooks/13wk.webp",
+          "width": 1520,
+          "height": 1042,
+          "alt": "The same 13 weeks as a chart. Paying on terms, MRW01 never touches its line.",
+          "caption": "The same 13 weeks as a chart. Paying on terms, MRW01 never touches its line.",
+          "label": "Illustration"
+        },
+        {
           "type": "p",
           "text": "Headroom is closing cash plus the $75,000 line. Negative closing cash means the line is drawn. Negative headroom is a week the client would need more than the whole line."
         },
@@ -1549,6 +1622,15 @@ export default {
               ""
             ]
           ]
+        },
+        {
+          "type": "figure",
+          "src": "/assets/public/resources/13-week-cash-flow-quickbooks/week9.webp",
+          "width": 1520,
+          "height": 1032,
+          "alt": "Week 9's payments, by where they came from. Most of the pinch was in the client's answers, not in QuickBooks.",
+          "caption": "Week 9's payments, by where they came from. Most of the pinch was in the client's answers, not in QuickBooks.",
+          "label": "Illustration"
         },
         {
           "type": "p",
@@ -1775,6 +1857,15 @@ export default {
               "$23,424 inside"
             ]
           ]
+        },
+        {
+          "type": "figure",
+          "src": "/assets/public/resources/13-week-cash-flow-quickbooks/moves.webp",
+          "width": 1520,
+          "height": 1018,
+          "alt": "Each move on its own, against the $75,000 line. The owner's calls sit apart from the recommendation.",
+          "caption": "Each move on its own, against the $75,000 line. The owner's calls sit apart from the recommendation.",
+          "label": "Illustration"
         },
         {
           "type": "p",
@@ -2221,5 +2312,11 @@ export default {
         }
       ]
     }
-  ]
+  ],
+  "heroImage": {
+    "src": "/assets/public/resources/13-week-cash-flow-quickbooks/cover.webp",
+    "alt": "The 13-Week Cash Flow Forecast, QuickBooks edition",
+    "width": 1000,
+    "height": 1144
+  }
 }

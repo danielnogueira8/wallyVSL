@@ -82,10 +82,53 @@ const pad = (n) => String(n).padStart(2, "0")
 /* Blocks                                                              */
 /* ------------------------------------------------------------------ */
 
+/** "Where you are now" box at the end of a step. */
+function outcome(text, title = "Result") {
+  return `<aside class="r-outcome"><span class="r-outcome-icon" aria-hidden="true">&#10003;</span><div><strong>${esc(title)}</strong><p>${md(text)}</p></div></aside>`
+}
+
 function block(b, ctx) {
   switch (b.type) {
-    case "p":
+    case "p": {
+      // A paragraph that opens "**Result.**" becomes an outcome box, so the reader sees where each step lands
+      const m = /^\*\*Result\.\*\*\s*/.exec(b.text)
+      if (m) return outcome(b.text.slice(m[0].length))
       return `<p>${md(b.text)}</p>`
+    }
+    case "outcome":
+      return outcome(b.text, b.title)
+    case "figure": {
+      const img = `<img src="${attr(b.src)}" alt="${attr(b.alt || "")}"${b.width ? ` width="${b.width}" height="${b.height}"` : ""} loading="lazy" decoding="async" />`
+      return `<figure class="r-figure${b.narrow ? " r-figure-narrow" : ""}${b.frame === false ? " r-figure-plain" : ""}">
+  ${b.zoom === false ? img : `<a href="${attr(b.src)}" target="_blank" rel="noopener" aria-label="Open the full-size image">${img}</a>`}
+  ${b.caption ? `<figcaption>${b.label ? `<span class="r-figure-label">${esc(b.label)}</span>` : ""}${md(b.caption)}</figcaption>` : ""}
+</figure>`
+    }
+    case "flow":
+      {
+      const cols = b.items.length <= 5 ? b.items.length : Math.ceil(b.items.length / 2)
+      return `<ol class="r-flow" style="--cols:${cols}">${b.items
+        .map(
+          (i, k) => `<li${(k + 1) % cols === 0 ? ' class="row-end"' : ""}>${i.href ? `<a href="${attr(i.href)}">` : "<div>"}
+    <span class="r-flow-num">${pad(k + 1)}</span>
+    <strong>${md(i.title)}</strong>
+    ${i.text ? `<span class="r-flow-text">${md(i.text)}</span>` : ""}
+  ${i.href ? "</a>" : "</div>"}</li>`,
+        )
+        .join("")}</ol>`
+    }
+    case "quickstart":
+      return `<dl class="r-quick">${b.items.map((i) => `<div><dt>${esc(i.label)}</dt><dd>${md(i.value)}</dd></div>`).join("")}</dl>`
+    case "qcards":
+      return `<div class="r-qcards">${b.items
+        .map(
+          (q) => `<article class="r-qcard" id="${attr(q.id || "")}">
+  <header><span class="r-qcard-num">${esc(q.num)}</span><h3>${md(q.title)}</h3></header>
+  ${q.quote ? `<blockquote>${md(q.quote)}</blockquote>` : ""}
+  <dl>${(q.fields || []).map(([k, v]) => `<div><dt>${md(k)}</dt><dd>${md(v)}</dd></div>`).join("")}</dl>
+</article>`,
+        )
+        .join("")}</div>`
     case "lead":
       return `<p class="r-lead">${md(b.text)}</p>`
     case "h3":
@@ -99,11 +142,16 @@ function block(b, ctx) {
     }
     case "steps":
       return `<ol class="r-steps">${b.items.map((i) => `<li><span>${md(i)}</span></li>`).join("")}</ol>`
-    case "code":
-      return `<div class="r-code">
-  <div class="r-code-bar"><span>${esc(b.label || "Prompt")}</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
-  <pre><code>${esc(b.text.trim())}</code></pre>
+    case "code": {
+      const text = b.text.trim()
+      const lines = text.split("\n").length
+      // Long files fold to a preview so the page stays scannable; Copy still takes the whole file
+      const fold = b.collapsed ?? lines > 40
+      return `<div class="r-code${fold ? " is-folded" : ""}">
+  <div class="r-code-bar"><span>${esc(b.label || "Prompt")}</span><span class="r-code-actions">${fold ? `<button type="button" class="r-unfold" aria-expanded="false">Show all ${lines} lines</button>` : ""}<button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
+  <pre><code>${esc(text)}</code></pre>
 </div>`
+    }
     case "table": {
       const head = `<thead><tr>${b.head.map((h) => `<th>${md(h)}</th>`).join("")}</tr></thead>`
       const rows = b.rows
@@ -158,7 +206,7 @@ function block(b, ctx) {
 /* Page chrome                                                         */
 /* ------------------------------------------------------------------ */
 
-function head({ title, description, url, jsonld }) {
+function head({ title, description, url, jsonld, ogImage }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -171,8 +219,8 @@ function head({ title, description, url, jsonld }) {
 <meta property="og:description" content="${attr(description)}" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="${SITE}${url}" />
-<meta property="og:image" content="${SITE}/assets/public/wallace.jpeg" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="${SITE}${ogImage || "/assets/public/wallace.jpeg"}" />
+<meta name="twitter:card" content="${ogImage ? "summary_large_image" : "summary"}" />
 <link rel="icon" type="image/jpeg" href="/assets/public/wallace.jpeg" />
 <link rel="apple-touch-icon" href="/assets/public/wallace.jpeg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -313,7 +361,7 @@ function resourcePage(r) {
   }
 
   return (
-    head({ title: `${plain(r.title)} | Darling Financial Group`, description: plain(r.description), url, jsonld }) +
+    head({ title: `${plain(r.title)} | Darling Financial Group`, description: plain(r.description), url, jsonld, ogImage: r.heroImage?.src }) +
     `
 <main class="r-main">
   <div class="container">
@@ -336,7 +384,7 @@ function resourcePage(r) {
           <a class="r-hero-link" href="${attr(audience.cta.href)}">${esc(audience.cta.label)} &rarr;</a>
         </div>
       </div>
-      ${cover(r, "r-cover-lg")}
+      ${r.heroImage ? `<figure class="r-hero-img"><img src="${attr(r.heroImage.src)}" alt="${attr(r.heroImage.alt)}" width="${r.heroImage.width}" height="${r.heroImage.height}" /></figure>` : cover(r, "r-cover-lg")}
     </div>
     <div class="container">
       <div class="r-proof">${r.proof.map((p) => `<div><span class="r-proof-value">${esc(p.value)}</span><span class="r-proof-label">${esc(p.label)}</span><span class="r-proof-detail">${md(p.detail)}</span></div>`).join("")}</div>

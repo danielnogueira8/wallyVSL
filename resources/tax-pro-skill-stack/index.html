@@ -112,23 +112,23 @@
   <h2 id="prompts-h">The 5-prompt library</h2>
   <p>These run in any Claude account. Paste the prompt, then drop in the client data when it asks. Each prompt assumes the matching skill is loaded (see <a href="#skill-files">the skill files</a>).</p>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt 1 · Tax savings report</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt 1 · Tax savings report</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Run the tax-savings-report skill. Here's the client: [client type, income picture, current entity, filing status, state, effective/marginal rate, existing retirement vehicles, real estate and capital gains events, what their current CPA has already implemented]. Screen against the full strategy library, itemize what applies with an estimated dollar saving and a confidence note, and give me the total tally split into firm estimate vs needs-validation. Output the PDF.</code></pre>
 </div>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt 2 · Entity comparison model</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt 2 · Entity comparison model</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Run the entity-comparison-model skill. Business net profit is [X], reasonable comp estimate is [Y] (or model low/mid/high), filing status [Z], state [state], other household income [amount], benefits run through the business [list]. Build the Excel with sole prop, S-corp, and C-corp tabs, a comparison table, and a breakeven tab. Pull every scenario from the Inputs tab.</code></pre>
 </div>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt 3 · Roth conversion scenario</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt 3 · Roth conversion scenario</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Run the roth-conversion-scenario skill. Account holder age [X], target retirement age [Y], pre-tax balances [amount], expected ordinary income by year [list], filing status [Z], state [state], planning window [years], assumed growth [%], assumed future tax rate [%], outside cash to pay conversion tax [yes/no]. Build the bracket-filling schedule and compare lifetime tax against the do-nothing path.</code></pre>
 </div>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt 4 · Cash balance plan projection</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt 4 · Cash balance plan projection</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Run the cash-balance-plan-projection skill. Owner age [X], net business profit [amount] and how stable it is, owner W-2 comp [amount], employee census [ages and comp], existing 401k/profit-sharing [amounts], marginal rate [%], state [state], planning window [years]. Size the contribution capacity by age, show the current-year deduction, the employee funding cost, and the multi-year saving vs 401k-only.</code></pre>
 </div>
   <div class="r-code">
-  <div class="r-code-bar"><span>Prompt 5 · Financial plan overlay</span><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></div>
+  <div class="r-code-bar"><span>Prompt 5 · Financial plan overlay</span><span class="r-code-actions"><button type="button" class="r-copy" aria-label="Copy to clipboard">Copy</button></span></div>
   <pre><code>Run the financial-plan-overlay skill. Current plan: [allocation, balances, contribution rates, risk profile, goals]. Identified annual tax saving: [amount from the report]. Redeploy the savings into [retirement / taxable / debt paydown]. Assumed growth [%], horizon [years]. Build the deck with current path vs integrated path and call out the ending figure as one number.</code></pre>
 </div>
   <aside class="r-callout">
